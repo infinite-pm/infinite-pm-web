@@ -94,6 +94,20 @@ nav.toc li.toc-lvl-3 { padding-left: 1.4em; }
 nav.toc li.toc-lvl-4 { padding-left: 2.8em; }
 nav.toc li.toc-lvl-5 { padding-left: 4.2em; }
 nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
+h2, h3, h4, h5, h6 { position: relative; }
+.heading-ctls {
+  display: inline-flex; gap: 0.15em; margin-left: 0.5em;
+  font-size: 0.7em; font-weight: normal; vertical-align: middle;
+  opacity: 0; transition: opacity 0.12s ease;
+}
+.heading-ctls a {
+  color: #57606a; text-decoration: none;
+  padding: 0 0.35em; border-radius: 3px;
+}
+.heading-ctls a:hover { color: #0969da; background: #eaeef2; text-decoration: none; }
+h2:hover .heading-ctls, h3:hover .heading-ctls, h4:hover .heading-ctls,
+h5:hover .heading-ctls, h6:hover .heading-ctls,
+.heading-ctls:focus-within { opacity: 1; }
 </style>
 
 </head>
@@ -107,12 +121,12 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
 
 <p>A newcomer's introduction to <a href="https://infinite.pm"><strong>infinite.pm</strong></a> — Infinite Process Modeling (<strong>ipm</strong>, also written <strong>IPM</strong>).</p>
 <p><em>&quot;The universe is made of stories, not of atoms.&quot;</em> – Muriel Rukeyser</p>
-<h2 id="what-is-infinitepm">What is infinite.pm?</h2>
+<h2 id="what-is-infinitepm">What is infinite.pm?<span class="heading-ctls"><a class="heading-ctl-anchor" href="#what-is-infinitepm" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
 <p><strong>infinite.pm</strong> is a way to model processes, stories, and systems as readable graphs. It is an experiment in applying Mark Burgess's <a href="https://semantic.st/">Semantic Spacetime γ(3,4)</a> (<strong>SST</strong>) representation — to everyday modeling work and software engineering.</p>
 <p>Mark Burgess's insight, and the foundation of γ(3,4): with just <strong>three kinds of nodes</strong> and <strong>four kinds of edges</strong>, you can sketch (in our reading) <em>any observer's view of anything</em> in space and time — a process, a story, a system, life, the universe, and everything.</p>
 <p><strong>Where this is going.</strong> The infinite.pm project is an <strong>experiment</strong> in <strong>Semantic Spacetime-based modeling and cooperation</strong> between agents. <strong>Smart agents</strong> like humans, AI agents, and smart machines assess promises made by other agents, stigmergic trails, tools, and things — to explore, evolve, and endure. The aim is to help us <em>externalize</em> our mental models in the form of ipm stories/processes/loops, <strong>think with them as a partner</strong> (in the spirit of Niklas Luhmann's <a href="https://en.wikipedia.org/wiki/Zettelkasten">Zettelkasten</a>), and gradually integrate them into <strong>one living graph</strong>. The medium we are aiming at: the <a href="https://infinitecanvas.tools/">infinite canvas</a>.</p>
 <p><strong>Tooling.</strong> Today there is a VS Code extension for live editing and preview of <code>ipmt</code> (the infinite.pm text format for these graphs), plus a small renderer that compiles ipmt fenced blocks into the SVG diagrams you see throughout this README. <a href="https://mj41.cz/">mj41</a> is prototyping these (<strong>spec-driven/vibe-coded</strong>) and will open-source them over time as they stabilize. <a href="https://github.com/sponsors/mj41">Sponsors</a> — AI-token kind or life kind — are always welcome; both speed this up a bit.</p>
-<h2 id="the-three-node-kinds">The three node kinds</h2>
+<h2 id="the-three-node-kinds">The three node kinds<span class="heading-ctls"><a class="heading-ctl-anchor" href="#the-three-node-kinds" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
 <table>
 <thead>
 <tr>
@@ -150,17 +164,17 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
 <li><em>Does it stay the same across all events and things that express it?</em> → <strong>concept</strong></li>
 </ol>
 <p>A thing isn't literally static — it's <em>slow enough</em> at the chosen timescale that you can treat it as unimportant for the model's purpose. A laptop is a thing inside a &quot;type a doc&quot; event; the laptop <em>is</em> an event chain if you zoom out to its whole lifetime, from purchase to retirement. Pick the scale first, then split fast/dynamic and slow/static.</p>
-<h3 id="every-model-has-a-purpose">Every model has a purpose</h3>
+<h3 id="every-model-has-a-purpose">Every model has a purpose<span class="heading-ctls"><a class="heading-ctl-anchor" href="#every-model-has-a-purpose" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h3>
 <blockquote>
 <p><em>A model is a simplified representation of something for a purpose.</em> — Joshua Spodek, <em>Leadership Step by Step</em>, via <a href="https://blog.mj41.cz/my-mental-models-83adc08d648b">mj41 — my mental models</a></p>
 </blockquote>
 <p>The purpose decides what goes in and — equally important — what stays out. <em>&quot;What is not in the scope of your model has the same importance as what is in the scope.&quot;</em> A map of the Czech Republic for <em>&quot;where is it on a globe?&quot;</em> looks nothing like a map for <em>&quot;where is the nearest bakery?&quot;</em> Both are good models if the purpose is clear; both are useless if the purpose is the other one.</p>
 <p>Before you start creating an infinite.pm graph, decide what <strong>question</strong> or <strong>purpose</strong> this model/view is going to answer. That decides which events, things, and concepts belong in it, and which would just be noise.</p>
-<h3 id="every-model-is-an-observers-account">Every model is an observer's account</h3>
+<h3 id="every-model-is-an-observers-account">Every model is an observer's account<span class="heading-ctls"><a class="heading-ctl-anchor" href="#every-model-is-an-observers-account" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h3>
 <p>There is no view-from-nowhere. An ipm graph is always <strong>someone's</strong> account of a slice of the world — what <em>they</em> saw, at <em>their</em> chosen timescale, with <em>their</em> chosen boundary. This matters most for concepts: deciding that <code>swap t-shirt ::e</code> expresses <code>swap of clothing ::c</code> rather than <code>magic trick ::c</code> is in the eye of the beholder. Two honest observers can produce two different but non-contradictory models of the same scene. Combined with a shared collection of models, infinite.pm tools can surface views and beliefs you missed.</p>
-<h2 id="build-it-up--by-example">Build it up — by example</h2>
+<h2 id="build-it-up--by-example">Build it up — by example<span class="heading-ctls"><a class="heading-ctl-anchor" href="#build-it-up--by-example" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
 <p>We'll model the same tiny scene step by step: <em>Patrick swaps a black t-shirt for a white one.</em></p>
-<h3 id="step-1--just-an-event-chain">Step 1 — just an event chain</h3>
+<h3 id="step-1--just-an-event-chain">Step 1 — just an event chain<span class="heading-ctls"><a class="heading-ctl-anchor" href="#step-1--just-an-event-chain" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h3>
 <p>Start with the activity. Events lead to other events.</p>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="200" height="420" viewBox="0 0 200 420">
   <!-- ipm-svg meta: generated-by=md-embed@dev hash=0183bb61 source-file=README.md source-id=01 -->
@@ -200,7 +214,7 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
 <pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-event">Patrick wears black t-shirt</span> <span class="ipm-event-marker">::e</span>
   <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event">Patrick wears white t-shirt</span> <span class="ipm-event-marker">::e</span></code></pre>
 <p><code>--&gt;</code> between two events means <strong>leads-to</strong> (rendered as an <strong>orange arrow</strong>) — temporal/causal flow. <code>::e</code> marks each node as an event. The chain shows only what the observer <em>directly saw</em>: two wear states. Step 2 onward adds a <code>swap</code> event between them — a <em>hypothesized</em> middle step the observer didn't witness.</p>
-<h3 id="step-2--add-a-participant-thing--event">Step 2 — add a participant (thing → event)</h3>
+<h3 id="step-2--add-a-participant-thing--event">Step 2 — add a participant (thing → event)<span class="heading-ctls"><a class="heading-ctl-anchor" href="#step-2--add-a-participant-thing--event" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h3>
 <p>Patrick is <em>in</em> every event. A thing participates in an event by being <strong>part of</strong> it — a <strong>spatial</strong> containment relation (the thing sits inside the event's region of space and time), rendered as a <strong>green arrow</strong>.</p>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="380" height="540" viewBox="0 0 380 540">
   <!-- ipm-svg meta: generated-by=ipm-rpc@v0.0.0-20260523154121-0c3273975421+dirty hash=440d7925 source-file=README.md source-id=02 -->
@@ -546,7 +560,7 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
 
 <span class="ipm-event">takeOff</span> <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event">halfNaked</span> <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event">takeOn</span></code></pre>
 <p>Step 4 will bring Patrick, the t-shirts, and the concepts back into this nested structure.</p>
-<h3 id="step-3--give-a-property-with-a-concept">Step 3 — give a property with a concept</h3>
+<h3 id="step-3--give-a-property-with-a-concept">Step 3 — give a property with a concept<span class="heading-ctls"><a class="heading-ctl-anchor" href="#step-3--give-a-property-with-a-concept" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h3>
 <p>What <em>properties</em> does Patrick express? What <em>property</em> does the swap event express? Each concept names a single, independent property.</p>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="620" height="300" viewBox="0 0 620 300">
   <!-- ipm-svg meta: generated-by=ipm-rpc@v0.0.0-20260523154121-0c3273975421+dirty hash=34d22075 source-file=README.md source-id=07 -->
@@ -593,7 +607,7 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
 <span class="ipm-event">swaps t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">swap of clothing</span> <span class="ipm-concept-marker">::c</span></code></pre>
 <p><code>::c</code> marks the node as a concept. The arrow <code>thing --&gt; concept ::c</code> (an <strong>expresses</strong> arrow, rendered <strong>blue dashed</strong>) reads as &quot;the thing expresses property cX&quot; — and <code>event ::e --&gt; concept ::c</code> reads the same way for an event. A node can have several such arrows, one per property; this is <strong>not</strong> isa / classification — each concept is one promise the node makes, not a slot in a taxonomy. Patrick can express <code>human ::c</code>, <code>tall ::c</code>, and <code>colleague ::c</code> simultaneously without any of those being his &quot;type&quot;.</p>
 <p>A concept is what stays the same across all events and things that express it — what Mark Burgess calls a <strong>quasi-invariant pattern</strong>. The patterns are out there in the scene, but <strong>which patterns the observer names</strong> is a choice, not a fact about the world: Mark writes that &quot;there is no universal set of concepts to subdivide knowledge … these are merely ad hoc ways of spanning a collection of connected ideas, chosen by convention or happenstance&quot; (<a href="https://mark-burgess-oslo-mb.medium.com/avoiding-the-ontology-trap-2f1c3f3ed8e2">article 13</a>). Two honest observers can carve the same scene into different — and equally valid — concept vocabularies; writing <code>swap of clothing ::c</code> is the modeler saying <em>this is the pattern I noticed and chose to name</em>.</p>
-<h3 id="step-4--bring-it-together-with-a-parent-event">Step 4 — bring it together, with a parent event</h3>
+<h3 id="step-4--bring-it-together-with-a-parent-event">Step 4 — bring it together, with a parent event<span class="heading-ctls"><a class="heading-ctl-anchor" href="#step-4--bring-it-together-with-a-parent-event" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h3>
 <p>The full story now has <em>three zoom levels</em>: the top event (the whole swap), its three mid-level events (wear → swap → wear), and the inner moments of the swap itself (take-off → half-naked → take-on). We attach each participant at the finest level where it actually appears — part-of transitivity automatically carries it upward into every containing event. A small <strong>color taxonomy</strong> (<code>t-shirt ::c</code>, <code>black ::c</code>, <code>white ::c</code>, <code>color ::c</code>) joins the concepts from Step 3 (<code>human ::c</code>, <code>swap of clothing ::c</code>).</p>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="1280" height="950" viewBox="0 0 1280 950">
   <!-- ipm-svg meta: generated-by=md-embed@dev hash=9bd40bd3 source-file=README.md source-id=08 -->
@@ -762,7 +776,7 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
 <p><strong>Spacetime, made explicit.</strong> The leads-to chain is <em>time</em>; the part-of containment is <em>space</em>. Mark Burgess puts it directly: an event is <em>&quot;any region of space and time&quot;</em> — a slice of the world where <strong>things and ideas come together for a while</strong> (his phrase is &quot;occurrences of things and ideas together in time&quot;). The parent event <code>wearBW</code> is one such region — it holds Patrick (the slow worldline) for its whole duration; each sub-event is a smaller spacetime region nested inside it, where faster things (specific t-shirts being worn or swapped) come and go. Concepts (<code>human ::c</code>, <code>color ::c</code>) sit <em>outside</em> spacetime entirely — they are invariant patterns the events and things express, the same in every frame.</p>
 <p><strong>Zoom out far enough, and &quot;things&quot; become events too.</strong> At the timescale of the swap, each t-shirt is a stable thing. Zoom out to the t-shirt's whole life — manufactured, bought, worn through hundreds of days, washed many times, eventually torn, thrown away (or perhaps given a second life as a rag) — and that <em>thing</em> is itself an event chain on its own worldline. Patrick, zoomed out to his whole life, is the same: born, grows up, swaps many t-shirts, and eventually dies. The thing/event split is <strong>not</strong> a property of the world; it is a property of the <strong>scale you chose</strong> to model at. Every &quot;thing&quot; is a slow process; every &quot;event&quot; is a process you decided to look at closely.</p>
 <p><strong>An alternative, fuller worked example</strong> of the same scene — with two different observer accounts of the swap (one exchange, one layered black-over-white), a deeper zoom into the swap itself, <em>open-world</em> probe events that decide which observation actually happened, and small color and clothing taxonomies — is in <a href="docs/examples/tshirt-magic.html"><code>docs/examples/tshirt-magic.md</code></a>. Same building blocks; more depth.</p>
-<h2 id="the-four-edge-kinds">The four edge kinds</h2>
+<h2 id="the-four-edge-kinds">The four edge kinds<span class="heading-ctls"><a class="heading-ctl-anchor" href="#the-four-edge-kinds" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
 <img src="docs/etc-LPXN.png" alt="Semantic Spacetime gamma(3,4) edges" width="500"/>
 <p>The triangle is <strong>e</strong> (event), <strong>t</strong> (thing), and <strong>c</strong> (concept). The arrows and self-loops show every legal edge. The dotted circles (Nₑ, Nₜ, N𞁞) are <strong>NEAR</strong> — similarity between two nodes of the same kind, undirected.</p>
 <blockquote>
@@ -809,7 +823,7 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
 </tr>
 </tbody>
 </table>
-<h2 id="all-allowed-edges">All allowed edges</h2>
+<h2 id="all-allowed-edges">All allowed edges<span class="heading-ctls"><a class="heading-ctl-anchor" href="#all-allowed-edges" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
 <p>Every legal source → target combination, matching the diagram above. The &quot;ipmt syntax&quot; column shows the most common form for each edge.</p>
 <table>
 <thead>
@@ -906,7 +920,7 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
 <li><strong>No <code>thing --&gt; thing</code> arrow except part-of.</strong> To say &quot;Alice owns the car&quot; or &quot;Mike uses his phone,&quot; create an <strong>event</strong> — a region of spacetime that co-locates both participants for some duration — and let it express the relation as a concept-property (<code>Ownership ::c</code>, <code>Uses ::c</code>). This is SST's general handling of arbitrary binary relations: the event is the <em>temporal</em> container that brings the two things together; the concept on the event names what that co-location <em>means</em>. There is no direct <code>thing --uses--&gt; thing</code> edge.</li>
 <li><strong>The bare <code>--&gt;</code> arrow defaults to the relation that fits the two node kinds</strong> — leads-to for event-to-event, part-of for thing-to-event, expresses for thing-to-concept. The explicit <code>--::L--&gt;</code>, <code>--::P--&gt;</code>, <code>--::X--&gt;</code>, <code>--::N--</code> forms are documented in the ipmt syntax spec.</li>
 </ul>
-<h2 id="where-to-look-next">Where to look next</h2>
+<h2 id="where-to-look-next">Where to look next<span class="heading-ctls"><a class="heading-ctl-anchor" href="#where-to-look-next" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
 <p><strong>Worked examples in this repo:</strong></p>
 <ul>
 <li><a href="docs/examples/murder-full.html"><code>docs/examples/murder-full.md</code></a> — a Clue-style murder narrative</li>
@@ -921,7 +935,7 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
 <li><a href="https://arxiv.org/abs/2506.07756">Agent Semantics, Semantic Spacetime, and Graphical Reasoning</a> — arxiv.org, June 2025; the academic write-up (<a href="https://www.researchgate.net/publication/392507642_Agent_Semantics_Semantic_Spacetime_and_Graphical_Reasoning">ResearchGate mirror</a>)</li>
 <li><a href="https://markburgess.org/smartspacetime.html">Smart Spacetime: How information challenges our ideas about space, time, and process</a> — Mark Burgess's book, the long-form treatment</li>
 </ul>
-<h2 id="related-repos">Related repos</h2>
+<h2 id="related-repos">Related repos<span class="heading-ctls"><a class="heading-ctl-anchor" href="#related-repos" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
 <p>All <code>infinite.pm</code> repositories live under the <a href="https://github.com/orgs/infinite-pm/repositories"><code>infinite-pm</code> GitHub org</a>.</p>
 
 </body>

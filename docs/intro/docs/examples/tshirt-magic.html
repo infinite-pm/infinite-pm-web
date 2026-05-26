@@ -94,6 +94,20 @@ nav.toc li.toc-lvl-3 { padding-left: 1.4em; }
 nav.toc li.toc-lvl-4 { padding-left: 2.8em; }
 nav.toc li.toc-lvl-5 { padding-left: 4.2em; }
 nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
+h2, h3, h4, h5, h6 { position: relative; }
+.heading-ctls {
+  display: inline-flex; gap: 0.15em; margin-left: 0.5em;
+  font-size: 0.7em; font-weight: normal; vertical-align: middle;
+  opacity: 0; transition: opacity 0.12s ease;
+}
+.heading-ctls a {
+  color: #57606a; text-decoration: none;
+  padding: 0 0.35em; border-radius: 3px;
+}
+.heading-ctls a:hover { color: #0969da; background: #eaeef2; text-decoration: none; }
+h2:hover .heading-ctls, h3:hover .heading-ctls, h4:hover .heading-ctls,
+h5:hover .heading-ctls, h6:hover .heading-ctls,
+.heading-ctls:focus-within { opacity: 1; }
 </style>
 
 </head>
@@ -111,7 +125,7 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
 <li><strong>open-world probe events</strong> — single sightings that decide which observer's account is the one that actually happened.</li>
 </ul>
 <p>Note: every ipm graph is an <strong>observer's</strong> account — somebody else watching Patrick, not Patrick's own account. The first model below is told from one chosen viewpoint; further down, we'll see a different observer's account of the same <code>wearBW</code> event.</p>
-<h2 id="recap--the-full-graph-from-the-readme">Recap — the full graph from the README</h2>
+<h2 id="recap--the-full-graph-from-the-readme">Recap — the full graph from the README<span class="heading-ctls"><a class="heading-ctl-anchor" href="#recap--the-full-graph-from-the-readme" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
 <p>So the file stands on its own, here is the complete three-level model the README's Step 4 ends with. The top-level <code>wearBW</code> event names only the <strong>observable</strong> outcome — Patrick wore black, then he wore white — and stays silent on <em>how</em> the change happened. That mechanism is hidden inside the wrapper event; the sub-events reveal it. This observer saw a take-off and take-on (an exchange), so call this <strong>scenario 1: the exchange</strong>. Its discriminating shape is that the two t-shirts are <em>never simultaneously on Patrick</em>.</p>
 <p>The ipmt source for this graph lives in a sibling file (<a href="tshirt-magic-recap.ipmt"><code>tshirt-magic-recap.ipmt</code></a>) and is included here via <code>ipm-include</code>:</p>
 <!-- ipm-include src=tshirt-magic-recap.ipmt -->
@@ -238,7 +252,7 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
     <text x="100" y="440" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">human</text>
   </g>
 </svg></figure>
-<h2 id="step-1--event-chain-with-evidence-and-hypothesis">Step 1 — event chain with evidence and hypothesis</h2>
+<h2 id="step-1--event-chain-with-evidence-and-hypothesis">Step 1 — event chain with evidence and hypothesis<span class="heading-ctls"><a class="heading-ctl-anchor" href="#step-1--event-chain-with-evidence-and-hypothesis" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
 <p>The README's Step 1 keeps only the two states the observer directly <em>saw</em>: Patrick wore a black t-shirt at one moment, then later Patrick wore a white t-shirt. Those two wears are the <strong>evidence</strong>. There is an obvious gap between them — the observer didn't actually witness the moment of change.</p>
 <p>A modeler can fill that gap with a <strong>hypothesis</strong>: an event drawn from a shared library of common stories and processes. <em>&quot;When someone goes from wearing X to wearing Y, something like a swap usually happened in between.&quot;</em> The hypothesized event isn't observed; it's an inference shaped by familiarity with similar past scenes. A future observation can confirm it, contradict it, or replace it with something entirely different (a layered wearing, a costume change, a sleight-of-hand). Patrick himself might tell us what happened, providing direct testimony rather than the observer's inference.</p>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="740" height="540" viewBox="0 0 740 540">
@@ -333,7 +347,7 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
 <span class="ipm-comment"># Hypothesis — the swap is inferred from the library pattern on the pare</span>nt
 <span class="ipm-event">swapT</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">hypothesis</span> <span class="ipm-concept-marker">::c</span></code></pre>
 <p>This is the same three-event chain the README uses from Step 2 onward, but each event now carries the observer's epistemic stance: the <code>wears</code> are facts; the <code>swap</code> is a guess that fits a familiar process template. From here on, the rest of this file builds on the swap hypothesis the way the README's Step 2+ does — treating it as the model the observer has settled on — while remembering it could be wrong.</p>
-<h2 id="observation-is-open-world--positive-evidence">Observation is open-world — positive evidence</h2>
+<h2 id="observation-is-open-world--positive-evidence">Observation is open-world — positive evidence<span class="heading-ctls"><a class="heading-ctl-anchor" href="#observation-is-open-world--positive-evidence" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
 <p>Before we draw the alternative scenario, a methodological note. An ipmt observation records what was <strong>seen</strong>, not what was absent — two honest observers can differ without contradicting each other. To decide which scenario actually happened, the observer needs <strong>positive evidence</strong> for one of the discriminating shapes. A single sighting is enough.</p>
 <p>Here are two such probe events. The first confirms the <strong>exchange</strong> scenario (the recap above) by catching the white t-shirt being put on — a positive transition that only the exchange contains:</p>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="560" height="400" viewBox="0 0 560 400">
@@ -458,7 +472,7 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
 <span class="ipm-event">probeBOverW</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">wearing two t-shirts</span> <span class="ipm-concept-marker">::c</span>
 <span class="ipm-event">probeBOverW</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">positive evidence</span> <span class="ipm-concept-marker">::c</span></code></pre>
 <p>Without either probe succeeding, the scenario stays undecided — the honest open-world answer. Note also what we did <em>not</em> record: the absence of a take-on does not by itself confirm the layered scenario; we still need the positive <code>B over W seen</code> sighting.</p>
-<h2 id="alternative-scenario--layered-in-detail">Alternative scenario — layered, in detail</h2>
+<h2 id="alternative-scenario--layered-in-detail">Alternative scenario — layered, in detail<span class="heading-ctls"><a class="heading-ctl-anchor" href="#alternative-scenario--layered-in-detail" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
 <p>This second observer captured a different sub-event structure under the same top-level <code>wearBW</code>. At some moment during it, Patrick was wearing <strong>both</strong> t-shirts at once — black layered over white. The observer never saw a take-on of white; they saw only a take-off of black at the end.</p>
 <p>First, the event structure alone — no participants attached yet, so the difference from scenario 1 is plain:</p>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="380" height="540" viewBox="0 0 380 540">
@@ -524,7 +538,7 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
 <span class="ipm-event">takeOffB</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
 <span class="ipm-event">wearW</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span></code></pre>
 <p>Same parent <code>wearBW</code> as scenario 1; what differs is the mid-level sub-event the observer recorded — <code>wearLayered</code> instead of <code>wearB</code>, and no <code>swapT</code>/<code>takeOn</code> pair.</p>
-<h2 id="alternative-scenario--layered-full">Alternative scenario — layered, full</h2>
+<h2 id="alternative-scenario--layered-full">Alternative scenario — layered, full<span class="heading-ctls"><a class="heading-ctl-anchor" href="#alternative-scenario--layered-full" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
 <p>Now layer everything in: participants and concepts.</p>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="1460" height="890" viewBox="0 0 1460 890">
   <!-- ipm-svg meta: generated-by=ipm-md-embed@dev hash=eff51647 source-file=docs/examples/tshirt-magic.md source-id=06 -->
@@ -683,7 +697,7 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
 <span class="ipm-concept">black</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">color</span> <span class="ipm-concept-marker">::c</span>
 <span class="ipm-concept">white</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">color</span> <span class="ipm-concept-marker">::c</span></code></pre>
 <p>Call this <strong>scenario 2: the layered observation</strong>. Both scenarios share the top-level <code>wearBW</code> event; they differ only in which sub-events the observer recorded, and therefore in which concepts the events express.</p>
-<h2 id="color-taxonomy">Color taxonomy</h2>
+<h2 id="color-taxonomy">Color taxonomy<span class="heading-ctls"><a class="heading-ctl-anchor" href="#color-taxonomy" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
 <p>White and Black are kinds of Color — a concept-to-concept EXPRESSES relation:</p>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="200" height="340" viewBox="0 0 200 340">
   <!-- ipm-svg meta: generated-by=ipm-md-embed@dev hash=78e61ea2 source-file=docs/examples/tshirt-magic.md source-id=07 -->
@@ -713,7 +727,7 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
 </svg></figure>
 <pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-concept">white</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">color</span> <span class="ipm-concept-marker">::c</span>
 <span class="ipm-concept">black</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">color</span> <span class="ipm-concept-marker">::c</span></code></pre>
-<h2 id="thing-taxonomies">Thing taxonomies</h2>
+<h2 id="thing-taxonomies">Thing taxonomies<span class="heading-ctls"><a class="heading-ctl-anchor" href="#thing-taxonomies" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="620" height="540" viewBox="0 0 620 540">
   <!-- ipm-svg meta: generated-by=ipm-md-embed@dev hash=b0cc5788 source-file=docs/examples/tshirt-magic.md source-id=08 -->
   <defs>

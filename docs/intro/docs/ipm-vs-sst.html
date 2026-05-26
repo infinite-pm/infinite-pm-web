@@ -94,6 +94,20 @@ nav.toc li.toc-lvl-3 { padding-left: 1.4em; }
 nav.toc li.toc-lvl-4 { padding-left: 2.8em; }
 nav.toc li.toc-lvl-5 { padding-left: 4.2em; }
 nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
+h2, h3, h4, h5, h6 { position: relative; }
+.heading-ctls {
+  display: inline-flex; gap: 0.15em; margin-left: 0.5em;
+  font-size: 0.7em; font-weight: normal; vertical-align: middle;
+  opacity: 0; transition: opacity 0.12s ease;
+}
+.heading-ctls a {
+  color: #57606a; text-decoration: none;
+  padding: 0 0.35em; border-radius: 3px;
+}
+.heading-ctls a:hover { color: #0969da; background: #eaeef2; text-decoration: none; }
+h2:hover .heading-ctls, h3:hover .heading-ctls, h4:hover .heading-ctls,
+h5:hover .heading-ctls, h6:hover .heading-ctls,
+.heading-ctls:focus-within { opacity: 1; }
 </style>
 
 </head>
@@ -113,7 +127,7 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
 <li><strong>E → X.</strong> SST's <em>expresses</em> relation is shortened to X so that the capital letter for the relation does not collide visually with the lowercase <strong>e</strong> used for an event node. (<code>E</code> next to <code>e</code> is easy to mis-read; <code>X</code> next to <code>e</code> is not.)</li>
 </ul>
 <p><code>L</code> (leads-to) and <code>N</code> (near-to) keep their SST names. So the IPM mnemonic for the four edges becomes <strong>LPXN</strong>, in place of SST's <strong>LCEN</strong>.</p>
-<h2 id="further-reading">Further reading</h2>
+<h2 id="further-reading">Further reading<span class="heading-ctls"><a class="heading-ctl-anchor" href="#further-reading" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
 <ul>
 <li>Mark Burgess, <a href="https://mark-burgess-oslo-mb.medium.com/designing-nodes-and-arrows-in-knowledge-graphs-with-semantic-spacetime-0992b9cae595">Designing Nodes and Arrows in Knowledge Graphs with Semantic Spacetime</a> — the source article for the LCEN triangle.</li>
 <li>The <a href="https://semantic.st/"><code>semantic.st</code></a> project home for the broader SST framework.</li>

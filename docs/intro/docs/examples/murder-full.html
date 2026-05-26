@@ -94,6 +94,20 @@ nav.toc li.toc-lvl-3 { padding-left: 1.4em; }
 nav.toc li.toc-lvl-4 { padding-left: 2.8em; }
 nav.toc li.toc-lvl-5 { padding-left: 4.2em; }
 nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
+h2, h3, h4, h5, h6 { position: relative; }
+.heading-ctls {
+  display: inline-flex; gap: 0.15em; margin-left: 0.5em;
+  font-size: 0.7em; font-weight: normal; vertical-align: middle;
+  opacity: 0; transition: opacity 0.12s ease;
+}
+.heading-ctls a {
+  color: #57606a; text-decoration: none;
+  padding: 0 0.35em; border-radius: 3px;
+}
+.heading-ctls a:hover { color: #0969da; background: #eaeef2; text-decoration: none; }
+h2:hover .heading-ctls, h3:hover .heading-ctls, h4:hover .heading-ctls,
+h5:hover .heading-ctls, h6:hover .heading-ctls,
+.heading-ctls:focus-within { opacity: 1; }
 </style>
 
 </head>
