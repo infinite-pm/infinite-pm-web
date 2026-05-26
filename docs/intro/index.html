@@ -79,7 +79,16 @@ header.page-header {
 }
 header.page-header a { color: inherit; text-decoration: none; }
 header.page-header a:hover { text-decoration: underline; }
-pre.ipmt-block { padding: 0.7em 0.9em; border-radius: 4px; overflow-x: auto; background: #f6f8fa; }
+pre.ipmt-block { position: relative; padding: 0.7em 0.9em; border-radius: 4px; overflow-x: auto; background: #f6f8fa; }
+.ipmt-copy {
+  position: absolute; top: 0.4em; right: 0.4em;
+  font-family: inherit; font-size: 0.8em;
+  padding: 0.15em 0.55em; border: 1px solid #d0d7de; border-radius: 4px;
+  background: #ffffff; color: #57606a; cursor: pointer;
+  opacity: 0; transition: opacity 0.12s ease;
+}
+.ipmt-copy:hover { color: #0969da; border-color: #0969da; }
+pre.ipmt-block:hover .ipmt-copy, .ipmt-copy:focus { opacity: 1; }
 figure.ipm-diagram { margin: 1em 0; }
 figure.ipm-diagram svg { max-width: 100%; height: auto; }
 img { max-width: 100%; }
@@ -211,7 +220,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="100" y="360" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-event">Patrick wears black t-shirt</span> <span class="ipm-event-marker">::e</span>
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-event">Patrick wears black t-shirt</span> <span class="ipm-event-marker">::e</span>
   <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event">Patrick wears white t-shirt</span> <span class="ipm-event-marker">::e</span></code></pre>
 <p><code>--&gt;</code> between two events means <strong>leads-to</strong> (rendered as an <strong>orange arrow</strong>) — temporal/causal flow. <code>::e</code> marks each node as an event. The chain shows only what the observer <em>directly saw</em>: two wear states. Step 2 onward adds a <code>swap</code> event between them — a <em>hypothesized</em> middle step the observer didn't witness.</p>
 <h3 id="step-2--add-a-participant-thing--event">Step 2 — add a participant (thing → event)<span class="heading-ctls"><a class="heading-ctl-anchor" href="#step-2--add-a-participant-thing--event" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h3>
@@ -267,7 +276,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="100" y="480" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-event-hasAlias">Patrick wears black t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearB</span><span class="ipm-typeMarker">::a</span>
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-event-hasAlias">Patrick wears black t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearB</span><span class="ipm-typeMarker">::a</span>
   <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick swaps t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">swapT</span><span class="ipm-typeMarker">::a</span>
   <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick wears white t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearW</span><span class="ipm-typeMarker">::a</span>
 
@@ -345,7 +354,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="280" y="480" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-event-hasAlias">Patrick wears black t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearB</span><span class="ipm-typeMarker">::a</span>
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-event-hasAlias">Patrick wears black t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearB</span><span class="ipm-typeMarker">::a</span>
   <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick swaps t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">swapT</span><span class="ipm-typeMarker">::a</span>
   <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick wears white t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearW</span><span class="ipm-typeMarker">::a</span>
 
@@ -397,7 +406,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="280" y="340" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-event-hasAlias">Patrick wears black then wears white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearBW</span><span class="ipm-typeMarker">::a</span>
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-event-hasAlias">Patrick wears black then wears white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearBW</span><span class="ipm-typeMarker">::a</span>
 
 <span class="ipm-thing">Patrick</span>    <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
 <span class="ipm-thing">t-shirt B</span>  <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
@@ -457,7 +466,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="100" y="480" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-event-hasAlias">Patrick wears black then wears white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearBW</span><span class="ipm-typeMarker">::a</span>
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-event-hasAlias">Patrick wears black then wears white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearBW</span><span class="ipm-typeMarker">::a</span>
 
 <span class="ipm-event-hasAlias">Patrick wears black t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearB</span><span class="ipm-typeMarker">::a</span>
   <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick swaps t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">swapT</span><span class="ipm-typeMarker">::a</span>
@@ -542,7 +551,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="100" y="720" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-event-hasAlias">Patrick wears black then wears white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearBW</span><span class="ipm-typeMarker">::a</span>
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-event-hasAlias">Patrick wears black then wears white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearBW</span><span class="ipm-typeMarker">::a</span>
 
 <span class="ipm-comment"># Mid-level: wear -&gt; swap -&gt; wear, each part-of the top</span>
 <span class="ipm-event-hasAlias">Patrick wears black t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearB</span><span class="ipm-typeMarker">::a</span>
@@ -603,7 +612,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="340" y="240" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-thing">Patrick</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">human</span> <span class="ipm-concept-marker">::c</span>
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-thing">Patrick</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">human</span> <span class="ipm-concept-marker">::c</span>
 <span class="ipm-event">swaps t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">swap of clothing</span> <span class="ipm-concept-marker">::c</span></code></pre>
 <p><code>::c</code> marks the node as a concept. The arrow <code>thing --&gt; concept ::c</code> (an <strong>expresses</strong> arrow, rendered <strong>blue dashed</strong>) reads as &quot;the thing expresses property cX&quot; — and <code>event ::e --&gt; concept ::c</code> reads the same way for an event. A node can have several such arrows, one per property; this is <strong>not</strong> isa / classification — each concept is one promise the node makes, not a slot in a taxonomy. Patrick can express <code>human ::c</code>, <code>tall ::c</code>, and <code>colleague ::c</code> simultaneously without any of those being his &quot;type&quot;.</p>
 <p>A concept is what stays the same across all events and things that express it — what Mark Burgess calls a <strong>quasi-invariant pattern</strong>. The patterns are out there in the scene, but <strong>which patterns the observer names</strong> is a choice, not a fact about the world: Mark writes that &quot;there is no universal set of concepts to subdivide knowledge … these are merely ad hoc ways of spanning a collection of connected ideas, chosen by convention or happenstance&quot; (<a href="https://mark-burgess-oslo-mb.medium.com/avoiding-the-ontology-trap-2f1c3f3ed8e2">article 13</a>). Two honest observers can carve the same scene into different — and equally valid — concept vocabularies; writing <code>swap of clothing ::c</code> is the modeler saying <em>this is the pattern I noticed and chose to name</em>.</p>
@@ -736,7 +745,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="100" y="475" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">human</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-comment"># Top-level event</span>
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-comment"># Top-level event</span>
 <span class="ipm-event-hasAlias">Patrick wears black then wears white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearBW</span><span class="ipm-typeMarker">::a</span>
 
 <span class="ipm-comment"># Mid-level sub-events — leads-to chain, each part-of the t</span>op
@@ -938,5 +947,18 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <h2 id="related-repos">Related repos<span class="heading-ctls"><a class="heading-ctl-anchor" href="#related-repos" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
 <p>All <code>infinite.pm</code> repositories live under the <a href="https://github.com/orgs/infinite-pm/repositories"><code>infinite-pm</code> GitHub org</a>.</p>
 
+<script>
+document.addEventListener('click', function (e) {
+  var btn = e.target.closest && e.target.closest('.ipmt-copy');
+  if (!btn) return;
+  var code = btn.parentElement.querySelector('code');
+  if (!code || !navigator.clipboard) return;
+  navigator.clipboard.writeText(code.textContent).then(function () {
+    var prev = btn.textContent;
+    btn.textContent = 'Copied';
+    setTimeout(function () { btn.textContent = prev; }, 1200);
+  });
+});
+</script>
 </body>
 </html>

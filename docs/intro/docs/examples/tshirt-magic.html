@@ -79,7 +79,16 @@ header.page-header {
 }
 header.page-header a { color: inherit; text-decoration: none; }
 header.page-header a:hover { text-decoration: underline; }
-pre.ipmt-block { padding: 0.7em 0.9em; border-radius: 4px; overflow-x: auto; background: #f6f8fa; }
+pre.ipmt-block { position: relative; padding: 0.7em 0.9em; border-radius: 4px; overflow-x: auto; background: #f6f8fa; }
+.ipmt-copy {
+  position: absolute; top: 0.4em; right: 0.4em;
+  font-family: inherit; font-size: 0.8em;
+  padding: 0.15em 0.55em; border: 1px solid #d0d7de; border-radius: 4px;
+  background: #ffffff; color: #57606a; cursor: pointer;
+  opacity: 0; transition: opacity 0.12s ease;
+}
+.ipmt-copy:hover { color: #0969da; border-color: #0969da; }
+pre.ipmt-block:hover .ipmt-copy, .ipmt-copy:focus { opacity: 1; }
 figure.ipm-diagram { margin: 1em 0; }
 figure.ipm-diagram svg { max-width: 100%; height: auto; }
 img { max-width: 100%; }
@@ -327,7 +336,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="280" y="480" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-comment"># Parent event — the whole observable story matches a library patte</span>rn
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-comment"># Parent event — the whole observable story matches a library patte</span>rn
 <span class="ipm-event-hasAlias">Patrick wears black then wears white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearBW</span><span class="ipm-typeMarker">::a</span>
 <span class="ipm-event">wearBW</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">common t-shirt swap pattern</span> <span class="ipm-concept-marker">::c</span>
 
@@ -398,7 +407,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="280" y="340" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-comment"># Confirms scenario 1 (exchange): t-shirt W observed being taken on</span>
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-comment"># Confirms scenario 1 (exchange): t-shirt W observed being taken on</span>
 <span class="ipm-event-hasAlias">W taken on seen</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">probeTakeOnW</span><span class="ipm-typeMarker">::a</span>
 <span class="ipm-thing">Patrick</span>    <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">probeTakeOnW</span>
 <span class="ipm-thing">t-shirt W</span>  <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">probeTakeOnW</span>
@@ -462,7 +471,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="280" y="440" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-comment"># Confirms scenario 2 (layered): black observed on top of white</span>
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-comment"># Confirms scenario 2 (layered): black observed on top of white</span>
 <span class="ipm-event-hasAlias">B over W seen on Patrick</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">probeBOverW</span><span class="ipm-typeMarker">::a</span>
 <span class="ipm-thing">Patrick</span>    <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">probeBOverW</span>
 <span class="ipm-thing">t-shirt B</span>  <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">probeBOverW</span>
@@ -527,7 +536,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="100" y="480" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-event-hasAlias">Patrick wears black then wears white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearBW</span><span class="ipm-typeMarker">::a</span>
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-event-hasAlias">Patrick wears black then wears white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearBW</span><span class="ipm-typeMarker">::a</span>
 
 <span class="ipm-comment"># Mid-level sub-events — wear-layered -&gt; take off black -&gt; wear whi</span>te
 <span class="ipm-event-hasAlias">Patrick wears black over white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearLayered</span><span class="ipm-typeMarker">::a</span>
@@ -659,7 +668,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="1000" y="510" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">t-shirts</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-comment"># Top event (same name and alias as scenario 1)</span>
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-comment"># Top event (same name and alias as scenario 1)</span>
 <span class="ipm-event-hasAlias">Patrick wears black then wears white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearBW</span><span class="ipm-typeMarker">::a</span>
 
 <span class="ipm-comment"># Mid-level sub-events</span>
@@ -725,7 +734,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="100" y="170" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">black</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-concept">white</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">color</span> <span class="ipm-concept-marker">::c</span>
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-concept">white</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">color</span> <span class="ipm-concept-marker">::c</span>
 <span class="ipm-concept">black</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">color</span> <span class="ipm-concept-marker">::c</span></code></pre>
 <h2 id="thing-taxonomies">Thing taxonomies<span class="heading-ctls"><a class="heading-ctl-anchor" href="#thing-taxonomies" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="620" height="540" viewBox="0 0 620 540">
@@ -788,12 +797,25 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="280" y="280" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">thing</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-thing">t-shirt T1</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">t-shirt</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">clothes</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">human thing</span> <span class="ipm-concept-marker">::c</span>
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-thing">t-shirt T1</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">t-shirt</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">clothes</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">human thing</span> <span class="ipm-concept-marker">::c</span>
 <span class="ipm-concept">human thing</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">thing</span> <span class="ipm-concept-marker">::c</span>
 <span class="ipm-concept">human thing</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-nearTo">---</span> <span class="ipm-concept">human</span> <span class="ipm-concept-marker">::c</span>
 
 <span class="ipm-thing">stone S1</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">stone</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">natural thing</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">thing</span> <span class="ipm-concept-marker">::c</span>
 <span class="ipm-concept">natural thing</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-nearTo">---</span> <span class="ipm-concept">nature</span> <span class="ipm-concept-marker">::c</span></code></pre>
 
+<script>
+document.addEventListener('click', function (e) {
+  var btn = e.target.closest && e.target.closest('.ipmt-copy');
+  if (!btn) return;
+  var code = btn.parentElement.querySelector('code');
+  if (!code || !navigator.clipboard) return;
+  navigator.clipboard.writeText(code.textContent).then(function () {
+    var prev = btn.textContent;
+    btn.textContent = 'Copied';
+    setTimeout(function () { btn.textContent = prev; }, 1200);
+  });
+});
+</script>
 </body>
 </html>

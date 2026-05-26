@@ -79,7 +79,16 @@ header.page-header {
 }
 header.page-header a { color: inherit; text-decoration: none; }
 header.page-header a:hover { text-decoration: underline; }
-pre.ipmt-block { padding: 0.7em 0.9em; border-radius: 4px; overflow-x: auto; background: #f6f8fa; }
+pre.ipmt-block { position: relative; padding: 0.7em 0.9em; border-radius: 4px; overflow-x: auto; background: #f6f8fa; }
+.ipmt-copy {
+  position: absolute; top: 0.4em; right: 0.4em;
+  font-family: inherit; font-size: 0.8em;
+  padding: 0.15em 0.55em; border: 1px solid #d0d7de; border-radius: 4px;
+  background: #ffffff; color: #57606a; cursor: pointer;
+  opacity: 0; transition: opacity 0.12s ease;
+}
+.ipmt-copy:hover { color: #0969da; border-color: #0969da; }
+pre.ipmt-block:hover .ipmt-copy, .ipmt-copy:focus { opacity: 1; }
 figure.ipm-diagram { margin: 1em 0; }
 figure.ipm-diagram svg { max-width: 100%; height: auto; }
 img { max-width: 100%; }
@@ -134,5 +143,18 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <li>The <a href="../README.html#where-to-look-next">README's &quot;Where to look next&quot; section</a> for the full external-reading list.</li>
 </ul>
 
+<script>
+document.addEventListener('click', function (e) {
+  var btn = e.target.closest && e.target.closest('.ipmt-copy');
+  if (!btn) return;
+  var code = btn.parentElement.querySelector('code');
+  if (!code || !navigator.clipboard) return;
+  navigator.clipboard.writeText(code.textContent).then(function () {
+    var prev = btn.textContent;
+    btn.textContent = 'Copied';
+    setTimeout(function () { btn.textContent = prev; }, 1200);
+  });
+});
+</script>
 </body>
 </html>

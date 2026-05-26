@@ -79,7 +79,16 @@ header.page-header {
 }
 header.page-header a { color: inherit; text-decoration: none; }
 header.page-header a:hover { text-decoration: underline; }
-pre.ipmt-block { padding: 0.7em 0.9em; border-radius: 4px; overflow-x: auto; background: #f6f8fa; }
+pre.ipmt-block { position: relative; padding: 0.7em 0.9em; border-radius: 4px; overflow-x: auto; background: #f6f8fa; }
+.ipmt-copy {
+  position: absolute; top: 0.4em; right: 0.4em;
+  font-family: inherit; font-size: 0.8em;
+  padding: 0.15em 0.55em; border: 1px solid #d0d7de; border-radius: 4px;
+  background: #ffffff; color: #57606a; cursor: pointer;
+  opacity: 0; transition: opacity 0.12s ease;
+}
+.ipmt-copy:hover { color: #0969da; border-color: #0969da; }
+pre.ipmt-block:hover .ipmt-copy, .ipmt-copy:focus { opacity: 1; }
 figure.ipm-diagram { margin: 1em 0; }
 figure.ipm-diagram svg { max-width: 100%; height: auto; }
 img { max-width: 100%; }
@@ -155,7 +164,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="100" y="240" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-event">Some event E1</span> <span class="ipm-event-marker">::e</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">event (sst)</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">imp (sst)</span> <span class="ipm-concept-marker">::c</span></code></pre>
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-event">Some event E1</span> <span class="ipm-event-marker">::e</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">event (sst)</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">imp (sst)</span> <span class="ipm-concept-marker">::c</span></code></pre>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="200" height="340" viewBox="0 0 200 340">
   <!-- ipm-svg meta: generated-by=ipm-md-embed@dev hash=e9a72a13 source-file=docs/examples/meta-ipm.md source-id=02 -->
   <defs>
@@ -182,7 +191,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="100" y="270" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">imp (sst)</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-thing">Patrick</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">thing (sst)</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">imp (sst)</span> <span class="ipm-concept-marker">::c</span></code></pre>
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-thing">Patrick</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">thing (sst)</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">imp (sst)</span> <span class="ipm-concept-marker">::c</span></code></pre>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="200" height="340" viewBox="0 0 200 340">
   <!-- ipm-svg meta: generated-by=ipm-md-embed@dev hash=1166c012 source-file=docs/examples/meta-ipm.md source-id=03 -->
   <defs>
@@ -210,7 +219,20 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="100" y="270" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">imp (sst)</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-concept">human</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">concept (sst)</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">imp (sst)</span> <span class="ipm-concept-marker">::c</span></code></pre>
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-concept">human</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">concept (sst)</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">imp (sst)</span> <span class="ipm-concept-marker">::c</span></code></pre>
 
+<script>
+document.addEventListener('click', function (e) {
+  var btn = e.target.closest && e.target.closest('.ipmt-copy');
+  if (!btn) return;
+  var code = btn.parentElement.querySelector('code');
+  if (!code || !navigator.clipboard) return;
+  navigator.clipboard.writeText(code.textContent).then(function () {
+    var prev = btn.textContent;
+    btn.textContent = 'Copied';
+    setTimeout(function () { btn.textContent = prev; }, 1200);
+  });
+});
+</script>
 </body>
 </html>
