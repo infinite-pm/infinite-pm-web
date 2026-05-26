@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Meta / Implicit</title>
+<style>
+/* Syntax highlighting for ```ipmt``` blocks in the VS Code markdown
+ * preview. Colors MIRROR the editor-side
+ * `editor.semanticTokenColorCustomizations` defaults in package.json so
+ * both panes use the exact same palette.
+ *
+ * The token color rules below are GENERATED from src/palette.ts by
+ * scripts/gen-palette.ts. Edit the palette there and run
+ * `npm run gen-palette` — do not hand-edit between the GEN markers.
+ *
+ * The non-generated rules (`pre.ipmt-block` background etc.) are
+ * preserved across generator runs.
+ */
+
+/* Match the editor pane's background + default foreground for ipmt
+ * code blocks. Sourcing from VS Code's CSS variables keeps the match
+ * across themes and theme switches. */
+pre.ipmt-block {
+    background: var(--vscode-editor-background);
+    color: var(--vscode-editor-foreground);
+}
+pre.ipmt-block > code.language-ipmt {
+    background: transparent;
+    color: inherit;
+}
+
+/* GEN-START palette — do not edit; run `npm run gen-palette` */
+.ipm-event            { color: #ff8000; }
+.ipm-event-alias      { color: #ff8000; }
+.ipm-event-hasAlias   { color: #ffaa55; }
+.ipm-event-marker     { color: #ff8000; font-weight: bold; }
+.ipm-thing            { color: #4d8a3a; }
+.ipm-thing-alias      { color: #4d8a3a; }
+.ipm-thing-hasAlias   { color: #82b366; }
+.ipm-thing-marker     { color: #4d8a3a; font-weight: bold; }
+.ipm-concept          { color: #6c8ebf; }
+.ipm-concept-alias    { color: #6c8ebf; }
+.ipm-concept-hasAlias { color: #9bb4d6; }
+.ipm-concept-marker   { color: #6c8ebf; font-weight: bold; }
+.ipm-arrow            { color: #d4d4d4; font-weight: bold; }
+.ipm-arrow-leadsTo    { color: #ff8000; font-weight: bold; }
+.ipm-arrow-partOf     { color: #4d8a3a; font-weight: bold; }
+.ipm-arrow-expresses  { color: #6c8ebf; font-weight: bold; }
+.ipm-arrow-nearTo     { color: #aaaaaa; font-weight: bold; }
+.ipm-typeMarker       { color: #b08fff; }
+.ipm-relation         { color: #b08fff; }
+.ipm-comment          { color: #6a9955; font-style: italic; }
+.ipm-string           { color: #ce9178; }
+.ipm-tooltip          { color: #b58900; font-style: italic; }
+/* GEN-END palette */
+
+html { font-size: 17px; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  max-width: 920px; margin: 2em auto; padding: 0 1.2em;
+  color: #1f2328; line-height: 1.6;
+}
+h1, h2, h3, h4 { line-height: 1.25; margin-top: 1.6em; margin-bottom: 0.5em; }
+h1 { font-size: 2em; border-bottom: 1px solid #e5e5e5; padding-bottom: 0.3em; }
+h2 { font-size: 1.5em; border-bottom: 1px solid #eaecef; padding-bottom: 0.2em; }
+h3 { font-size: 1.2em; }
+h4 { font-size: 1.05em; }
+p, ul, ol, blockquote, pre, table { margin: 0.8em 0; }
+a { color: #0969da; text-decoration: none; }
+a:hover { text-decoration: underline; }
+code, kbd, samp { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; font-size: 0.92em; }
+:not(pre) > code { background: #f6f8fa; padding: 0.15em 0.4em; border-radius: 3px; }
+blockquote { border-left: 4px solid #d0d7de; padding: 0 1em; color: #57606a; margin-left: 0; }
+header.page-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding-bottom: 0.6em; margin-bottom: 1.6em;
+  border-bottom: 1px solid #e5e5e5; font-size: 0.9em;
+}
+header.page-header a { color: inherit; text-decoration: none; }
+header.page-header a:hover { text-decoration: underline; }
+pre.ipmt-block { padding: 0.7em 0.9em; border-radius: 4px; overflow-x: auto; background: #f6f8fa; }
+figure.ipm-diagram { margin: 1em 0; }
+figure.ipm-diagram svg { max-width: 100%; height: auto; }
+img { max-width: 100%; }
+table { border-collapse: collapse; margin: 1em 0; }
+th, td { border: 1px solid #d0d7de; padding: 0.4em 0.7em; text-align: left; vertical-align: top; }
+th { background: #f6f8fa; font-weight: 600; }
+nav.toc { background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 6px; padding: 0.8em 1.2em; margin: 1.2em 0 2em; font-size: 0.95em; }
+nav.toc .toc-title { font-weight: 600; margin-bottom: 0.3em; color: #57606a; text-transform: uppercase; font-size: 0.8em; letter-spacing: 0.05em; }
+nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc li { margin: 0.15em 0; }
+nav.toc li.toc-lvl-3 { padding-left: 1.4em; }
+nav.toc li.toc-lvl-4 { padding-left: 2.8em; }
+nav.toc li.toc-lvl-5 { padding-left: 4.2em; }
+nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
+</style>
+
+</head>
+<body>
+<header class="page-header">
+  <a href="https://infinite.pm/intro">infinite.pm / intro</a>
+  <a href="https://github.com/mj41/ipm-intro/blob/main/docs/examples/meta-ipm.md">View source on GitHub</a>
+</header>
+<h1 id="meta--implicit">Meta / Implicit</h1>
+<p>Every ipmt node has an implicit SST kind (event, thing, or concept). These snippets make that implicit kind explicit by pointing the node at its SST meta-concept and then at <code>imp (sst)</code> — the umbrella concept for &quot;an instance of an SST primitive.&quot;</p>
+<figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="560" height="300" viewBox="0 0 560 300">
+  <!-- ipm-svg meta: generated-by=ipm-md-embed@dev hash=db2bf8bf source-file=docs/examples/meta-ipm.md source-id=01 -->
+  <defs>
+  </defs>
+  <g id="container-shells">
+  </g>
+  <g id="node-shadows">
+    <rect x="40" y="120" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="220" y="120" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="400" y="120" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="80" y="40" width="40" height="40" rx="4" ry="4" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="80" y="220" width="40" height="40" rx="4" ry="4" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+  </g>
+  <g id="edges">
+    <line x1="164.00" y1="150.00" x2="209.25" y2="150.00" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 216.00 150.00 L 207.00 154.50 L 209.25 150.00 L 207.00 145.50 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="100.00" y1="184.00" x2="100.00" y2="209.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 100.00 216.00 L 95.50 207.00 L 100.00 209.25 L 104.50 207.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="344.00" y1="150.00" x2="389.25" y2="150.00" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 396.00 150.00 L 387.00 154.50 L 389.25 150.00 L 387.00 145.50 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="100.00" y1="84.00" x2="100.00" y2="109.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 100.00 116.00 L 95.50 107.00 L 100.00 109.25 L 104.50 107.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+  </g>
+  <g id="nodes">
+    <rect x="40" y="120" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="100" y="140" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Some event</text>
+    <text x="100" y="160" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E1</text>
+    <rect x="220" y="120" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="280" y="150" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">event (sst)</text>
+    <rect x="400" y="120" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="460" y="150" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">imp (sst)</text>
+    <rect x="80" y="40" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="100" y="60" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">S</text>
+    <rect x="80" y="220" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="100" y="240" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
+  </g>
+</svg></figure>
+<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-event">Some event E1</span> <span class="ipm-event-marker">::e</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">event (sst)</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">imp (sst)</span> <span class="ipm-concept-marker">::c</span></code></pre>
+<figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="200" height="340" viewBox="0 0 200 340">
+  <!-- ipm-svg meta: generated-by=ipm-md-embed@dev hash=e9a72a13 source-file=docs/examples/meta-ipm.md source-id=02 -->
+  <defs>
+  </defs>
+  <g id="container-shells">
+  </g>
+  <g id="node-shadows">
+    <rect x="40" y="40" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="40" y="140" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="40" y="240" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+  </g>
+  <g id="edges">
+    <line x1="100.00" y1="104.00" x2="100.00" y2="129.25" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 100.00 136.00 L 95.50 127.00 L 100.00 129.25 L 104.50 127.00 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="100.00" y1="204.00" x2="100.00" y2="229.25" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 100.00 236.00 L 95.50 227.00 L 100.00 229.25 L 104.50 227.00 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+  </g>
+  <g id="nodes">
+    <rect x="40" y="40" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+    <text x="100" y="70" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">Patrick</text>
+    <rect x="40" y="140" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="100" y="170" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">thing (sst)</text>
+    <rect x="40" y="240" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="100" y="270" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">imp (sst)</text>
+  </g>
+</svg></figure>
+<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-thing">Patrick</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">thing (sst)</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">imp (sst)</span> <span class="ipm-concept-marker">::c</span></code></pre>
+<figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="200" height="340" viewBox="0 0 200 340">
+  <!-- ipm-svg meta: generated-by=ipm-md-embed@dev hash=1166c012 source-file=docs/examples/meta-ipm.md source-id=03 -->
+  <defs>
+  </defs>
+  <g id="container-shells">
+  </g>
+  <g id="node-shadows">
+    <rect x="40" y="40" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="40" y="140" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="40" y="240" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+  </g>
+  <g id="edges">
+    <line x1="100.00" y1="104.00" x2="100.00" y2="129.25" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 100.00 136.00 L 95.50 127.00 L 100.00 129.25 L 104.50 127.00 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="100.00" y1="204.00" x2="100.00" y2="229.25" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 100.00 236.00 L 95.50 227.00 L 100.00 229.25 L 104.50 227.00 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+  </g>
+  <g id="nodes">
+    <rect x="40" y="40" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="100" y="70" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">human</text>
+    <rect x="40" y="140" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="100" y="160" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">concept</text>
+    <text x="100" y="180" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">(sst)</text>
+    <rect x="40" y="240" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="100" y="270" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">imp (sst)</text>
+  </g>
+</svg></figure>
+<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-concept">human</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">concept (sst)</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">imp (sst)</span> <span class="ipm-concept-marker">::c</span></code></pre>
+
+</body>
+</html>

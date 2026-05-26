@@ -1,0 +1,911 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>infinite.pm</title>
+<style>
+/* Syntax highlighting for ```ipmt``` blocks in the VS Code markdown
+ * preview. Colors MIRROR the editor-side
+ * `editor.semanticTokenColorCustomizations` defaults in package.json so
+ * both panes use the exact same palette.
+ *
+ * The token color rules below are GENERATED from src/palette.ts by
+ * scripts/gen-palette.ts. Edit the palette there and run
+ * `npm run gen-palette` — do not hand-edit between the GEN markers.
+ *
+ * The non-generated rules (`pre.ipmt-block` background etc.) are
+ * preserved across generator runs.
+ */
+
+/* Match the editor pane's background + default foreground for ipmt
+ * code blocks. Sourcing from VS Code's CSS variables keeps the match
+ * across themes and theme switches. */
+pre.ipmt-block {
+    background: var(--vscode-editor-background);
+    color: var(--vscode-editor-foreground);
+}
+pre.ipmt-block > code.language-ipmt {
+    background: transparent;
+    color: inherit;
+}
+
+/* GEN-START palette — do not edit; run `npm run gen-palette` */
+.ipm-event            { color: #ff8000; }
+.ipm-event-alias      { color: #ff8000; }
+.ipm-event-hasAlias   { color: #ffaa55; }
+.ipm-event-marker     { color: #ff8000; font-weight: bold; }
+.ipm-thing            { color: #4d8a3a; }
+.ipm-thing-alias      { color: #4d8a3a; }
+.ipm-thing-hasAlias   { color: #82b366; }
+.ipm-thing-marker     { color: #4d8a3a; font-weight: bold; }
+.ipm-concept          { color: #6c8ebf; }
+.ipm-concept-alias    { color: #6c8ebf; }
+.ipm-concept-hasAlias { color: #9bb4d6; }
+.ipm-concept-marker   { color: #6c8ebf; font-weight: bold; }
+.ipm-arrow            { color: #d4d4d4; font-weight: bold; }
+.ipm-arrow-leadsTo    { color: #ff8000; font-weight: bold; }
+.ipm-arrow-partOf     { color: #4d8a3a; font-weight: bold; }
+.ipm-arrow-expresses  { color: #6c8ebf; font-weight: bold; }
+.ipm-arrow-nearTo     { color: #aaaaaa; font-weight: bold; }
+.ipm-typeMarker       { color: #b08fff; }
+.ipm-relation         { color: #b08fff; }
+.ipm-comment          { color: #6a9955; font-style: italic; }
+.ipm-string           { color: #ce9178; }
+.ipm-tooltip          { color: #b58900; font-style: italic; }
+/* GEN-END palette */
+
+html { font-size: 17px; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  max-width: 920px; margin: 2em auto; padding: 0 1.2em;
+  color: #1f2328; line-height: 1.6;
+}
+h1, h2, h3, h4 { line-height: 1.25; margin-top: 1.6em; margin-bottom: 0.5em; }
+h1 { font-size: 2em; border-bottom: 1px solid #e5e5e5; padding-bottom: 0.3em; }
+h2 { font-size: 1.5em; border-bottom: 1px solid #eaecef; padding-bottom: 0.2em; }
+h3 { font-size: 1.2em; }
+h4 { font-size: 1.05em; }
+p, ul, ol, blockquote, pre, table { margin: 0.8em 0; }
+a { color: #0969da; text-decoration: none; }
+a:hover { text-decoration: underline; }
+code, kbd, samp { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; font-size: 0.92em; }
+:not(pre) > code { background: #f6f8fa; padding: 0.15em 0.4em; border-radius: 3px; }
+blockquote { border-left: 4px solid #d0d7de; padding: 0 1em; color: #57606a; margin-left: 0; }
+header.page-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding-bottom: 0.6em; margin-bottom: 1.6em;
+  border-bottom: 1px solid #e5e5e5; font-size: 0.9em;
+}
+header.page-header a { color: inherit; text-decoration: none; }
+header.page-header a:hover { text-decoration: underline; }
+pre.ipmt-block { padding: 0.7em 0.9em; border-radius: 4px; overflow-x: auto; background: #f6f8fa; }
+figure.ipm-diagram { margin: 1em 0; }
+figure.ipm-diagram svg { max-width: 100%; height: auto; }
+img { max-width: 100%; }
+table { border-collapse: collapse; margin: 1em 0; }
+th, td { border: 1px solid #d0d7de; padding: 0.4em 0.7em; text-align: left; vertical-align: top; }
+th { background: #f6f8fa; font-weight: 600; }
+nav.toc { background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 6px; padding: 0.8em 1.2em; margin: 1.2em 0 2em; font-size: 0.95em; }
+nav.toc .toc-title { font-weight: 600; margin-bottom: 0.3em; color: #57606a; text-transform: uppercase; font-size: 0.8em; letter-spacing: 0.05em; }
+nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc li { margin: 0.15em 0; }
+nav.toc li.toc-lvl-3 { padding-left: 1.4em; }
+nav.toc li.toc-lvl-4 { padding-left: 2.8em; }
+nav.toc li.toc-lvl-5 { padding-left: 4.2em; }
+nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
+</style>
+
+</head>
+<body>
+<header class="page-header">
+  <a href="https://infinite.pm/intro">infinite.pm / intro</a>
+  <a href="https://github.com/mj41/ipm-intro/blob/main/README.md">View source on GitHub</a>
+</header>
+<h1 id="infinitepm">infinite.pm</h1>
+<nav class="toc"><div class="toc-title">Contents</div><ul><li class="toc-lvl-2"><a href="#what-is-infinitepm">What is infinite.pm?</a></li><li class="toc-lvl-2"><a href="#the-three-node-kinds">The three node kinds</a></li><li class="toc-lvl-3"><a href="#every-model-has-a-purpose">Every model has a purpose</a></li><li class="toc-lvl-3"><a href="#every-model-is-an-observers-account">Every model is an observer&#039;s account</a></li><li class="toc-lvl-2"><a href="#build-it-up--by-example">Build it up — by example</a></li><li class="toc-lvl-3"><a href="#step-1--just-an-event-chain">Step 1 — just an event chain</a></li><li class="toc-lvl-3"><a href="#step-2--add-a-participant-thing--event">Step 2 — add a participant (thing → event)</a></li><li class="toc-lvl-3"><a href="#step-3--give-a-property-with-a-concept">Step 3 — give a property with a concept</a></li><li class="toc-lvl-3"><a href="#step-4--bring-it-together-with-a-parent-event">Step 4 — bring it together, with a parent event</a></li><li class="toc-lvl-2"><a href="#the-four-edge-kinds">The four edge kinds</a></li><li class="toc-lvl-2"><a href="#all-allowed-edges">All allowed edges</a></li><li class="toc-lvl-2"><a href="#where-to-look-next">Where to look next</a></li><li class="toc-lvl-2"><a href="#related-repos">Related repos</a></li></ul></nav>
+
+<p>A newcomer's introduction to <a href="https://infinite.pm"><strong>infinite.pm</strong></a> — Infinite Process Modeling (<strong>ipm</strong>, also written <strong>IPM</strong>).</p>
+<p><em>&quot;The universe is made of stories, not of atoms.&quot;</em> – Muriel Rukeyser</p>
+<h2 id="what-is-infinitepm">What is infinite.pm?</h2>
+<p><strong>infinite.pm</strong> is a way to model processes, stories, and systems as readable graphs. It is an experiment in applying Mark Burgess's <a href="https://semantic.st/">Semantic Spacetime γ(3,4)</a> (<strong>SST</strong>) representation — to everyday modeling work and software engineering.</p>
+<p>Mark Burgess's insight, and the foundation of γ(3,4): with just <strong>three kinds of nodes</strong> and <strong>four kinds of edges</strong>, you can sketch (in our reading) <em>any observer's view of anything</em> in space and time — a process, a story, a system, life, the universe, and everything.</p>
+<p><strong>Where this is going.</strong> The infinite.pm project is an <strong>experiment</strong> in <strong>Semantic Spacetime-based modeling and cooperation</strong> between agents. <strong>Smart agents</strong> like humans, AI agents, and smart machines assess promises made by other agents, stigmergic trails, tools, and things — to explore, evolve, and endure. The aim is to help us <em>externalize</em> our mental models in the form of ipm stories/processes/loops, <strong>think with them as a partner</strong> (in the spirit of Niklas Luhmann's <a href="https://en.wikipedia.org/wiki/Zettelkasten">Zettelkasten</a>), and gradually integrate them into <strong>one living graph</strong>. The medium we are aiming at: the <a href="https://infinitecanvas.tools/">infinite canvas</a>.</p>
+<p><strong>Tooling.</strong> Today there is a VS Code extension for live editing and preview of <code>ipmt</code> (the infinite.pm text format for these graphs), plus a small renderer that compiles ipmt fenced blocks into the SVG diagrams you see throughout this README. <a href="https://mj41.cz/">mj41</a> is prototyping these (<strong>spec-driven/vibe-coded</strong>) and will open-source them over time as they stabilize. <a href="https://github.com/sponsors/mj41">Sponsors</a> — AI-token kind or life kind — are always welcome; both speed this up a bit.</p>
+<h2 id="the-three-node-kinds">The three node kinds</h2>
+<table>
+<thead>
+<tr>
+<th>Kind</th>
+<th style="text-align:center">Symbol</th>
+<th>What it is</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Event</strong></td>
+<td style="text-align:center"><code>e</code> (orange)</td>
+<td>A transient happening — fast at the model's timescale</td>
+<td>&quot;User clicks button&quot;, &quot;Build runs&quot;, &quot;K8s service deploying&quot;, &quot;Plum murders Scarlet&quot;</td>
+</tr>
+<tr>
+<td><strong>Thing</strong></td>
+<td style="text-align:center"><code>t</code> (green)</td>
+<td>A persistent participant — slow at the model's timescale</td>
+<td>&quot;Alice&quot;, &quot;my laptop&quot;, &quot;service A container&quot;, &quot;knife K1&quot;, &quot;Mrs. Scarlet&quot;, &quot;Prof. Plum&quot;</td>
+</tr>
+<tr>
+<td><strong>Concept</strong></td>
+<td style="text-align:center"><code>c</code> (blue)</td>
+<td>A quasi-invariant pattern; a property that events or things can express</td>
+<td>&quot;human&quot;, &quot;microservice&quot;, &quot;production environment&quot;, &quot;murder&quot;</td>
+</tr>
+</tbody>
+</table>
+<p>Rule of thumb, in order:</p>
+<ol>
+<li><em>Is something happening here, at the timescale I care about?</em> → <strong>event</strong></li>
+<li><em>Does it persist with stable identity while its state changes?</em> → <strong>thing</strong></li>
+<li><em>Does it stay the same across all events and things that express it?</em> → <strong>concept</strong></li>
+</ol>
+<p>A thing isn't literally static — it's <em>slow enough</em> at the chosen timescale that you can treat it as unimportant for the model's purpose. A laptop is a thing inside a &quot;type a doc&quot; event; the laptop <em>is</em> an event chain if you zoom out to its whole lifetime, from purchase to retirement. Pick the scale first, then split fast/dynamic and slow/static.</p>
+<h3 id="every-model-has-a-purpose">Every model has a purpose</h3>
+<blockquote>
+<p><em>A model is a simplified representation of something for a purpose.</em> — Joshua Spodek, <em>Leadership Step by Step</em>, via <a href="https://blog.mj41.cz/my-mental-models-83adc08d648b">mj41 — my mental models</a></p>
+</blockquote>
+<p>The purpose decides what goes in and — equally important — what stays out. <em>&quot;What is not in the scope of your model has the same importance as what is in the scope.&quot;</em> A map of the Czech Republic for <em>&quot;where is it on a globe?&quot;</em> looks nothing like a map for <em>&quot;where is the nearest bakery?&quot;</em> Both are good models if the purpose is clear; both are useless if the purpose is the other one.</p>
+<p>Before you start creating an infinite.pm graph, decide what <strong>question</strong> or <strong>purpose</strong> this model/view is going to answer. That decides which events, things, and concepts belong in it, and which would just be noise.</p>
+<h3 id="every-model-is-an-observers-account">Every model is an observer's account</h3>
+<p>There is no view-from-nowhere. An ipm graph is always <strong>someone's</strong> account of a slice of the world — what <em>they</em> saw, at <em>their</em> chosen timescale, with <em>their</em> chosen boundary. This matters most for concepts: deciding that <code>swap t-shirt ::e</code> expresses <code>swap of clothing ::c</code> rather than <code>magic trick ::c</code> is in the eye of the beholder. Two honest observers can produce two different but non-contradictory models of the same scene. Combined with a shared collection of models, infinite.pm tools can surface views and beliefs you missed.</p>
+<h2 id="build-it-up--by-example">Build it up — by example</h2>
+<p>We'll model the same tiny scene step by step: <em>Patrick swaps a black t-shirt for a white one.</em></p>
+<h3 id="step-1--just-an-event-chain">Step 1 — just an event chain</h3>
+<p>Start with the activity. Events lead to other events.</p>
+<figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="200" height="420" viewBox="0 0 200 420">
+  <!-- ipm-svg meta: generated-by=md-embed@dev hash=0183bb61 source-file=README.md source-id=01 -->
+  <defs>
+  </defs>
+  <g id="container-shells">
+  </g>
+  <g id="node-shadows">
+    <rect x="40" y="120" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="40" y="240" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="80" y="40" width="40" height="40" rx="4" ry="4" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="80" y="340" width="40" height="40" rx="4" ry="4" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+  </g>
+  <g id="edges">
+    <line x1="100.00" y1="184.00" x2="100.00" y2="229.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 100.00 236.00 L 95.50 227.00 L 100.00 229.25 L 104.50 227.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="100.00" y1="304.00" x2="100.00" y2="329.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 100.00 336.00 L 95.50 327.00 L 100.00 329.25 L 104.50 327.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="100.00" y1="84.00" x2="100.00" y2="109.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 100.00 116.00 L 95.50 107.00 L 100.00 109.25 L 104.50 107.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+  </g>
+  <g id="nodes">
+    <rect x="40" y="120" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="100" y="131" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Patrick</text>
+    <text x="100" y="150" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">wears black</text>
+    <text x="100" y="169" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">t-shirt</text>
+    <rect x="40" y="240" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="100" y="251" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Patrick</text>
+    <text x="100" y="270" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">wears white</text>
+    <text x="100" y="289" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">t-shirt</text>
+    <rect x="80" y="40" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="100" y="60" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">S</text>
+    <rect x="80" y="340" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="100" y="360" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
+  </g>
+</svg></figure>
+<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-event">Patrick wears black t-shirt</span> <span class="ipm-event-marker">::e</span>
+  <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event">Patrick wears white t-shirt</span> <span class="ipm-event-marker">::e</span></code></pre>
+<p><code>--&gt;</code> between two events means <strong>leads-to</strong> (rendered as an <strong>orange arrow</strong>) — temporal/causal flow. <code>::e</code> marks each node as an event. The chain shows only what the observer <em>directly saw</em>: two wear states. Step 2 onward adds a <code>swap</code> event between them — a <em>hypothesized</em> middle step the observer didn't witness.</p>
+<h3 id="step-2--add-a-participant-thing--event">Step 2 — add a participant (thing → event)</h3>
+<p>Patrick is <em>in</em> every event. A thing participates in an event by being <strong>part of</strong> it — a <strong>spatial</strong> containment relation (the thing sits inside the event's region of space and time), rendered as a <strong>green arrow</strong>.</p>
+<figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="380" height="540" viewBox="0 0 380 540">
+  <!-- ipm-svg meta: generated-by=ipm-rpc@v0.0.0-20260523154121-0c3273975421+dirty hash=440d7925 source-file=README.md source-id=02 -->
+  <defs>
+  </defs>
+  <g id="container-shells">
+  </g>
+  <g id="node-shadows">
+    <rect x="40" y="120" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="40" y="240" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="40" y="360" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="220" y="120" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="80" y="40" width="40" height="40" rx="4" ry="4" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="80" y="460" width="40" height="40" rx="4" ry="4" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+  </g>
+  <g id="edges">
+    <line x1="100.00" y1="184.00" x2="100.00" y2="229.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 100.00 236.00 L 95.50 227.00 L 100.00 229.25 L 104.50 227.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="100.00" y1="304.00" x2="100.00" y2="349.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 100.00 356.00 L 95.50 347.00 L 100.00 349.25 L 104.50 347.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="100.00" y1="424.00" x2="100.00" y2="449.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 100.00 456.00 L 95.50 447.00 L 100.00 449.25 L 104.50 447.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="216.00" y1="150.00" x2="170.75" y2="150.00" stroke="#82b366" stroke-width="3" />
+    <path d="M 164.00 150.00 L 173.00 145.50 L 170.75 150.00 L 173.00 154.50 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="247.17" y1="182.83" x2="167.60" y2="262.40" stroke="#82b366" stroke-width="3" />
+    <path d="M 162.83 267.17 L 166.01 257.63 L 167.60 262.40 L 172.37 263.99 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="263.21" y1="183.58" x2="164.81" y2="380.38" stroke="#82b366" stroke-width="3" />
+    <path d="M 161.79 386.42 L 161.79 376.36 L 164.81 380.38 L 169.84 380.38 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="100.00" y1="84.00" x2="100.00" y2="109.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 100.00 116.00 L 95.50 107.00 L 100.00 109.25 L 104.50 107.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+  </g>
+  <g id="nodes">
+    <rect x="40" y="120" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="100" y="131" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Patrick</text>
+    <text x="100" y="150" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">wears black</text>
+    <text x="100" y="169" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">t-shirt</text>
+    <rect x="40" y="240" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="100" y="251" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Patrick</text>
+    <text x="100" y="270" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">swaps</text>
+    <text x="100" y="289" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">t-shirt</text>
+    <rect x="40" y="360" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="100" y="371" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Patrick</text>
+    <text x="100" y="390" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">wears white</text>
+    <text x="100" y="409" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">t-shirt</text>
+    <rect x="220" y="120" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+    <text x="280" y="150" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">Patrick</text>
+    <rect x="80" y="40" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="100" y="60" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">S</text>
+    <rect x="80" y="460" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="100" y="480" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
+  </g>
+</svg></figure>
+<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-event-hasAlias">Patrick wears black t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearB</span><span class="ipm-typeMarker">::a</span>
+  <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick swaps t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">swapT</span><span class="ipm-typeMarker">::a</span>
+  <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick wears white t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearW</span><span class="ipm-typeMarker">::a</span>
+<p><span class="ipm-comment"># Patrick participates in every event in the chain</span>
+<span class="ipm-thing">Patrick</span> <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearB</span>, <span class="ipm-event">swapT</span>, <span class="ipm-event">wearW</span></code></pre></p>
+<p>Two new tricks:</p>
+<ul>
+<li><code>wearB::a</code> is an <strong>alias</strong> — a short stable name for the long event title.</li>
+<li><code>Patrick --&gt; wearB, swapT, wearW</code> fans out: one source, three targets.</li>
+</ul>
+<p>Unmarked nodes default to <strong>things</strong>. The arrow goes <em>from the thing to the event</em> — the thing is part of the event, never the other way around (a modeling rule, not a syntactic accident).</p>
+<p><strong>Add the t-shirts as participants too.</strong> The black t-shirt is worn in <code>wearB</code> and is still on Patrick (briefly) during <code>swapT</code>; the white one enters at <code>swapT</code> and stays on through <code>wearW</code>. Each thing attaches to the events where it actually appears.</p>
+<figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="560" height="540" viewBox="0 0 560 540">
+  <!-- ipm-svg meta: generated-by=ipm-rpc@v0.0.0-20260526053612-5f36075cad04+dirty hash=44bba970 source-file=README.md source-id=03 -->
+  <defs>
+  </defs>
+  <g id="container-shells">
+  </g>
+  <g id="node-shadows">
+    <rect x="220" y="120" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="220" y="240" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="220" y="360" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="40" y="120" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="400" y="120" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="400" y="240" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="260" y="40" width="40" height="40" rx="4" ry="4" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="260" y="460" width="40" height="40" rx="4" ry="4" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+  </g>
+  <g id="edges">
+    <line x1="280.00" y1="184.00" x2="280.00" y2="229.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 280.00 236.00 L 275.50 227.00 L 280.00 229.25 L 284.50 227.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="280.00" y1="304.00" x2="280.00" y2="349.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 280.00 356.00 L 275.50 347.00 L 280.00 349.25 L 284.50 347.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="280.00" y1="424.00" x2="280.00" y2="449.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 280.00 456.00 L 275.50 447.00 L 280.00 449.25 L 284.50 447.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="164.00" y1="150.00" x2="209.25" y2="150.00" stroke="#82b366" stroke-width="3" />
+    <path d="M 216.00 150.00 L 207.00 154.50 L 209.25 150.00 L 207.00 145.50 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="132.83" y1="182.83" x2="212.40" y2="262.40" stroke="#82b366" stroke-width="3" />
+    <path d="M 217.17 267.17 L 207.63 263.99 L 212.40 262.40 L 213.99 257.63 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="116.79" y1="183.58" x2="215.19" y2="380.38" stroke="#82b366" stroke-width="3" />
+    <path d="M 218.21 386.42 L 210.16 380.38 L 215.19 380.38 L 218.21 376.36 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="396.00" y1="150.00" x2="350.75" y2="150.00" stroke="#82b366" stroke-width="3" />
+    <path d="M 344.00 150.00 L 353.00 145.50 L 350.75 150.00 L 353.00 154.50 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="423.69" y1="182.68" x2="347.99" y2="250.81" stroke="#82b366" stroke-width="3" />
+    <path d="M 342.97 255.32 L 346.65 245.96 L 347.99 250.81 L 352.67 252.65 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="396.02" y1="276.40" x2="350.70" y2="280.93" stroke="#82b366" stroke-width="3" />
+    <path d="M 343.98 281.60 L 352.49 276.23 L 350.70 280.93 L 353.38 285.18 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="427.17" y1="302.83" x2="347.60" y2="382.40" stroke="#82b366" stroke-width="3" />
+    <path d="M 342.83 387.17 L 346.01 377.63 L 347.60 382.40 L 352.37 383.99 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="280.00" y1="84.00" x2="280.00" y2="109.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 280.00 116.00 L 275.50 107.00 L 280.00 109.25 L 284.50 107.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+  </g>
+  <g id="nodes">
+    <rect x="220" y="120" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="280" y="131" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Patrick</text>
+    <text x="280" y="150" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">wears black</text>
+    <text x="280" y="169" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">t-shirt</text>
+    <rect x="220" y="240" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="280" y="251" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Patrick</text>
+    <text x="280" y="270" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">swaps</text>
+    <text x="280" y="289" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">t-shirt</text>
+    <rect x="220" y="360" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="280" y="371" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Patrick</text>
+    <text x="280" y="390" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">wears white</text>
+    <text x="280" y="409" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">t-shirt</text>
+    <rect x="40" y="120" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+    <text x="100" y="150" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">Patrick</text>
+    <rect x="400" y="120" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+    <text x="460" y="150" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">t-shirt B</text>
+    <rect x="400" y="240" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+    <text x="460" y="270" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">t-shirt W</text>
+    <rect x="260" y="40" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="280" y="60" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">S</text>
+    <rect x="260" y="460" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="280" y="480" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
+  </g>
+</svg></figure>
+<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-event-hasAlias">Patrick wears black t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearB</span><span class="ipm-typeMarker">::a</span>
+  <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick swaps t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">swapT</span><span class="ipm-typeMarker">::a</span>
+  <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick wears white t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearW</span><span class="ipm-typeMarker">::a</span>
+<p><span class="ipm-thing">Patrick</span> <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearB</span>, <span class="ipm-event">swapT</span>, <span class="ipm-event">wearW</span></p>
+<p><span class="ipm-thing">t-shirt B</span> <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearB</span>, <span class="ipm-event">swapT</span>
+<span class="ipm-thing">t-shirt W</span> <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">swapT</span>, <span class="ipm-event">wearW</span></code></pre></p>
+<p><strong>You can also zoom <em>out</em>.</strong> The same scene can be told at a coarser level: one single event that names only the <em>observable</em> change (Patrick wore black, then white), with every participant attached at that one level. The mechanism — <em>how</em> he changed t-shirts — is hidden inside the wrapper event and revealed only when you zoom in.</p>
+<figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="560" height="400" viewBox="0 0 560 400">
+  <!-- ipm-svg meta: generated-by=md-embed@dev hash=65822860 source-file=README.md source-id=04 -->
+  <defs>
+  </defs>
+  <g id="container-shells">
+  </g>
+  <g id="node-shadows">
+    <rect x="220" y="160" width="120" height="80" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="40" y="170" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="400" y="120" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="400" y="220" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="260" y="40" width="40" height="40" rx="4" ry="4" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="260" y="320" width="40" height="40" rx="4" ry="4" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+  </g>
+  <g id="edges">
+    <line x1="280.00" y1="244.00" x2="280.00" y2="309.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 280.00 316.00 L 275.50 307.00 L 280.00 309.25 L 284.50 307.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="164.00" y1="200.00" x2="209.25" y2="200.00" stroke="#82b366" stroke-width="3" />
+    <path d="M 216.00 200.00 L 207.00 204.50 L 209.25 200.00 L 207.00 195.50 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="396.15" y1="168.09" x2="350.34" y2="181.07" stroke="#82b366" stroke-width="3" />
+    <path d="M 343.85 182.91 L 351.28 176.13 L 350.34 181.07 L 353.73 184.79 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="396.15" y1="231.91" x2="350.34" y2="218.93" stroke="#82b366" stroke-width="3" />
+    <path d="M 343.85 217.09 L 353.73 215.21 L 350.34 218.93 L 351.28 223.87 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="280.00" y1="84.00" x2="280.00" y2="149.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 280.00 156.00 L 275.50 147.00 L 280.00 149.25 L 284.50 147.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+  </g>
+  <g id="nodes">
+    <rect x="220" y="160" width="120" height="80" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="280" y="183" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">Patrick wears</text>
+    <text x="280" y="200" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">black then</text>
+    <text x="280" y="217" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">wears white</text>
+    <rect x="40" y="170" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+    <text x="100" y="200" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">Patrick</text>
+    <rect x="400" y="120" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+    <text x="460" y="150" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">t-shirt B</text>
+    <rect x="400" y="220" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+    <text x="460" y="250" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">t-shirt W</text>
+    <rect x="260" y="40" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="280" y="60" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">S</text>
+    <rect x="260" y="320" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="280" y="340" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
+  </g>
+</svg></figure>
+<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-event-hasAlias">Patrick wears black then wears white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearBW</span><span class="ipm-typeMarker">::a</span>
+<p><span class="ipm-thing">Patrick</span>    <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
+<span class="ipm-thing">t-shirt B</span>  <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
+<span class="ipm-thing">t-shirt W</span>  <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span></code></pre></p>
+<p>Same story, different zoom level. The right level depends on the <strong>purpose</strong> of your model — and you don't have to pick just one.</p>
+<p>Going the other direction, <strong>zoom in</strong>: replace a coarse event with its sub-events. The next two diagrams show pure <em>event structure</em> — no participants, no concepts — so the zoom move stands on its own. First, drill into <code>wearBW</code> and show its three mid-level sub-events as a leads-to chain, each part-of the parent:</p>
+<figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="380" height="540" viewBox="0 0 380 540">
+  <!-- ipm-svg meta: generated-by=md-embed@dev hash=119e8e54 source-file=README.md source-id=05 -->
+  <defs>
+  </defs>
+  <g id="container-shells">
+  </g>
+  <g id="node-shadows">
+    <rect x="40" y="230" width="120" height="80" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="220" y="120" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="220" y="240" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="220" y="360" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="80" y="40" width="40" height="40" rx="4" ry="4" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="80" y="460" width="40" height="40" rx="4" ry="4" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+  </g>
+  <g id="edges">
+    <line x1="100.00" y1="314.00" x2="100.00" y2="449.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 100.00 456.00 L 95.50 447.00 L 100.00 449.25 L 104.50 447.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="231.67" y1="182.22" x2="168.94" y2="224.04" stroke="#82b366" stroke-width="3" />
+    <path d="M 163.33 227.78 L 168.32 219.04 L 168.94 224.04 L 173.31 226.53 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="280.00" y1="184.00" x2="280.00" y2="229.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 280.00 236.00 L 275.50 227.00 L 280.00 229.25 L 284.50 227.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="216.00" y1="270.00" x2="170.75" y2="270.00" stroke="#82b366" stroke-width="3" />
+    <path d="M 164.00 270.00 L 173.00 265.50 L 170.75 270.00 L 173.00 274.50 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="280.00" y1="304.00" x2="280.00" y2="349.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 280.00 356.00 L 275.50 347.00 L 280.00 349.25 L 284.50 347.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="231.67" y1="357.78" x2="168.94" y2="315.96" stroke="#82b366" stroke-width="3" />
+    <path d="M 163.33 312.22 L 173.31 313.47 L 168.94 315.96 L 168.32 320.96 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="100.00" y1="84.00" x2="100.00" y2="219.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 100.00 226.00 L 95.50 217.00 L 100.00 219.25 L 104.50 217.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+  </g>
+  <g id="nodes">
+    <rect x="40" y="230" width="120" height="80" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="100" y="253" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">Patrick wears</text>
+    <text x="100" y="270" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">black then</text>
+    <text x="100" y="287" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">wears white</text>
+    <rect x="220" y="120" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="280" y="131" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Patrick</text>
+    <text x="280" y="150" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">wears black</text>
+    <text x="280" y="169" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">t-shirt</text>
+    <rect x="220" y="240" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="280" y="251" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Patrick</text>
+    <text x="280" y="270" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">swaps</text>
+    <text x="280" y="289" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">t-shirt</text>
+    <rect x="220" y="360" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="280" y="371" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Patrick</text>
+    <text x="280" y="390" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">wears white</text>
+    <text x="280" y="409" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">t-shirt</text>
+    <rect x="80" y="40" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="100" y="60" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">S</text>
+    <rect x="80" y="460" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="100" y="480" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
+  </g>
+</svg></figure>
+<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-event-hasAlias">Patrick wears black then wears white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearBW</span><span class="ipm-typeMarker">::a</span>
+<p><span class="ipm-event-hasAlias">Patrick wears black t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearB</span><span class="ipm-typeMarker">::a</span>
+<span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick swaps t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">swapT</span><span class="ipm-typeMarker">::a</span>
+<span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick wears white t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearW</span><span class="ipm-typeMarker">::a</span></p>
+<p><span class="ipm-event">wearB</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
+<span class="ipm-event">swapT</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
+<span class="ipm-event">wearW</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span></code></pre></p>
+<p>We can keep going — <code>swapT</code> itself decomposes into a finer chain of moments. Here are both zoom levels at once, three levels of pure event nesting:</p>
+<figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="560" height="780" viewBox="0 0 560 780">
+  <!-- ipm-svg meta: generated-by=md-embed@dev hash=e7b5cdce source-file=README.md source-id=06 -->
+  <defs>
+  </defs>
+  <g id="container-shells">
+  </g>
+  <g id="node-shadows">
+    <rect x="40" y="350" width="120" height="80" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="220" y="120" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="220" y="360" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="220" y="600" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="400" y="240" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="400" y="360" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="400" y="480" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="80" y="40" width="40" height="40" rx="4" ry="4" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="80" y="700" width="40" height="40" rx="4" ry="4" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+  </g>
+  <g id="edges">
+    <line x1="100.00" y1="434.00" x2="100.00" y2="689.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 100.00 696.00 L 95.50 687.00 L 100.00 689.25 L 104.50 687.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="255.10" y1="183.20" x2="136.45" y2="341.40" stroke="#82b366" stroke-width="3" />
+    <path d="M 132.40 346.80 L 134.20 336.90 L 136.45 341.40 L 141.40 342.30 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="280.00" y1="184.00" x2="280.00" y2="349.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 280.00 356.00 L 275.50 347.00 L 280.00 349.25 L 284.50 347.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="216.00" y1="390.00" x2="170.75" y2="390.00" stroke="#82b366" stroke-width="3" />
+    <path d="M 164.00 390.00 L 173.00 385.50 L 170.75 390.00 L 173.00 394.50 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="280.00" y1="424.00" x2="280.00" y2="589.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 280.00 596.00 L 275.50 587.00 L 280.00 589.25 L 284.50 587.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="255.10" y1="596.80" x2="136.45" y2="438.60" stroke="#82b366" stroke-width="3" />
+    <path d="M 132.40 433.20 L 141.40 437.70 L 136.45 438.60 L 134.20 443.10 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="411.67" y1="302.22" x2="333.94" y2="354.04" stroke="#82b366" stroke-width="3" />
+    <path d="M 328.33 357.78 L 333.32 349.04 L 333.94 354.04 L 338.31 356.53 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="460.00" y1="304.00" x2="460.00" y2="349.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 460.00 356.00 L 455.50 347.00 L 460.00 349.25 L 464.50 347.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="396.00" y1="390.00" x2="350.75" y2="390.00" stroke="#82b366" stroke-width="3" />
+    <path d="M 344.00 390.00 L 353.00 385.50 L 350.75 390.00 L 353.00 394.50 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="460.00" y1="424.00" x2="460.00" y2="469.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 460.00 476.00 L 455.50 467.00 L 460.00 469.25 L 464.50 467.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="411.67" y1="477.78" x2="333.94" y2="425.96" stroke="#82b366" stroke-width="3" />
+    <path d="M 328.33 422.22 L 338.31 423.47 L 333.94 425.96 L 333.32 430.96 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="100.00" y1="84.00" x2="100.00" y2="339.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 100.00 346.00 L 95.50 337.00 L 100.00 339.25 L 104.50 337.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+  </g>
+  <g id="nodes">
+    <rect x="40" y="350" width="120" height="80" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="100" y="373" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">Patrick wears</text>
+    <text x="100" y="390" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">black then</text>
+    <text x="100" y="407" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">wears white</text>
+    <rect x="220" y="120" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="280" y="131" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Patrick</text>
+    <text x="280" y="150" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">wears black</text>
+    <text x="280" y="169" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">t-shirt</text>
+    <rect x="220" y="360" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="280" y="371" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Patrick</text>
+    <text x="280" y="390" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">swaps</text>
+    <text x="280" y="409" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">t-shirt</text>
+    <rect x="220" y="600" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="280" y="611" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Patrick</text>
+    <text x="280" y="630" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">wears white</text>
+    <text x="280" y="649" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">t-shirt</text>
+    <rect x="400" y="240" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="460" y="260" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Take off</text>
+    <text x="460" y="280" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">black</text>
+    <rect x="400" y="360" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="460" y="380" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Patrick</text>
+    <text x="460" y="400" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">half-naked</text>
+    <rect x="400" y="480" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="460" y="500" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Take on</text>
+    <text x="460" y="520" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">white</text>
+    <rect x="80" y="40" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="100" y="60" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">S</text>
+    <rect x="80" y="700" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="100" y="720" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
+  </g>
+</svg></figure>
+<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-event-hasAlias">Patrick wears black then wears white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearBW</span><span class="ipm-typeMarker">::a</span>
+<p><span class="ipm-comment"># Mid-level: wear -&gt; swap -&gt; wear, each part-of the top</span>
+<span class="ipm-event-hasAlias">Patrick wears black t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearB</span><span class="ipm-typeMarker">::a</span>
+<span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick swaps t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">swapT</span><span class="ipm-typeMarker">::a</span>
+<span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick wears white t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearW</span><span class="ipm-typeMarker">::a</span></p>
+<p><span class="ipm-event">wearB</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
+<span class="ipm-event">swapT</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
+<span class="ipm-event">wearW</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span></p>
+<p><span class="ipm-comment"># Inner: the swap decomposes further</span>
+<span class="ipm-event-hasAlias">Take off black</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">takeOff</span><span class="ipm-typeMarker">::a</span>       <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">swapT</span>
+<span class="ipm-event-hasAlias">Patrick half-naked</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">halfNaked</span><span class="ipm-typeMarker">::a</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">swapT</span>
+<span class="ipm-event-hasAlias">Take on white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">takeOn</span><span class="ipm-typeMarker">::a</span>         <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">swapT</span></p>
+<p><span class="ipm-event">takeOff</span> <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event">halfNaked</span> <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event">takeOn</span></code></pre></p>
+<p>Step 4 will bring Patrick, the t-shirts, and the concepts back into this nested structure.</p>
+<h3 id="step-3--give-a-property-with-a-concept">Step 3 — give a property with a concept</h3>
+<p>What <em>properties</em> does Patrick express? What <em>property</em> does the swap event express? Each concept names a single, independent property.</p>
+<figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="620" height="300" viewBox="0 0 620 300">
+  <!-- ipm-svg meta: generated-by=ipm-rpc@v0.0.0-20260523154121-0c3273975421+dirty hash=34d22075 source-file=README.md source-id=07 -->
+  <defs>
+  </defs>
+  <g id="container-shells">
+  </g>
+  <g id="node-shadows">
+    <rect x="40" y="40" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="40" y="140" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="280" y="120" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="460" y="120" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="320" y="40" width="40" height="40" rx="4" ry="4" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="320" y="220" width="40" height="40" rx="4" ry="4" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+  </g>
+  <g id="edges">
+    <line x1="100.00" y1="104.00" x2="100.00" y2="129.25" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 100.00 136.00 L 95.50 127.00 L 100.00 129.25 L 104.50 127.00 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="404.00" y1="150.00" x2="449.25" y2="150.00" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 456.00 150.00 L 447.00 154.50 L 449.25 150.00 L 447.00 145.50 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="340.00" y1="184.00" x2="340.00" y2="209.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 340.00 216.00 L 335.50 207.00 L 340.00 209.25 L 344.50 207.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="340.00" y1="84.00" x2="340.00" y2="109.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 340.00 116.00 L 335.50 107.00 L 340.00 109.25 L 344.50 107.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+  </g>
+  <g id="nodes">
+    <rect x="40" y="40" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+    <text x="100" y="70" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">Patrick</text>
+    <rect x="40" y="140" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="100" y="170" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">human</text>
+    <rect x="280" y="120" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="340" y="140" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">swaps</text>
+    <text x="340" y="160" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">t-shirt</text>
+    <rect x="460" y="120" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="520" y="140" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">swap of</text>
+    <text x="520" y="160" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">clothing</text>
+    <rect x="320" y="40" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="340" y="60" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">S</text>
+    <rect x="320" y="220" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="340" y="240" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
+  </g>
+</svg></figure>
+<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-thing">Patrick</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">human</span> <span class="ipm-concept-marker">::c</span>
+<span class="ipm-event">swaps t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">swap of clothing</span> <span class="ipm-concept-marker">::c</span></code></pre>
+<p><code>::c</code> marks the node as a concept. The arrow <code>thing --&gt; concept ::c</code> (an <strong>expresses</strong> arrow, rendered <strong>blue dashed</strong>) reads as &quot;the thing expresses property cX&quot; — and <code>event ::e --&gt; concept ::c</code> reads the same way for an event. A node can have several such arrows, one per property; this is <strong>not</strong> isa / classification — each concept is one promise the node makes, not a slot in a taxonomy. Patrick can express <code>human ::c</code>, <code>tall ::c</code>, and <code>colleague ::c</code> simultaneously without any of those being his &quot;type&quot;.</p>
+<p>A concept is what stays the same across all events and things that express it — what Mark Burgess calls a <strong>quasi-invariant pattern</strong>. The patterns are out there in the scene, but <strong>which patterns the observer names</strong> is a choice, not a fact about the world: Mark writes that &quot;there is no universal set of concepts to subdivide knowledge … these are merely ad hoc ways of spanning a collection of connected ideas, chosen by convention or happenstance&quot; (<a href="https://mark-burgess-oslo-mb.medium.com/avoiding-the-ontology-trap-2f1c3f3ed8e2">article 13</a>). Two honest observers can carve the same scene into different — and equally valid — concept vocabularies; writing <code>swap of clothing ::c</code> is the modeler saying <em>this is the pattern I noticed and chose to name</em>.</p>
+<h3 id="step-4--bring-it-together-with-a-parent-event">Step 4 — bring it together, with a parent event</h3>
+<p>The full story now has <em>three zoom levels</em>: the top event (the whole swap), its three mid-level events (wear → swap → wear), and the inner moments of the swap itself (take-off → half-naked → take-on). We attach each participant at the finest level where it actually appears — part-of transitivity automatically carries it upward into every containing event. A small <strong>color taxonomy</strong> (<code>t-shirt ::c</code>, <code>black ::c</code>, <code>white ::c</code>, <code>color ::c</code>) joins the concepts from Step 3 (<code>human ::c</code>, <code>swap of clothing ::c</code>).</p>
+<figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="1280" height="950" viewBox="0 0 1280 950">
+  <!-- ipm-svg meta: generated-by=md-embed@dev hash=9bd40bd3 source-file=README.md source-id=08 -->
+  <defs>
+  </defs>
+  <g id="container-shells">
+  </g>
+  <g id="node-shadows">
+    <rect x="400" y="435" width="120" height="80" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="760" y="650" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="760" y="120" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="760" y="650" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="940" y="310" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="940" y="170" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="940" y="700" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="1120" y="410" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="440" y="40" width="40" height="40" rx="4" ry="4" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="440" y="870" width="40" height="40" rx="4" ry="4" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="580" y="120" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="580" y="650" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="580" y="650" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="760" y="530" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="760" y="650" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="760" y="770" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="220" y="445" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="40" y="445" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+  </g>
+  <g id="edges">
+    <line x1="460.00" y1="519.00" x2="460.00" y2="859.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 460.00 866.00 L 455.50 857.00 L 460.00 859.25 L 464.50 857.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="851.17" y1="182.90" x2="964.19" y2="302.20" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 968.83 307.10 L 959.37 303.66 L 964.19 302.20 L 965.91 297.47 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="883.85" y1="167.74" x2="929.64" y2="180.46" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 936.15 182.26 L 926.27 184.19 L 929.64 180.46 L 928.68 175.52 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="756.00" y1="150.00" x2="710.75" y2="150.00" stroke="#82b366" stroke-width="3" />
+    <path d="M 704.00 150.00 L 713.00 145.50 L 710.75 150.00 L 713.00 154.50 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="820.00" y1="184.00" x2="820.00" y2="519.25" stroke="#82b366" stroke-width="3" />
+    <path d="M 820.00 526.00 L 815.50 517.00 L 820.00 519.25 L 824.50 517.00 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="837.75" y1="646.46" x2="979.09" y2="379.50" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 982.25 373.54 L 982.01 383.59 L 979.09 379.50 L 974.06 379.38 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="883.85" y1="697.74" x2="929.64" y2="710.46" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 936.15 712.26 L 926.27 714.19 L 929.64 710.46 L 928.68 705.52 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="756.00" y1="680.00" x2="710.75" y2="680.00" stroke="#82b366" stroke-width="3" />
+    <path d="M 704.00 680.00 L 713.00 675.50 L 710.75 680.00 L 713.00 684.50 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="820.00" y1="714.00" x2="820.00" y2="759.25" stroke="#82b366" stroke-width="3" />
+    <path d="M 820.00 766.00 L 815.50 757.00 L 820.00 759.25 L 824.50 757.00 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="1024.90" y1="233.20" x2="1151.05" y2="401.40" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 1155.10 406.80 L 1146.10 402.30 L 1151.05 401.40 L 1153.30 396.90 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="1020.73" y1="696.60" x2="1155.71" y2="479.13" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 1159.27 473.40 L 1158.35 483.42 L 1155.71 479.13 L 1150.70 478.67 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="460.00" y1="84.00" x2="460.00" y2="424.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 460.00 431.00 L 455.50 422.00 L 460.00 424.25 L 464.50 422.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="621.45" y1="183.50" x2="487.36" y2="425.60" stroke="#82b366" stroke-width="3" />
+    <path d="M 484.09 431.50 L 484.52 421.45 L 487.36 425.60 L 492.39 425.81 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="640.00" y1="184.00" x2="640.00" y2="639.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 640.00 646.00 L 635.50 637.00 L 640.00 639.25 L 644.50 637.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="611.02" y1="646.99" x2="502.21" y2="523.08" stroke="#82b366" stroke-width="3" />
+    <path d="M 497.76 518.01 L 507.08 521.80 L 502.21 523.08 L 500.32 527.74 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="704.00" y1="680.00" x2="749.25" y2="680.00" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 756.00 680.00 L 747.00 684.50 L 749.25 680.00 L 747.00 675.50 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="611.02" y1="646.99" x2="502.21" y2="523.08" stroke="#82b366" stroke-width="3" />
+    <path d="M 497.76 518.01 L 507.08 521.80 L 502.21 523.08 L 500.32 527.74 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="771.67" y1="592.22" x2="693.94" y2="644.04" stroke="#82b366" stroke-width="3" />
+    <path d="M 688.33 647.78 L 693.32 639.04 L 693.94 644.04 L 698.31 646.53 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="820.00" y1="594.00" x2="820.00" y2="639.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 820.00 646.00 L 815.50 637.00 L 820.00 639.25 L 824.50 637.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="756.00" y1="680.00" x2="710.75" y2="680.00" stroke="#82b366" stroke-width="3" />
+    <path d="M 704.00 680.00 L 713.00 675.50 L 710.75 680.00 L 713.00 684.50 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="820.00" y1="714.00" x2="820.00" y2="759.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 820.00 766.00 L 815.50 757.00 L 820.00 759.25 L 824.50 757.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="771.67" y1="767.78" x2="693.94" y2="715.96" stroke="#82b366" stroke-width="3" />
+    <path d="M 688.33 712.22 L 698.31 713.47 L 693.94 715.96 L 693.32 720.96 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="344.00" y1="475.00" x2="389.25" y2="475.00" stroke="#82b366" stroke-width="3" />
+    <path d="M 396.00 475.00 L 387.00 479.50 L 389.25 475.00 L 387.00 470.50 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="216.00" y1="475.00" x2="170.75" y2="475.00" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 164.00 475.00 L 173.00 470.50 L 170.75 475.00 L 173.00 479.50 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+  </g>
+  <g id="nodes">
+    <rect x="400" y="435" width="120" height="80" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="460" y="458" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">Patrick wears</text>
+    <text x="460" y="475" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">black then</text>
+    <text x="460" y="492" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">wears white</text>
+    <rect x="760" y="650" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="820" y="670" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">swap of</text>
+    <text x="820" y="690" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">clothing</text>
+    <rect x="760" y="120" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+    <text x="820" y="150" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">t-shirt B</text>
+    <rect x="760" y="650" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+    <text x="820" y="680" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">t-shirt W</text>
+    <rect x="940" y="310" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="1000" y="340" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">t-shirt</text>
+    <rect x="940" y="170" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="1000" y="200" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">black</text>
+    <rect x="940" y="700" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="1000" y="730" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">white</text>
+    <rect x="1120" y="410" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="1180" y="440" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">color</text>
+    <rect x="440" y="40" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="460" y="60" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">S</text>
+    <rect x="440" y="870" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="460" y="890" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
+    <rect x="580" y="120" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="640" y="131" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Patrick</text>
+    <text x="640" y="150" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">wears black</text>
+    <text x="640" y="169" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">t-shirt</text>
+    <rect x="580" y="650" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="640" y="661" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Patrick</text>
+    <text x="640" y="680" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">swaps</text>
+    <text x="640" y="699" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">t-shirt</text>
+    <rect x="580" y="650" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="640" y="661" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Patrick</text>
+    <text x="640" y="680" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">wears white</text>
+    <text x="640" y="699" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">t-shirt</text>
+    <rect x="760" y="530" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="820" y="550" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Take off</text>
+    <text x="820" y="570" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">black</text>
+    <rect x="760" y="650" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="820" y="670" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Patrick</text>
+    <text x="820" y="690" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">half-naked</text>
+    <rect x="760" y="770" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="820" y="790" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Take on</text>
+    <text x="820" y="810" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">white</text>
+    <rect x="220" y="445" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+    <text x="280" y="475" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">Patrick</text>
+    <rect x="40" y="445" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="100" y="475" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">human</text>
+  </g>
+</svg></figure>
+<pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-comment"># Top-level event</span>
+<span class="ipm-event-hasAlias">Patrick wears black then wears white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearBW</span><span class="ipm-typeMarker">::a</span>
+<p><span class="ipm-comment"># Mid-level sub-events — leads-to chain, each part-of the t</span>op
+<span class="ipm-event-hasAlias">Patrick wears black t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearB</span><span class="ipm-typeMarker">::a</span>
+<span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick swaps t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">swapT</span><span class="ipm-typeMarker">::a</span>
+<span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick wears white t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearW</span><span class="ipm-typeMarker">::a</span></p>
+<p><span class="ipm-event">wearB</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
+<span class="ipm-event">swapT</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
+<span class="ipm-event">wearW</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span></p>
+<p><span class="ipm-comment"># Inner sub-events — the swap itself decomposes into a finer cha</span>in
+<span class="ipm-event-hasAlias">Take off black</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">takeOff</span><span class="ipm-typeMarker">::a</span>       <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">swapT</span>
+<span class="ipm-event-hasAlias">Patrick half-naked</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">halfNaked</span><span class="ipm-typeMarker">::a</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">swapT</span>
+<span class="ipm-event-hasAlias">Take on white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">takeOn</span><span class="ipm-typeMarker">::a</span>         <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">swapT</span></p>
+<p><span class="ipm-event">takeOff</span> <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event">halfNaked</span> <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event">takeOn</span></p>
+<p><span class="ipm-comment"># Patrick is present for the whole swap — attach at the to</span>p.
+<span class="ipm-comment"># Part-of transitivity carries him into every sub-event automatically.</span>
+<span class="ipm-thing">Patrick</span> <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
+<span class="ipm-thing">Patrick</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">human</span> <span class="ipm-concept-marker">::c</span>
+<span class="ipm-event">swapT</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">swap of clothing</span> <span class="ipm-concept-marker">::c</span></p>
+<p><span class="ipm-comment"># T-shirts come and go — attach at the finest level where they actually appea</span>r:
+<span class="ipm-comment"># the black one is worn (wearB) and then removed (takeOff); the white one is</span>
+<span class="ipm-comment"># put on (takeOn) and then worn (wearW).</span>
+<span class="ipm-thing">t-shirt B</span> <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearB</span>, <span class="ipm-event">takeOff</span>
+<span class="ipm-thing">t-shirt W</span> <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">takeOn</span>, <span class="ipm-event">wearW</span>
+<span class="ipm-thing">t-shirt B</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">t-shirt</span> <span class="ipm-concept-marker">::c</span>, <span class="ipm-concept">black</span> <span class="ipm-concept-marker">::c</span>
+<span class="ipm-thing">t-shirt W</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">t-shirt</span> <span class="ipm-concept-marker">::c</span>, <span class="ipm-concept">white</span> <span class="ipm-concept-marker">::c</span></p>
+<p><span class="ipm-comment"># A color is itself a property — concept expresses conce</span>pt
+<span class="ipm-concept">black</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">color</span> <span class="ipm-concept-marker">::c</span>
+<span class="ipm-concept">white</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">color</span> <span class="ipm-concept-marker">::c</span></code></pre></p>
+<p>That's a complete ipmt model: events lead to events, things participate in events, things and events express concepts as properties, and concepts can themselves express properties of other concepts.</p>
+<p><strong>Spacetime, made explicit.</strong> The leads-to chain is <em>time</em>; the part-of containment is <em>space</em>. Mark Burgess puts it directly: an event is <em>&quot;any region of space and time&quot;</em> — a slice of the world where <strong>things and ideas come together for a while</strong> (his phrase is &quot;occurrences of things and ideas together in time&quot;). The parent event <code>wearBW</code> is one such region — it holds Patrick (the slow worldline) for its whole duration; each sub-event is a smaller spacetime region nested inside it, where faster things (specific t-shirts being worn or swapped) come and go. Concepts (<code>human ::c</code>, <code>color ::c</code>) sit <em>outside</em> spacetime entirely — they are invariant patterns the events and things express, the same in every frame.</p>
+<p><strong>Zoom out far enough, and &quot;things&quot; become events too.</strong> At the timescale of the swap, each t-shirt is a stable thing. Zoom out to the t-shirt's whole life — manufactured, bought, worn through hundreds of days, washed many times, eventually torn, thrown away (or perhaps given a second life as a rag) — and that <em>thing</em> is itself an event chain on its own worldline. Patrick, zoomed out to his whole life, is the same: born, grows up, swaps many t-shirts, and eventually dies. The thing/event split is <strong>not</strong> a property of the world; it is a property of the <strong>scale you chose</strong> to model at. Every &quot;thing&quot; is a slow process; every &quot;event&quot; is a process you decided to look at closely.</p>
+<p><strong>An alternative, fuller worked example</strong> of the same scene — with two different observer accounts of the swap (one exchange, one layered black-over-white), a deeper zoom into the swap itself, <em>open-world</em> probe events that decide which observation actually happened, and small color and clothing taxonomies — is in <a href="docs/examples/tshirt-magic.html"><code>docs/examples/tshirt-magic.md</code></a>. Same building blocks; more depth.</p>
+<h2 id="the-four-edge-kinds">The four edge kinds</h2>
+<img src="docs/etc-LPXN.png" alt="Semantic Spacetime gamma(3,4) edges" width="500"/>
+<p>The triangle is <strong>e</strong> (event), <strong>t</strong> (thing), and <strong>c</strong> (concept). The arrows and self-loops show every legal edge. The dotted circles (Nₑ, Nₜ, N𞁞) are <strong>NEAR</strong> — similarity between two nodes of the same kind, undirected.</p>
+<blockquote>
+<p>The edge symbols <strong>L / P / X / N</strong> are IPM's mnemonic; Burgess's original SST uses <strong>L / C / E / N</strong>. For why IPM renames C → P (and reverses its direction) and E → X, see <a href="docs/ipm-vs-sst.html"><code>docs/ipm-vs-sst.md</code></a>.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Symbol</th>
+<th>Color</th>
+<th>Name</th>
+<th>Meaning</th>
+<th>When to use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>L</strong></td>
+<td>orange</td>
+<td>LEADS-TO</td>
+<td>Temporal / causal flow</td>
+<td>One event causes or precedes another</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>P</strong></td>
+<td>green</td>
+<td>PART-OF</td>
+<td>Containment / participation</td>
+<td>A thing is inside an event, a sub-event is inside a parent event, or a sub-part is inside a bigger thing</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>X</strong></td>
+<td>blue dashed</td>
+<td>EXPRESSES</td>
+<td>Property (a single promise)</td>
+<td>An event or thing expresses a concept as a property; a concept itself can express another concept the same way. Not is-a — a node can express many independent properties</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>N</strong></td>
+<td>gray dotted</td>
+<td>NEAR-TO</td>
+<td>Similarity / proximity (undirected)</td>
+<td>Two same-kind nodes are alike but you do not want to merge them</td>
+</tr>
+</tbody>
+</table>
+<h2 id="all-allowed-edges">All allowed edges</h2>
+<p>Every legal source → target combination, matching the diagram above. The &quot;ipmt syntax&quot; column shows the most common form for each edge.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Source → Target</th>
+<th style="text-align:center">Edge</th>
+<th style="text-align:left">ipmt syntax</th>
+<th style="text-align:left">Reads as</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:left">event → event</td>
+<td style="text-align:center">L</td>
+<td style="text-align:left"><code>e1 ::e --&gt; e2 ::e</code></td>
+<td style="text-align:left">e1 leads to e2</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:left">event → event</td>
+<td style="text-align:center">P</td>
+<td style="text-align:left"><code>inner ::e --::P--&gt; outer ::e</code></td>
+<td style="text-align:left">inner event is part of outer event</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:left">event → event</td>
+<td style="text-align:center">X</td>
+<td style="text-align:left"><code>e1 ::e --::X--&gt; e2 ::e</code></td>
+<td style="text-align:left">e1 expresses e2</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left">event — event</td>
+<td style="text-align:center">N</td>
+<td style="text-align:left"><code>e1 ::e --- e2 ::e</code></td>
+<td style="text-align:left">e1 is similar to e2 (and vice versa)</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left">thing → event</td>
+<td style="text-align:center">P</td>
+<td style="text-align:left"><code>tA --&gt; e1 ::e</code></td>
+<td style="text-align:left">tA participates in (is part of) e1</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:left">thing → thing</td>
+<td style="text-align:center">P</td>
+<td style="text-align:left"><code>subpart --&gt; whole</code></td>
+<td style="text-align:left">subpart is part of the whole (physical composition)</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:left">thing — thing</td>
+<td style="text-align:center">N</td>
+<td style="text-align:left"><code>tA --- tB</code></td>
+<td style="text-align:left">tA is near / similar to tB (and vice versa)</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:left">event → concept</td>
+<td style="text-align:center">X</td>
+<td style="text-align:left"><code>e1 ::e --&gt; cX ::c</code></td>
+<td style="text-align:left">e1 expresses property cX</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:left">thing → concept</td>
+<td style="text-align:center">X</td>
+<td style="text-align:left"><code>tA --&gt; cX ::c</code></td>
+<td style="text-align:left">tA expresses property cX</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:left">concept → concept</td>
+<td style="text-align:center">X</td>
+<td style="text-align:left"><code>cX ::c --&gt; cY ::c</code></td>
+<td style="text-align:left">cX expresses property cY</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:left">concept — concept</td>
+<td style="text-align:center">N</td>
+<td style="text-align:left"><code>cX ::c --- cY ::c</code></td>
+<td style="text-align:left">cX is similar to cY (and vice versa)</td>
+</tr>
+</tbody>
+</table>
+<p>Two important rules baked into this table:</p>
+<ul>
+<li><strong>No <code>thing --&gt; thing</code> arrow except part-of.</strong> To say &quot;Alice owns the car&quot; or &quot;Mike uses his phone,&quot; create an <strong>event</strong> — a region of spacetime that co-locates both participants for some duration — and let it express the relation as a concept-property (<code>Ownership ::c</code>, <code>Uses ::c</code>). This is SST's general handling of arbitrary binary relations: the event is the <em>temporal</em> container that brings the two things together; the concept on the event names what that co-location <em>means</em>. There is no direct <code>thing --uses--&gt; thing</code> edge.</li>
+<li><strong>The bare <code>--&gt;</code> arrow defaults to the relation that fits the two node kinds</strong> — leads-to for event-to-event, part-of for thing-to-event, expresses for thing-to-concept. The explicit <code>--::L--&gt;</code>, <code>--::P--&gt;</code>, <code>--::X--&gt;</code>, <code>--::N--</code> forms are documented in the ipmt syntax spec.</li>
+</ul>
+<h2 id="where-to-look-next">Where to look next</h2>
+<p><strong>Worked examples in this repo:</strong></p>
+<ul>
+<li><a href="docs/examples/murder-full.html"><code>docs/examples/murder-full.md</code></a> — a Clue-style murder narrative</li>
+<li><a href="docs/examples/meta-ipm.html"><code>docs/examples/meta-ipm.md</code></a> — IPM modeling itself</li>
+</ul>
+<p><strong>ipmt syntax spec:</strong> the formal grammar of the text format — type markers, aliases, arrow forms, edge tooltips, escaping, fence behaviour — lives in a separate document that will be published alongside the open-source <code>ipm-drawio</code> release. Until then, the build-up section above plus the worked examples in <code>docs/examples/</code> show the vocabulary that covers nearly every model in the wild.</p>
+<p>External reading — Mark Burgess (<a href="https://www.researchgate.net/profile/Mark-Burgess-9">ResearchGate profile</a>) on Semantic Spacetime γ(3,4):</p>
+<ul>
+<li><a href="https://mark-burgess-oslo-mb.medium.com/designing-nodes-and-arrows-in-knowledge-graphs-with-semantic-spacetime-0992b9cae595">Designing Nodes and Arrows in Knowledge Graphs with Semantic Spacetime</a> — the source article for the etc / LCEN triangle</li>
+<li><a href="https://mark-burgess-oslo-mb.medium.com/semantic-spacetime-1-the-shape-of-knowledge-86daced424a5">Semantic Spacetime 1: The Shape of Knowledge</a> — fast/slow variable separation, why a thing is a <em>worldline</em></li>
+<li><a href="https://mark-burgess-oslo-mb.medium.com/list/knowledge-management-da2834a25b99">Knowledge Management series</a> — the full medium series</li>
+<li><a href="https://arxiv.org/abs/2506.07756">Agent Semantics, Semantic Spacetime, and Graphical Reasoning</a> — arxiv.org, June 2025; the academic write-up (<a href="https://www.researchgate.net/publication/392507642_Agent_Semantics_Semantic_Spacetime_and_Graphical_Reasoning">ResearchGate mirror</a>)</li>
+<li><a href="https://markburgess.org/smartspacetime.html">Smart Spacetime: How information challenges our ideas about space, time, and process</a> — Mark Burgess's book, the long-form treatment</li>
+</ul>
+<h2 id="related-repos">Related repos</h2>
+<p>All <code>infinite.pm</code> repositories live under the <a href="https://github.com/orgs/infinite-pm/repositories"><code>infinite-pm</code> GitHub org</a>.</p>
+
+</body>
+</html>
