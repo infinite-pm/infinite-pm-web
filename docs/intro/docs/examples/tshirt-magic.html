@@ -316,18 +316,22 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
 <pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-comment"># Parent event — the whole observable story matches a library patte</span>rn
 <span class="ipm-event-hasAlias">Patrick wears black then wears white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearBW</span><span class="ipm-typeMarker">::a</span>
 <span class="ipm-event">wearBW</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">common t-shirt swap pattern</span> <span class="ipm-concept-marker">::c</span>
-<p><span class="ipm-comment"># Sub-events: two observed wears + one hypothesized swap, each part-of the parent</span>
+
+<span class="ipm-comment"># Sub-events: two observed wears + one hypothesized swap, each part-of the parent</span>
 <span class="ipm-event-hasAlias">Patrick wears black t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearB</span><span class="ipm-typeMarker">::a</span>
-<span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick swaps t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">swapT</span><span class="ipm-typeMarker">::a</span>
-<span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick wears white t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearW</span><span class="ipm-typeMarker">::a</span></p>
-<p><span class="ipm-event">wearB</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
+  <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick swaps t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">swapT</span><span class="ipm-typeMarker">::a</span>
+  <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick wears white t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearW</span><span class="ipm-typeMarker">::a</span>
+
+<span class="ipm-event">wearB</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
 <span class="ipm-event">swapT</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
-<span class="ipm-event">wearW</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span></p>
-<p><span class="ipm-comment"># Evidence — directly observed wea</span>rs
+<span class="ipm-event">wearW</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
+
+<span class="ipm-comment"># Evidence — directly observed wea</span>rs
 <span class="ipm-event">wearB</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">evidence</span> <span class="ipm-concept-marker">::c</span>
-<span class="ipm-event">wearW</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">evidence</span> <span class="ipm-concept-marker">::c</span></p>
-<p><span class="ipm-comment"># Hypothesis — the swap is inferred from the library pattern on the pare</span>nt
-<span class="ipm-event">swapT</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">hypothesis</span> <span class="ipm-concept-marker">::c</span></code></pre></p>
+<span class="ipm-event">wearW</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">evidence</span> <span class="ipm-concept-marker">::c</span>
+
+<span class="ipm-comment"># Hypothesis — the swap is inferred from the library pattern on the pare</span>nt
+<span class="ipm-event">swapT</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">hypothesis</span> <span class="ipm-concept-marker">::c</span></code></pre>
 <p>This is the same three-event chain the README uses from Step 2 onward, but each event now carries the observer's epistemic stance: the <code>wears</code> are facts; the <code>swap</code> is a guess that fits a familiar process template. From here on, the rest of this file builds on the swap hypothesis the way the README's Step 2+ does — treating it as the model the observer has settled on — while remembering it could be wrong.</p>
 <h2 id="observation-is-open-world--positive-evidence">Observation is open-world — positive evidence</h2>
 <p>Before we draw the alternative scenario, a methodological note. An ipmt observation records what was <strong>seen</strong>, not what was absent — two honest observers can differ without contradicting each other. To decide which scenario actually happened, the observer needs <strong>positive evidence</strong> for one of the discriminating shapes. A single sighting is enough.</p>
@@ -384,9 +388,10 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
 <span class="ipm-event-hasAlias">W taken on seen</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">probeTakeOnW</span><span class="ipm-typeMarker">::a</span>
 <span class="ipm-thing">Patrick</span>    <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">probeTakeOnW</span>
 <span class="ipm-thing">t-shirt W</span>  <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">probeTakeOnW</span>
-<p><span class="ipm-comment"># What this observation expresses</span>
+
+<span class="ipm-comment"># What this observation expresses</span>
 <span class="ipm-event">probeTakeOnW</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">taking on</span> <span class="ipm-concept-marker">::c</span>
-<span class="ipm-event">probeTakeOnW</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">positive evidence</span> <span class="ipm-concept-marker">::c</span></code></pre></p>
+<span class="ipm-event">probeTakeOnW</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">positive evidence</span> <span class="ipm-concept-marker">::c</span></code></pre>
 <p>The second confirms the <strong>layered</strong> scenario by catching both t-shirts on Patrick at the same instant — a configuration that only the layered observation contains:</p>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="560" height="500" viewBox="0 0 560 500">
   <!-- ipm-svg meta: generated-by=ipm-md-embed@dev hash=f88c7d16 source-file=docs/examples/tshirt-magic.md source-id=04 -->
@@ -448,9 +453,10 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
 <span class="ipm-thing">Patrick</span>    <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">probeBOverW</span>
 <span class="ipm-thing">t-shirt B</span>  <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">probeBOverW</span>
 <span class="ipm-thing">t-shirt W</span>  <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">probeBOverW</span>
-<p><span class="ipm-comment"># What this observation expresses</span>
+
+<span class="ipm-comment"># What this observation expresses</span>
 <span class="ipm-event">probeBOverW</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">wearing two t-shirts</span> <span class="ipm-concept-marker">::c</span>
-<span class="ipm-event">probeBOverW</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">positive evidence</span> <span class="ipm-concept-marker">::c</span></code></pre></p>
+<span class="ipm-event">probeBOverW</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">positive evidence</span> <span class="ipm-concept-marker">::c</span></code></pre>
 <p>Without either probe succeeding, the scenario stays undecided — the honest open-world answer. Note also what we did <em>not</em> record: the absence of a take-on does not by itself confirm the layered scenario; we still need the positive <code>B over W seen</code> sighting.</p>
 <h2 id="alternative-scenario--layered-in-detail">Alternative scenario — layered, in detail</h2>
 <p>This second observer captured a different sub-event structure under the same top-level <code>wearBW</code>. At some moment during it, Patrick was wearing <strong>both</strong> t-shirts at once — black layered over white. The observer never saw a take-on of white; they saw only a take-off of black at the end.</p>
@@ -508,13 +514,15 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
   </g>
 </svg></figure>
 <pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-event-hasAlias">Patrick wears black then wears white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearBW</span><span class="ipm-typeMarker">::a</span>
-<p><span class="ipm-comment"># Mid-level sub-events — wear-layered -&gt; take off black -&gt; wear whi</span>te
+
+<span class="ipm-comment"># Mid-level sub-events — wear-layered -&gt; take off black -&gt; wear whi</span>te
 <span class="ipm-event-hasAlias">Patrick wears black over white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearLayered</span><span class="ipm-typeMarker">::a</span>
-<span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Take off black</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">takeOffB</span><span class="ipm-typeMarker">::a</span>
-<span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick wears white t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearW</span><span class="ipm-typeMarker">::a</span></p>
-<p><span class="ipm-event">wearLayered</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
+  <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Take off black</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">takeOffB</span><span class="ipm-typeMarker">::a</span>
+  <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick wears white t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearW</span><span class="ipm-typeMarker">::a</span>
+
+<span class="ipm-event">wearLayered</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
 <span class="ipm-event">takeOffB</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
-<span class="ipm-event">wearW</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span></code></pre></p>
+<span class="ipm-event">wearW</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span></code></pre>
 <p>Same parent <code>wearBW</code> as scenario 1; what differs is the mid-level sub-event the observer recorded — <code>wearLayered</code> instead of <code>wearB</code>, and no <code>swapT</code>/<code>takeOn</code> pair.</p>
 <h2 id="alternative-scenario--layered-full">Alternative scenario — layered, full</h2>
 <p>Now layer everything in: participants and concepts.</p>
@@ -639,32 +647,41 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
 </svg></figure>
 <pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-comment"># Top event (same name and alias as scenario 1)</span>
 <span class="ipm-event-hasAlias">Patrick wears black then wears white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearBW</span><span class="ipm-typeMarker">::a</span>
-<p><span class="ipm-comment"># Mid-level sub-events</span>
+
+<span class="ipm-comment"># Mid-level sub-events</span>
 <span class="ipm-event-hasAlias">Patrick wears black over white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearLayered</span><span class="ipm-typeMarker">::a</span>
-<span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Take off black</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">takeOffB</span><span class="ipm-typeMarker">::a</span>
-<span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick wears white t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearW</span><span class="ipm-typeMarker">::a</span></p>
-<p><span class="ipm-event">wearLayered</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
+  <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Take off black</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">takeOffB</span><span class="ipm-typeMarker">::a</span>
+  <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick wears white t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearW</span><span class="ipm-typeMarker">::a</span>
+
+<span class="ipm-event">wearLayered</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
 <span class="ipm-event">takeOffB</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
-<span class="ipm-event">wearW</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span></p>
-<p><span class="ipm-comment"># Patrick is present throughout</span>
+<span class="ipm-event">wearW</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
+
+<span class="ipm-comment"># Patrick is present throughout</span>
 <span class="ipm-thing">Patrick</span> <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
-<span class="ipm-thing">Patrick</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">human</span> <span class="ipm-concept-marker">::c</span></p>
-<p><span class="ipm-comment"># White t-shirt is worn throughout — even underneath the black one in wearLayer</span>ed
-<span class="ipm-thing">t-shirt W</span> <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearLayered</span>, <span class="ipm-event">wearW</span></p>
-<p><span class="ipm-comment"># Black t-shirt is on during the layered wearing and removed in takeOffB</span>
-<span class="ipm-thing">t-shirt B</span> <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearLayered</span>, <span class="ipm-event">takeOffB</span></p>
-<p><span class="ipm-comment"># Concepts each event expresses</span>
+<span class="ipm-thing">Patrick</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">human</span> <span class="ipm-concept-marker">::c</span>
+
+<span class="ipm-comment"># White t-shirt is worn throughout — even underneath the black one in wearLayer</span>ed
+<span class="ipm-thing">t-shirt W</span> <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearLayered</span>, <span class="ipm-event">wearW</span>
+
+<span class="ipm-comment"># Black t-shirt is on during the layered wearing and removed in takeOffB</span>
+<span class="ipm-thing">t-shirt B</span> <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearLayered</span>, <span class="ipm-event">takeOffB</span>
+
+<span class="ipm-comment"># Concepts each event expresses</span>
 <span class="ipm-event">wearLayered</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">wearing two t-shirts</span> <span class="ipm-concept-marker">::c</span>
 <span class="ipm-event">takeOffB</span>    <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">taking off</span> <span class="ipm-concept-marker">::c</span>
-<span class="ipm-event">wearW</span>       <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">wearing t-shirt</span> <span class="ipm-concept-marker">::c</span></p>
-<p><span class="ipm-comment"># T-shirt color (thing --&gt; concept)</span>
+<span class="ipm-event">wearW</span>       <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">wearing t-shirt</span> <span class="ipm-concept-marker">::c</span>
+
+<span class="ipm-comment"># T-shirt color (thing --&gt; concept)</span>
 <span class="ipm-thing">t-shirt B</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">t-shirt</span> <span class="ipm-concept-marker">::c</span>, <span class="ipm-concept">black</span> <span class="ipm-concept-marker">::c</span>
-<span class="ipm-thing">t-shirt W</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">t-shirt</span> <span class="ipm-concept-marker">::c</span>, <span class="ipm-concept">white</span> <span class="ipm-concept-marker">::c</span></p>
-<p><span class="ipm-comment"># &quot;Wearing two t-shirts&quot; is a kind of &quot;wearing t-shirt&quot; (concept --&gt; concept)</span>
-<span class="ipm-concept">wearing two t-shirts</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">wearing t-shirt</span> <span class="ipm-concept-marker">::c</span></p>
-<p><span class="ipm-comment"># Color taxonomy</span>
+<span class="ipm-thing">t-shirt W</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">t-shirt</span> <span class="ipm-concept-marker">::c</span>, <span class="ipm-concept">white</span> <span class="ipm-concept-marker">::c</span>
+
+<span class="ipm-comment"># &quot;Wearing two t-shirts&quot; is a kind of &quot;wearing t-shirt&quot; (concept --&gt; concept)</span>
+<span class="ipm-concept">wearing two t-shirts</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">wearing t-shirt</span> <span class="ipm-concept-marker">::c</span>
+
+<span class="ipm-comment"># Color taxonomy</span>
 <span class="ipm-concept">black</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">color</span> <span class="ipm-concept-marker">::c</span>
-<span class="ipm-concept">white</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">color</span> <span class="ipm-concept-marker">::c</span></code></pre></p>
+<span class="ipm-concept">white</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">color</span> <span class="ipm-concept-marker">::c</span></code></pre>
 <p>Call this <strong>scenario 2: the layered observation</strong>. Both scenarios share the top-level <code>wearBW</code> event; they differ only in which sub-events the observer recorded, and therefore in which concepts the events express.</p>
 <h2 id="color-taxonomy">Color taxonomy</h2>
 <p>White and Black are kinds of Color — a concept-to-concept EXPRESSES relation:</p>
@@ -760,8 +777,9 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
 <pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-thing">t-shirt T1</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">t-shirt</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">clothes</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">human thing</span> <span class="ipm-concept-marker">::c</span>
 <span class="ipm-concept">human thing</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">thing</span> <span class="ipm-concept-marker">::c</span>
 <span class="ipm-concept">human thing</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-nearTo">---</span> <span class="ipm-concept">human</span> <span class="ipm-concept-marker">::c</span>
-<p><span class="ipm-thing">stone S1</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">stone</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">natural thing</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">thing</span> <span class="ipm-concept-marker">::c</span>
-<span class="ipm-concept">natural thing</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-nearTo">---</span> <span class="ipm-concept">nature</span> <span class="ipm-concept-marker">::c</span></code></pre></p>
+
+<span class="ipm-thing">stone S1</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">stone</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">natural thing</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">thing</span> <span class="ipm-concept-marker">::c</span>
+<span class="ipm-concept">natural thing</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-nearTo">---</span> <span class="ipm-concept">nature</span> <span class="ipm-concept-marker">::c</span></code></pre>
 
 </body>
 </html>

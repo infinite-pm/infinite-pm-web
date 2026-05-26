@@ -256,8 +256,9 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
 <pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-event-hasAlias">Patrick wears black t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearB</span><span class="ipm-typeMarker">::a</span>
   <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick swaps t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">swapT</span><span class="ipm-typeMarker">::a</span>
   <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick wears white t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearW</span><span class="ipm-typeMarker">::a</span>
-<p><span class="ipm-comment"># Patrick participates in every event in the chain</span>
-<span class="ipm-thing">Patrick</span> <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearB</span>, <span class="ipm-event">swapT</span>, <span class="ipm-event">wearW</span></code></pre></p>
+
+<span class="ipm-comment"># Patrick participates in every event in the chain</span>
+<span class="ipm-thing">Patrick</span> <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearB</span>, <span class="ipm-event">swapT</span>, <span class="ipm-event">wearW</span></code></pre>
 <p>Two new tricks:</p>
 <ul>
 <li><code>wearB::a</code> is an <strong>alias</strong> — a short stable name for the long event title.</li>
@@ -333,9 +334,11 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
 <pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-event-hasAlias">Patrick wears black t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearB</span><span class="ipm-typeMarker">::a</span>
   <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick swaps t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">swapT</span><span class="ipm-typeMarker">::a</span>
   <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick wears white t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearW</span><span class="ipm-typeMarker">::a</span>
-<p><span class="ipm-thing">Patrick</span> <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearB</span>, <span class="ipm-event">swapT</span>, <span class="ipm-event">wearW</span></p>
-<p><span class="ipm-thing">t-shirt B</span> <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearB</span>, <span class="ipm-event">swapT</span>
-<span class="ipm-thing">t-shirt W</span> <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">swapT</span>, <span class="ipm-event">wearW</span></code></pre></p>
+
+<span class="ipm-thing">Patrick</span> <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearB</span>, <span class="ipm-event">swapT</span>, <span class="ipm-event">wearW</span>
+
+<span class="ipm-thing">t-shirt B</span> <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearB</span>, <span class="ipm-event">swapT</span>
+<span class="ipm-thing">t-shirt W</span> <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">swapT</span>, <span class="ipm-event">wearW</span></code></pre>
 <p><strong>You can also zoom <em>out</em>.</strong> The same scene can be told at a coarser level: one single event that names only the <em>observable</em> change (Patrick wore black, then white), with every participant attached at that one level. The mechanism — <em>how</em> he changed t-shirts — is hidden inside the wrapper event and revealed only when you zoom in.</p>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="560" height="400" viewBox="0 0 560 400">
   <!-- ipm-svg meta: generated-by=md-embed@dev hash=65822860 source-file=README.md source-id=04 -->
@@ -381,9 +384,10 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
   </g>
 </svg></figure>
 <pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-event-hasAlias">Patrick wears black then wears white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearBW</span><span class="ipm-typeMarker">::a</span>
-<p><span class="ipm-thing">Patrick</span>    <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
+
+<span class="ipm-thing">Patrick</span>    <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
 <span class="ipm-thing">t-shirt B</span>  <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
-<span class="ipm-thing">t-shirt W</span>  <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span></code></pre></p>
+<span class="ipm-thing">t-shirt W</span>  <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span></code></pre>
 <p>Same story, different zoom level. The right level depends on the <strong>purpose</strong> of your model — and you don't have to pick just one.</p>
 <p>Going the other direction, <strong>zoom in</strong>: replace a coarse event with its sub-events. The next two diagrams show pure <em>event structure</em> — no participants, no concepts — so the zoom move stands on its own. First, drill into <code>wearBW</code> and show its three mid-level sub-events as a leads-to chain, each part-of the parent:</p>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="380" height="540" viewBox="0 0 380 540">
@@ -440,12 +444,14 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
   </g>
 </svg></figure>
 <pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-event-hasAlias">Patrick wears black then wears white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearBW</span><span class="ipm-typeMarker">::a</span>
-<p><span class="ipm-event-hasAlias">Patrick wears black t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearB</span><span class="ipm-typeMarker">::a</span>
-<span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick swaps t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">swapT</span><span class="ipm-typeMarker">::a</span>
-<span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick wears white t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearW</span><span class="ipm-typeMarker">::a</span></p>
-<p><span class="ipm-event">wearB</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
+
+<span class="ipm-event-hasAlias">Patrick wears black t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearB</span><span class="ipm-typeMarker">::a</span>
+  <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick swaps t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">swapT</span><span class="ipm-typeMarker">::a</span>
+  <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick wears white t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearW</span><span class="ipm-typeMarker">::a</span>
+
+<span class="ipm-event">wearB</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
 <span class="ipm-event">swapT</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
-<span class="ipm-event">wearW</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span></code></pre></p>
+<span class="ipm-event">wearW</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span></code></pre>
 <p>We can keep going — <code>swapT</code> itself decomposes into a finer chain of moments. Here are both zoom levels at once, three levels of pure event nesting:</p>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="560" height="780" viewBox="0 0 560 780">
   <!-- ipm-svg meta: generated-by=md-embed@dev hash=e7b5cdce source-file=README.md source-id=06 -->
@@ -523,18 +529,22 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
   </g>
 </svg></figure>
 <pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-event-hasAlias">Patrick wears black then wears white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearBW</span><span class="ipm-typeMarker">::a</span>
-<p><span class="ipm-comment"># Mid-level: wear -&gt; swap -&gt; wear, each part-of the top</span>
+
+<span class="ipm-comment"># Mid-level: wear -&gt; swap -&gt; wear, each part-of the top</span>
 <span class="ipm-event-hasAlias">Patrick wears black t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearB</span><span class="ipm-typeMarker">::a</span>
-<span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick swaps t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">swapT</span><span class="ipm-typeMarker">::a</span>
-<span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick wears white t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearW</span><span class="ipm-typeMarker">::a</span></p>
-<p><span class="ipm-event">wearB</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
+  <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick swaps t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">swapT</span><span class="ipm-typeMarker">::a</span>
+  <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick wears white t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearW</span><span class="ipm-typeMarker">::a</span>
+
+<span class="ipm-event">wearB</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
 <span class="ipm-event">swapT</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
-<span class="ipm-event">wearW</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span></p>
-<p><span class="ipm-comment"># Inner: the swap decomposes further</span>
+<span class="ipm-event">wearW</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
+
+<span class="ipm-comment"># Inner: the swap decomposes further</span>
 <span class="ipm-event-hasAlias">Take off black</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">takeOff</span><span class="ipm-typeMarker">::a</span>       <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">swapT</span>
 <span class="ipm-event-hasAlias">Patrick half-naked</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">halfNaked</span><span class="ipm-typeMarker">::a</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">swapT</span>
-<span class="ipm-event-hasAlias">Take on white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">takeOn</span><span class="ipm-typeMarker">::a</span>         <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">swapT</span></p>
-<p><span class="ipm-event">takeOff</span> <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event">halfNaked</span> <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event">takeOn</span></code></pre></p>
+<span class="ipm-event-hasAlias">Take on white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">takeOn</span><span class="ipm-typeMarker">::a</span>         <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">swapT</span>
+
+<span class="ipm-event">takeOff</span> <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event">halfNaked</span> <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event">takeOn</span></code></pre>
 <p>Step 4 will bring Patrick, the t-shirts, and the concepts back into this nested structure.</p>
 <h3 id="step-3--give-a-property-with-a-concept">Step 3 — give a property with a concept</h3>
 <p>What <em>properties</em> does Patrick express? What <em>property</em> does the swap event express? Each concept names a single, independent property.</p>
@@ -714,33 +724,40 @@ nav.toc li.toc-lvl-6 { padding-left: 5.6em; }
 </svg></figure>
 <pre class="ipmt-block"><code class="language-ipmt"><span class="ipm-comment"># Top-level event</span>
 <span class="ipm-event-hasAlias">Patrick wears black then wears white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearBW</span><span class="ipm-typeMarker">::a</span>
-<p><span class="ipm-comment"># Mid-level sub-events — leads-to chain, each part-of the t</span>op
+
+<span class="ipm-comment"># Mid-level sub-events — leads-to chain, each part-of the t</span>op
 <span class="ipm-event-hasAlias">Patrick wears black t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearB</span><span class="ipm-typeMarker">::a</span>
-<span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick swaps t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">swapT</span><span class="ipm-typeMarker">::a</span>
-<span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick wears white t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearW</span><span class="ipm-typeMarker">::a</span></p>
-<p><span class="ipm-event">wearB</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
+  <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick swaps t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">swapT</span><span class="ipm-typeMarker">::a</span>
+  <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event-hasAlias">Patrick wears white t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">wearW</span><span class="ipm-typeMarker">::a</span>
+
+<span class="ipm-event">wearB</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
 <span class="ipm-event">swapT</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
-<span class="ipm-event">wearW</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span></p>
-<p><span class="ipm-comment"># Inner sub-events — the swap itself decomposes into a finer cha</span>in
+<span class="ipm-event">wearW</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
+
+<span class="ipm-comment"># Inner sub-events — the swap itself decomposes into a finer cha</span>in
 <span class="ipm-event-hasAlias">Take off black</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">takeOff</span><span class="ipm-typeMarker">::a</span>       <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">swapT</span>
 <span class="ipm-event-hasAlias">Patrick half-naked</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">halfNaked</span><span class="ipm-typeMarker">::a</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">swapT</span>
-<span class="ipm-event-hasAlias">Take on white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">takeOn</span><span class="ipm-typeMarker">::a</span>         <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">swapT</span></p>
-<p><span class="ipm-event">takeOff</span> <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event">halfNaked</span> <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event">takeOn</span></p>
-<p><span class="ipm-comment"># Patrick is present for the whole swap — attach at the to</span>p.
+<span class="ipm-event-hasAlias">Take on white</span> <span class="ipm-event-marker">::e</span> <span class="ipm-event-alias">takeOn</span><span class="ipm-typeMarker">::a</span>         <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">swapT</span>
+
+<span class="ipm-event">takeOff</span> <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event">halfNaked</span> <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event">takeOn</span>
+
+<span class="ipm-comment"># Patrick is present for the whole swap — attach at the to</span>p.
 <span class="ipm-comment"># Part-of transitivity carries him into every sub-event automatically.</span>
 <span class="ipm-thing">Patrick</span> <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearBW</span>
 <span class="ipm-thing">Patrick</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">human</span> <span class="ipm-concept-marker">::c</span>
-<span class="ipm-event">swapT</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">swap of clothing</span> <span class="ipm-concept-marker">::c</span></p>
-<p><span class="ipm-comment"># T-shirts come and go — attach at the finest level where they actually appea</span>r:
+<span class="ipm-event">swapT</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">swap of clothing</span> <span class="ipm-concept-marker">::c</span>
+
+<span class="ipm-comment"># T-shirts come and go — attach at the finest level where they actually appea</span>r:
 <span class="ipm-comment"># the black one is worn (wearB) and then removed (takeOff); the white one is</span>
 <span class="ipm-comment"># put on (takeOn) and then worn (wearW).</span>
 <span class="ipm-thing">t-shirt B</span> <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearB</span>, <span class="ipm-event">takeOff</span>
 <span class="ipm-thing">t-shirt W</span> <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">takeOn</span>, <span class="ipm-event">wearW</span>
 <span class="ipm-thing">t-shirt B</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">t-shirt</span> <span class="ipm-concept-marker">::c</span>, <span class="ipm-concept">black</span> <span class="ipm-concept-marker">::c</span>
-<span class="ipm-thing">t-shirt W</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">t-shirt</span> <span class="ipm-concept-marker">::c</span>, <span class="ipm-concept">white</span> <span class="ipm-concept-marker">::c</span></p>
-<p><span class="ipm-comment"># A color is itself a property — concept expresses conce</span>pt
+<span class="ipm-thing">t-shirt W</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">t-shirt</span> <span class="ipm-concept-marker">::c</span>, <span class="ipm-concept">white</span> <span class="ipm-concept-marker">::c</span>
+
+<span class="ipm-comment"># A color is itself a property — concept expresses conce</span>pt
 <span class="ipm-concept">black</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">color</span> <span class="ipm-concept-marker">::c</span>
-<span class="ipm-concept">white</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">color</span> <span class="ipm-concept-marker">::c</span></code></pre></p>
+<span class="ipm-concept">white</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">color</span> <span class="ipm-concept-marker">::c</span></code></pre>
 <p>That's a complete ipmt model: events lead to events, things participate in events, things and events express concepts as properties, and concepts can themselves express properties of other concepts.</p>
 <p><strong>Spacetime, made explicit.</strong> The leads-to chain is <em>time</em>; the part-of containment is <em>space</em>. Mark Burgess puts it directly: an event is <em>&quot;any region of space and time&quot;</em> — a slice of the world where <strong>things and ideas come together for a while</strong> (his phrase is &quot;occurrences of things and ideas together in time&quot;). The parent event <code>wearBW</code> is one such region — it holds Patrick (the slow worldline) for its whole duration; each sub-event is a smaller spacetime region nested inside it, where faster things (specific t-shirts being worn or swapped) come and go. Concepts (<code>human ::c</code>, <code>color ::c</code>) sit <em>outside</em> spacetime entirely — they are invariant patterns the events and things express, the same in every frame.</p>
 <p><strong>Zoom out far enough, and &quot;things&quot; become events too.</strong> At the timescale of the swap, each t-shirt is a stable thing. Zoom out to the t-shirt's whole life — manufactured, bought, worn through hundreds of days, washed many times, eventually torn, thrown away (or perhaps given a second life as a rag) — and that <em>thing</em> is itself an event chain on its own worldline. Patrick, zoomed out to his whole life, is the same: born, grows up, swaps many t-shirts, and eventually dies. The thing/event split is <strong>not</strong> a property of the world; it is a property of the <strong>scale you chose</strong> to model at. Every &quot;thing&quot; is a slow process; every &quot;event&quot; is a process you decided to look at closely.</p>
