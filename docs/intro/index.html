@@ -30,6 +30,16 @@ pre.ipmt-block > code.language-ipmt {
     color: inherit;
 }
 
+/* Inline ipmt (`<!--ipmt-->` + backtick code span in prose): drop the
+ * inline-code grey background so simultaneous contrast doesn't shift
+ * the per-token colors away from how the same tokens look in the
+ * editor pane / fenced blocks. */
+code.language-ipmt {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
 /* GEN-START palette — do not edit; run `npm run gen-palette` */
 .ipm-event            { color: #ff8000; }
 .ipm-event-alias      { color: #ff8000; }
@@ -71,6 +81,10 @@ a { color: #0969da; text-decoration: none; }
 a:hover { text-decoration: underline; }
 code, kbd, samp { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; font-size: 0.92em; }
 :not(pre) > code { background: #f6f8fa; padding: 0.15em 0.4em; border-radius: 3px; }
+/* Inline ipmt: drop the inline-code grey background so simultaneous
+ * contrast doesn't shift the per-token colors away from how the same
+ * tokens look in the editor pane / fenced blocks. */
+code.language-ipmt { background: transparent; padding: 0; border-radius: 0; }
 blockquote { border-left: 4px solid #d0d7de; padding: 0 1em; color: #57606a; margin-left: 0; }
 header.page-header {
   display: flex; justify-content: space-between; align-items: baseline;
@@ -148,19 +162,19 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <tbody>
 <tr>
 <td><strong>Event</strong></td>
-<td style="text-align:center"><code>e</code> (orange)</td>
+<td style="text-align:center"><code>::e</code> (orange)</td>
 <td>A transient happening — fast at the model's timescale</td>
 <td>&quot;User clicks button&quot;, &quot;Build runs&quot;, &quot;K8s service deploying&quot;, &quot;Plum murders Scarlet&quot;</td>
 </tr>
 <tr>
 <td><strong>Thing</strong></td>
-<td style="text-align:center"><code>t</code> (green)</td>
+<td style="text-align:center"><code>::t</code> (green)</td>
 <td>A persistent participant — slow at the model's timescale</td>
 <td>&quot;Alice&quot;, &quot;my laptop&quot;, &quot;service A container&quot;, &quot;knife K1&quot;, &quot;Mrs. Scarlet&quot;, &quot;Prof. Plum&quot;</td>
 </tr>
 <tr>
 <td><strong>Concept</strong></td>
-<td style="text-align:center"><code>c</code> (blue)</td>
+<td style="text-align:center"><code>::c</code> (blue)</td>
 <td>A quasi-invariant pattern; a property that events or things can express</td>
 <td>&quot;human&quot;, &quot;microservice&quot;, &quot;production environment&quot;, &quot;murder&quot;</td>
 </tr>
@@ -180,7 +194,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <p>The purpose decides what goes in and — equally important — what stays out. <em>&quot;What is not in the scope of your model has the same importance as what is in the scope.&quot;</em> A map of the Czech Republic for <em>&quot;where is it on a globe?&quot;</em> looks nothing like a map for <em>&quot;where is the nearest bakery?&quot;</em> Both are good models if the purpose is clear; both are useless if the purpose is the other one.</p>
 <p>Before you start creating an infinite.pm graph, decide what <strong>question</strong> or <strong>purpose</strong> this model/view is going to answer. That decides which events, things, and concepts belong in it, and which would just be noise.</p>
 <h3 id="every-model-is-an-observers-account">Every model is an observer's account<span class="heading-ctls"><a class="heading-ctl-anchor" href="#every-model-is-an-observers-account" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h3>
-<p>There is no view-from-nowhere. An ipm graph is always <strong>someone's</strong> account of a slice of the world — what <em>they</em> saw, at <em>their</em> chosen timescale, with <em>their</em> chosen boundary. This matters most for concepts: deciding that <code>swap t-shirt ::e</code> expresses <code>swap of clothing ::c</code> rather than <code>magic trick ::c</code> is in the eye of the beholder. Two honest observers can produce two different but non-contradictory models of the same scene. Combined with a shared collection of models, infinite.pm tools can surface views and beliefs you missed.</p>
+<p>There is no view-from-nowhere. An ipm graph is always <strong>someone's</strong> account of a slice of the world — what <em>they</em> saw, at <em>their</em> chosen timescale, with <em>their</em> chosen boundary. This matters most for concepts: deciding that <code class="language-ipmt"><span class="ipm-event">swap t-shirt</span> <span class="ipm-event-marker">::e</span></code> expresses <code class="language-ipmt"><span class="ipm-concept">swap of clothing</span> <span class="ipm-concept-marker">::c</span></code> rather than <code class="language-ipmt"><span class="ipm-concept">magic trick</span> <span class="ipm-concept-marker">::c</span></code> is in the eye of the beholder. Two honest observers can produce two different but non-contradictory models of the same scene. Combined with a shared collection of models, infinite.pm tools can surface views and beliefs you missed.</p>
 <h2 id="build-it-up--by-example">Build it up — by example<span class="heading-ctls"><a class="heading-ctl-anchor" href="#build-it-up--by-example" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
 <p>We'll model the same tiny scene step by step: <em>Patrick swaps a black t-shirt for a white one.</em></p>
 <h3 id="step-1--just-an-event-chain">Step 1 — just an event chain<span class="heading-ctls"><a class="heading-ctl-anchor" href="#step-1--just-an-event-chain" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h3>
@@ -614,10 +628,10 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 </svg></figure>
 <pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-thing">Patrick</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">human</span> <span class="ipm-concept-marker">::c</span>
 <span class="ipm-event">swaps t-shirt</span> <span class="ipm-event-marker">::e</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">swap of clothing</span> <span class="ipm-concept-marker">::c</span></code></pre>
-<p><code>::c</code> marks the node as a concept. The arrow <code>thing --&gt; concept ::c</code> (an <strong>expresses</strong> arrow, rendered <strong>blue dashed</strong>) reads as &quot;the thing expresses property cX&quot; — and <code>event ::e --&gt; concept ::c</code> reads the same way for an event. A node can have several such arrows, one per property; this is <strong>not</strong> isa / classification — each concept is one promise the node makes, not a slot in a taxonomy. Patrick can express <code>human ::c</code>, <code>tall ::c</code>, and <code>colleague ::c</code> simultaneously without any of those being his &quot;type&quot;.</p>
-<p>A concept is what stays the same across all events and things that express it — what Mark Burgess calls a <strong>quasi-invariant pattern</strong>. The patterns are out there in the scene, but <strong>which patterns the observer names</strong> is a choice, not a fact about the world: Mark writes that &quot;there is no universal set of concepts to subdivide knowledge … these are merely ad hoc ways of spanning a collection of connected ideas, chosen by convention or happenstance&quot; (<a href="https://mark-burgess-oslo-mb.medium.com/avoiding-the-ontology-trap-2f1c3f3ed8e2">article 13</a>). Two honest observers can carve the same scene into different — and equally valid — concept vocabularies; writing <code>swap of clothing ::c</code> is the modeler saying <em>this is the pattern I noticed and chose to name</em>.</p>
+<p><code>::c</code> marks the node as a concept. The arrow <code class="language-ipmt"><span class="ipm-thing">thing</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">concept</span> <span class="ipm-concept-marker">::c</span></code> (an <strong>expresses</strong> arrow, rendered <strong>blue dashed</strong>) reads as &quot;the thing expresses property cX&quot; — and <code class="language-ipmt"><span class="ipm-event">event</span> <span class="ipm-event-marker">::e</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">concept</span> <span class="ipm-concept-marker">::c</span></code> reads the same way for an event. A node can have several such arrows, one per property; this is <strong>not</strong> isa / classification — each concept is one promise the node makes, not a slot in a taxonomy. Patrick can express <code class="language-ipmt"><span class="ipm-concept">human</span> <span class="ipm-concept-marker">::c</span></code>, <code class="language-ipmt"><span class="ipm-concept">tall</span> <span class="ipm-concept-marker">::c</span></code>, and <code class="language-ipmt"><span class="ipm-concept">colleague</span> <span class="ipm-concept-marker">::c</span></code> simultaneously without any of those being his &quot;type&quot;.</p>
+<p>A concept is what stays the same across all events and things that express it — what Mark Burgess calls a <strong>quasi-invariant pattern</strong>. The patterns are out there in the scene, but <strong>which patterns the observer names</strong> is a choice, not a fact about the world: Mark writes that &quot;there is no universal set of concepts to subdivide knowledge … these are merely ad hoc ways of spanning a collection of connected ideas, chosen by convention or happenstance&quot; (<a href="https://mark-burgess-oslo-mb.medium.com/avoiding-the-ontology-trap-2f1c3f3ed8e2">article 13</a>). Two honest observers can carve the same scene into different — and equally valid — concept vocabularies; writing <code class="language-ipmt"><span class="ipm-concept">swap of clothing</span> <span class="ipm-concept-marker">::c</span></code> is the modeler saying <em>this is the pattern I noticed and chose to name</em>.</p>
 <h3 id="step-4--bring-it-together-with-a-parent-event">Step 4 — bring it together, with a parent event<span class="heading-ctls"><a class="heading-ctl-anchor" href="#step-4--bring-it-together-with-a-parent-event" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h3>
-<p>The full story now has <em>three zoom levels</em>: the top event (the whole swap), its three mid-level events (wear → swap → wear), and the inner moments of the swap itself (take-off → half-naked → take-on). We attach each participant at the finest level where it actually appears — part-of transitivity automatically carries it upward into every containing event. A small <strong>color taxonomy</strong> (<code>t-shirt ::c</code>, <code>black ::c</code>, <code>white ::c</code>, <code>color ::c</code>) joins the concepts from Step 3 (<code>human ::c</code>, <code>swap of clothing ::c</code>).</p>
+<p>The full story now has <em>three zoom levels</em>: the top event (the whole swap), its three mid-level events (wear → swap → wear), and the inner moments of the swap itself (take-off → half-naked → take-on). We attach each participant at the finest level where it actually appears — part-of transitivity automatically carries it upward into every containing event. A small <strong>color taxonomy</strong> (<code class="language-ipmt"><span class="ipm-concept">t-shirt</span> <span class="ipm-concept-marker">::c</span></code>, <code class="language-ipmt"><span class="ipm-concept">black</span> <span class="ipm-concept-marker">::c</span></code>, <code class="language-ipmt"><span class="ipm-concept">white</span> <span class="ipm-concept-marker">::c</span></code>, <code class="language-ipmt"><span class="ipm-concept">color</span> <span class="ipm-concept-marker">::c</span></code>) joins the concepts from Step 3 (<code class="language-ipmt"><span class="ipm-concept">human</span> <span class="ipm-concept-marker">::c</span></code>, <code class="language-ipmt"><span class="ipm-concept">swap of clothing</span> <span class="ipm-concept-marker">::c</span></code>).</p>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="1280" height="950" viewBox="0 0 1280 950">
   <!-- ipm-svg meta: generated-by=md-embed@dev hash=9bd40bd3 source-file=README.md source-id=08 -->
   <defs>
@@ -782,7 +796,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <span class="ipm-concept">black</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">color</span> <span class="ipm-concept-marker">::c</span>
 <span class="ipm-concept">white</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">color</span> <span class="ipm-concept-marker">::c</span></code></pre>
 <p>That's a complete ipmt model: events lead to events, things participate in events, things and events express concepts as properties, and concepts can themselves express properties of other concepts.</p>
-<p><strong>Spacetime, made explicit.</strong> The leads-to chain is <em>time</em>; the part-of containment is <em>space</em>. Mark Burgess puts it directly: an event is <em>&quot;any region of space and time&quot;</em> — a slice of the world where <strong>things and ideas come together for a while</strong> (his phrase is &quot;occurrences of things and ideas together in time&quot;). The parent event <code>wearBW</code> is one such region — it holds Patrick (the slow worldline) for its whole duration; each sub-event is a smaller spacetime region nested inside it, where faster things (specific t-shirts being worn or swapped) come and go. Concepts (<code>human ::c</code>, <code>color ::c</code>) sit <em>outside</em> spacetime entirely — they are invariant patterns the events and things express, the same in every frame.</p>
+<p><strong>Spacetime, made explicit.</strong> The leads-to chain is <em>time</em>; the part-of containment is <em>space</em>. Mark Burgess puts it directly: an event is <em>&quot;any region of space and time&quot;</em> — a slice of the world where <strong>things and ideas come together for a while</strong> (his phrase is &quot;occurrences of things and ideas together in time&quot;). The parent event <code>wearBW</code> is one such region — it holds Patrick (the slow worldline) for its whole duration; each sub-event is a smaller spacetime region nested inside it, where faster things (specific t-shirts being worn or swapped) come and go. Concepts (<code class="language-ipmt"><span class="ipm-concept">human</span> <span class="ipm-concept-marker">::c</span></code>, <code class="language-ipmt"><span class="ipm-concept">color</span> <span class="ipm-concept-marker">::c</span></code>) sit <em>outside</em> spacetime entirely — they are invariant patterns the events and things express, the same in every frame.</p>
 <p><strong>Zoom out far enough, and &quot;things&quot; become events too.</strong> At the timescale of the swap, each t-shirt is a stable thing. Zoom out to the t-shirt's whole life — manufactured, bought, worn through hundreds of days, washed many times, eventually torn, thrown away (or perhaps given a second life as a rag) — and that <em>thing</em> is itself an event chain on its own worldline. Patrick, zoomed out to his whole life, is the same: born, grows up, swaps many t-shirts, and eventually dies. The thing/event split is <strong>not</strong> a property of the world; it is a property of the <strong>scale you chose</strong> to model at. Every &quot;thing&quot; is a slow process; every &quot;event&quot; is a process you decided to look at closely.</p>
 <p><strong>An alternative, fuller worked example</strong> of the same scene — with two different observer accounts of the swap (one exchange, one layered black-over-white), a deeper zoom into the swap itself, <em>open-world</em> probe events that decide which observation actually happened, and small color and clothing taxonomies — is in <a href="docs/examples/tshirt-magic.html"><code>docs/examples/tshirt-magic.md</code></a>. Same building blocks; more depth.</p>
 <h2 id="the-four-edge-kinds">The four edge kinds<span class="heading-ctls"><a class="heading-ctl-anchor" href="#the-four-edge-kinds" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
@@ -849,84 +863,84 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <td style="text-align:center">1</td>
 <td style="text-align:left">event → event</td>
 <td style="text-align:center">L</td>
-<td style="text-align:left"><code>e1 ::e --&gt; e2 ::e</code></td>
+<td style="text-align:left"><code class="language-ipmt"><span class="ipm-event">e1</span> <span class="ipm-event-marker">::e</span> <span class="ipm-arrow-leadsTo">--&gt;</span> <span class="ipm-event">e2</span> <span class="ipm-event-marker">::e</span></code></td>
 <td style="text-align:left">e1 leads to e2</td>
 </tr>
 <tr>
 <td style="text-align:center">2</td>
 <td style="text-align:left">event → event</td>
 <td style="text-align:center">P</td>
-<td style="text-align:left"><code>inner ::e --::P--&gt; outer ::e</code></td>
+<td style="text-align:left"><code class="language-ipmt"><span class="ipm-event">inner</span> <span class="ipm-event-marker">::e</span> <span class="ipm-arrow-partOf">--</span><span class="ipm-relation">::P</span><span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">outer</span> <span class="ipm-event-marker">::e</span></code></td>
 <td style="text-align:left">inner event is part of outer event</td>
 </tr>
 <tr>
 <td style="text-align:center">3</td>
 <td style="text-align:left">event → event</td>
 <td style="text-align:center">X</td>
-<td style="text-align:left"><code>e1 ::e --::X--&gt; e2 ::e</code></td>
+<td style="text-align:left"><code class="language-ipmt"><span class="ipm-event">e1</span> <span class="ipm-event-marker">::e</span> <span class="ipm-arrow-expresses">--</span><span class="ipm-relation">::X</span><span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-event">e2</span> <span class="ipm-event-marker">::e</span></code></td>
 <td style="text-align:left">e1 expresses e2</td>
 </tr>
 <tr>
 <td style="text-align:center">4</td>
 <td style="text-align:left">event — event</td>
 <td style="text-align:center">N</td>
-<td style="text-align:left"><code>e1 ::e --- e2 ::e</code></td>
+<td style="text-align:left"><code class="language-ipmt"><span class="ipm-event">e1</span> <span class="ipm-event-marker">::e</span> <span class="ipm-arrow-nearTo">---</span> <span class="ipm-event">e2</span> <span class="ipm-event-marker">::e</span></code></td>
 <td style="text-align:left">e1 is similar to e2 (and vice versa)</td>
 </tr>
 <tr>
 <td style="text-align:center">5</td>
 <td style="text-align:left">thing → event</td>
 <td style="text-align:center">P</td>
-<td style="text-align:left"><code>tA --&gt; e1 ::e</code></td>
+<td style="text-align:left"><code class="language-ipmt"><span class="ipm-thing">tA</span> <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">e1</span> <span class="ipm-event-marker">::e</span></code></td>
 <td style="text-align:left">tA participates in (is part of) e1</td>
 </tr>
 <tr>
 <td style="text-align:center">6</td>
 <td style="text-align:left">thing → thing</td>
 <td style="text-align:center">P</td>
-<td style="text-align:left"><code>subpart --&gt; whole</code></td>
+<td style="text-align:left"><code class="language-ipmt"><span class="ipm-thing">subpart</span> <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-thing">whole</span></code></td>
 <td style="text-align:left">subpart is part of the whole (physical composition)</td>
 </tr>
 <tr>
 <td style="text-align:center">7</td>
 <td style="text-align:left">thing — thing</td>
 <td style="text-align:center">N</td>
-<td style="text-align:left"><code>tA --- tB</code></td>
+<td style="text-align:left"><code class="language-ipmt"><span class="ipm-thing">tA</span> <span class="ipm-arrow-nearTo">---</span> <span class="ipm-thing">tB</span></code></td>
 <td style="text-align:left">tA is near / similar to tB (and vice versa)</td>
 </tr>
 <tr>
 <td style="text-align:center">8</td>
 <td style="text-align:left">event → concept</td>
 <td style="text-align:center">X</td>
-<td style="text-align:left"><code>e1 ::e --&gt; cX ::c</code></td>
+<td style="text-align:left"><code class="language-ipmt"><span class="ipm-event">e1</span> <span class="ipm-event-marker">::e</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">cX</span> <span class="ipm-concept-marker">::c</span></code></td>
 <td style="text-align:left">e1 expresses property cX</td>
 </tr>
 <tr>
 <td style="text-align:center">9</td>
 <td style="text-align:left">thing → concept</td>
 <td style="text-align:center">X</td>
-<td style="text-align:left"><code>tA --&gt; cX ::c</code></td>
+<td style="text-align:left"><code class="language-ipmt"><span class="ipm-thing">tA</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">cX</span> <span class="ipm-concept-marker">::c</span></code></td>
 <td style="text-align:left">tA expresses property cX</td>
 </tr>
 <tr>
 <td style="text-align:center">10</td>
 <td style="text-align:left">concept → concept</td>
 <td style="text-align:center">X</td>
-<td style="text-align:left"><code>cX ::c --&gt; cY ::c</code></td>
+<td style="text-align:left"><code class="language-ipmt"><span class="ipm-concept">cX</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">cY</span> <span class="ipm-concept-marker">::c</span></code></td>
 <td style="text-align:left">cX expresses property cY</td>
 </tr>
 <tr>
 <td style="text-align:center">11</td>
 <td style="text-align:left">concept — concept</td>
 <td style="text-align:center">N</td>
-<td style="text-align:left"><code>cX ::c --- cY ::c</code></td>
+<td style="text-align:left"><code class="language-ipmt"><span class="ipm-concept">cX</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-nearTo">---</span> <span class="ipm-concept">cY</span> <span class="ipm-concept-marker">::c</span></code></td>
 <td style="text-align:left">cX is similar to cY (and vice versa)</td>
 </tr>
 </tbody>
 </table>
 <p>Two important rules baked into this table:</p>
 <ul>
-<li><strong>No <code>thing --&gt; thing</code> arrow except part-of.</strong> To say &quot;Alice owns the car&quot; or &quot;Mike uses his phone,&quot; create an <strong>event</strong> — a region of spacetime that co-locates both participants for some duration — and let it express the relation as a concept-property (<code>Ownership ::c</code>, <code>Uses ::c</code>). This is SST's general handling of arbitrary binary relations: the event is the <em>temporal</em> container that brings the two things together; the concept on the event names what that co-location <em>means</em>. There is no direct <code>thing --uses--&gt; thing</code> edge.</li>
+<li><strong>No <code class="language-ipmt"><span class="ipm-thing">thing</span> <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-thing">thing</span></code> arrow except part-of.</strong> To say &quot;Alice owns the car&quot; or &quot;Mike uses his phone,&quot; create an <strong>event</strong> — a region of spacetime that co-locates both participants for some duration — and let it express the relation as a concept-property (<code class="language-ipmt"><span class="ipm-concept">Ownership</span> <span class="ipm-concept-marker">::c</span></code>, <code class="language-ipmt"><span class="ipm-concept">Uses</span> <span class="ipm-concept-marker">::c</span></code>). This is SST's general handling of arbitrary binary relations: the event is the <em>temporal</em> container that brings the two things together; the concept on the event names what that co-location <em>means</em>. There is no direct <code>thing --uses--&gt; thing</code> edge.</li>
 <li><strong>The bare <code>--&gt;</code> arrow defaults to the relation that fits the two node kinds</strong> — leads-to for event-to-event, part-of for thing-to-event, expresses for thing-to-concept. The explicit <code>--::L--&gt;</code>, <code>--::P--&gt;</code>, <code>--::X--&gt;</code>, <code>--::N--</code> forms are documented in the ipmt syntax spec.</li>
 </ul>
 <h2 id="where-to-look-next">Where to look next<span class="heading-ctls"><a class="heading-ctl-anchor" href="#where-to-look-next" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
@@ -935,7 +949,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <li><a href="docs/examples/murder-full.html"><code>docs/examples/murder-full.md</code></a> — a Clue-style murder narrative</li>
 <li><a href="docs/examples/meta-ipm.html"><code>docs/examples/meta-ipm.md</code></a> — IPM modeling itself</li>
 </ul>
-<p><strong>ipmt syntax spec:</strong> the formal grammar of the text format — type markers, aliases, arrow forms, edge tooltips, escaping, fence behaviour — lives in a separate document that will be published alongside the open-source <code>ipm-drawio</code> release. Until then, the build-up section above plus the worked examples in <code>docs/examples/</code> show the vocabulary that covers nearly every model in the wild.</p>
+<p><strong>ipmt syntax spec:</strong> the formal grammar of the text format — type markers, aliases, arrow forms, edge tooltips, escaping, fence behaviour — lives in a separate document that will be published alongside the open-source <code>ipm-tools</code> release. Until then, the build-up section above plus the worked examples in <code>docs/examples/</code> show the vocabulary that covers nearly every model in the wild.</p>
 <p>External reading — Mark Burgess (<a href="https://www.researchgate.net/profile/Mark-Burgess-9">ResearchGate profile</a>) on Semantic Spacetime γ(3,4):</p>
 <ul>
 <li><a href="https://mark-burgess-oslo-mb.medium.com/designing-nodes-and-arrows-in-knowledge-graphs-with-semantic-spacetime-0992b9cae595">Designing Nodes and Arrows in Knowledge Graphs with Semantic Spacetime</a> — the source article for the etc / LCEN triangle</li>

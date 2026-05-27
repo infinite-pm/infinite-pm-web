@@ -30,6 +30,16 @@ pre.ipmt-block > code.language-ipmt {
     color: inherit;
 }
 
+/* Inline ipmt (`<!--ipmt-->` + backtick code span in prose): drop the
+ * inline-code grey background so simultaneous contrast doesn't shift
+ * the per-token colors away from how the same tokens look in the
+ * editor pane / fenced blocks. */
+code.language-ipmt {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
 /* GEN-START palette — do not edit; run `npm run gen-palette` */
 .ipm-event            { color: #ff8000; }
 .ipm-event-alias      { color: #ff8000; }
@@ -71,6 +81,10 @@ a { color: #0969da; text-decoration: none; }
 a:hover { text-decoration: underline; }
 code, kbd, samp { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; font-size: 0.92em; }
 :not(pre) > code { background: #f6f8fa; padding: 0.15em 0.4em; border-radius: 3px; }
+/* Inline ipmt: drop the inline-code grey background so simultaneous
+ * contrast doesn't shift the per-token colors away from how the same
+ * tokens look in the editor pane / fenced blocks. */
+code.language-ipmt { background: transparent; padding: 0; border-radius: 0; }
 blockquote { border-left: 4px solid #d0d7de; padding: 0 1em; color: #57606a; margin-left: 0; }
 header.page-header {
   display: flex; justify-content: space-between; align-items: baseline;
