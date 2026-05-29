@@ -162,19 +162,19 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <tbody>
 <tr>
 <td><strong>Event</strong></td>
-<td style="text-align:center"><code class="language-ipmt"><span class="ipm-e-marker">::e</span></code> (<code class="language-ipmt"><span class="ipm-e-marker">orange</span></code>)</td>
+<td style="text-align:center"><code class="language-ipmt"><span class="ipm-e-marker">e</span></code> (<code class="language-ipmt"><span class="ipm-e-marker">orange</span></code>)</td>
 <td>A transient happening — fast at the model's timescale</td>
 <td>&quot;User clicks button&quot;, &quot;Build runs&quot;, &quot;K8s service deploying&quot;, &quot;Plum murders Scarlet&quot;</td>
 </tr>
 <tr>
 <td><strong>Thing</strong></td>
-<td style="text-align:center"><code class="language-ipmt"><span class="ipm-t-marker">::t</span></code> (<code class="language-ipmt"><span class="ipm-t-marker">green</span></code>)</td>
+<td style="text-align:center"><code class="language-ipmt"><span class="ipm-t-marker">t</span></code> (<code class="language-ipmt"><span class="ipm-t-marker">green</span></code>)</td>
 <td>A persistent participant — slow at the model's timescale</td>
 <td>&quot;Alice&quot;, &quot;my laptop&quot;, &quot;service A container&quot;, &quot;knife K1&quot;, &quot;Mrs. Scarlet&quot;, &quot;Prof. Plum&quot;</td>
 </tr>
 <tr>
 <td><strong>Concept</strong></td>
-<td style="text-align:center"><code class="language-ipmt"><span class="ipm-c-marker">::c</span></code> (<code class="language-ipmt"><span class="ipm-c-marker">blue</span></code>)</td>
+<td style="text-align:center"><code class="language-ipmt"><span class="ipm-c-marker">c</span></code> (<code class="language-ipmt"><span class="ipm-c-marker">blue</span></code>)</td>
 <td>A quasi-invariant pattern; a property that events or things can express</td>
 <td>&quot;human&quot;, &quot;microservice&quot;, &quot;production environment&quot;, &quot;murder&quot;</td>
 </tr>
@@ -830,29 +830,29 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"><strong>L</strong></td>
-<td>orange</td>
+<td style="text-align:center"><code class="language-ipmt"><span class="ipm-L">L</span></code></td>
+<td><code class="language-ipmt"><span class="ipm-L">orange</span></code></td>
 <td>LEADS-TO</td>
 <td>Temporal / causal flow</td>
 <td>One event causes or precedes another</td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>P</strong></td>
-<td>green</td>
+<td style="text-align:center"><code class="language-ipmt"><span class="ipm-P">P</span></code></td>
+<td><code class="language-ipmt"><span class="ipm-P">green</span></code></td>
 <td>PART-OF</td>
 <td>Containment / participation</td>
 <td>A thing is inside an event, a sub-event is inside a parent event, or a sub-part is inside a bigger thing</td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>X</strong></td>
-<td>blue dashed</td>
+<td style="text-align:center"><code class="language-ipmt"><span class="ipm-X">X</span></code></td>
+<td><code class="language-ipmt"><span class="ipm-X">blue</span></code> dashed</td>
 <td>EXPRESSES</td>
 <td>Property (a single promise)</td>
 <td>An event or thing expresses a concept as a property; a concept itself can express another concept the same way. Not is-a — a node can express many independent properties</td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>N</strong></td>
-<td>gray dotted</td>
+<td style="text-align:center"><code class="language-ipmt"><span class="ipm-N">N</span></code></td>
+<td><code class="language-ipmt"><span class="ipm-N">gray</span></code> dotted</td>
 <td>NEAR-TO</td>
 <td>Similarity / proximity (undirected)</td>
 <td>Two same-kind nodes are alike but you do not want to merge them</td>
