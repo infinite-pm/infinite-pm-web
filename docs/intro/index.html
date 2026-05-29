@@ -297,8 +297,8 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <span class="ipm-thing">Patrick</span> <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-event">wearB</span>, <span class="ipm-event">swapT</span>, <span class="ipm-event">wearW</span></code></pre>
 <p>Two new tricks:</p>
 <ul>
-<li><code>wearB::a</code> is an <strong>alias</strong> — a short stable name for the long event title.</li>
-<li><code>Patrick --&gt; wearB, swapT, wearW</code> fans out: one source, three targets.</li>
+<li>Here, <code class="language-ipmt"><span class="ipm-event-alias">wearB</span><span class="ipm-typeMarker">::a</span></code> is an <strong>alias</strong> — a short stable name for the long event title.</li>
+<li>The <code class="language-ipmt"><span class="ipm-thing">Patrick</span> <span class="ipm-arrow-partOf">--&gt;</span> <span class="ipm-thing">wearB</span>, <span class="ipm-thing">swapT</span>, <span class="ipm-thing">wearW</span></code> line fans out: one source, three targets.</li>
 </ul>
 <p>Unmarked nodes default to <strong>things</strong>. The arrow goes <em>from the thing to the event</em> — the thing is part of the event, never the other way around (a modeling rule, not a syntactic accident).</p>
 <p><strong>Add the t-shirts as participants too.</strong> The black t-shirt is worn in <code class="language-ipmt"><span class="ipm-event">wearB</span></code> and is still on Patrick (briefly) during <code class="language-ipmt"><span class="ipm-event">swapT</span></code>; the white one enters at <code class="language-ipmt"><span class="ipm-event">swapT</span></code> and stays on through <code class="language-ipmt"><span class="ipm-event">wearW</span></code>. Each thing attaches to the events where it actually appears.</p>
