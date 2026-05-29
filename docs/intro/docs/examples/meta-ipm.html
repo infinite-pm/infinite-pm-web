@@ -41,28 +41,28 @@ code.language-ipmt {
 }
 
 /* GEN-START palette — do not edit; run `npm run gen-palette` */
-.ipm-event            { color: #ff8000; }
-.ipm-event-alias      { color: #ff8000; }
-.ipm-event-hasAlias   { color: #ffaa55; }
-.ipm-event-marker     { color: #ff8000; font-weight: bold; }
-.ipm-thing            { color: #4d8a3a; }
-.ipm-thing-alias      { color: #4d8a3a; }
-.ipm-thing-hasAlias   { color: #82b366; }
-.ipm-thing-marker     { color: #4d8a3a; font-weight: bold; }
-.ipm-concept          { color: #6c8ebf; }
-.ipm-concept-alias    { color: #6c8ebf; }
-.ipm-concept-hasAlias { color: #9bb4d6; }
-.ipm-concept-marker   { color: #6c8ebf; font-weight: bold; }
-.ipm-arrow            { color: #d4d4d4; font-weight: bold; }
-.ipm-arrow-leadsTo    { color: #ff8000; font-weight: bold; }
-.ipm-arrow-partOf     { color: #4d8a3a; font-weight: bold; }
-.ipm-arrow-expresses  { color: #6c8ebf; font-weight: bold; }
-.ipm-arrow-nearTo     { color: #aaaaaa; font-weight: bold; }
-.ipm-typeMarker       { color: #b08fff; }
-.ipm-relation         { color: #b08fff; }
-.ipm-comment          { color: #6a9955; font-style: italic; }
-.ipm-string           { color: #ce9178; }
-.ipm-tooltip          { color: #b58900; font-style: italic; }
+.ipm-e-title         { color: #ff8000; }
+.ipm-e-alias         { color: #ff8000; }
+.ipm-e-title-aliased { color: #ffaa55; }
+.ipm-e-marker        { color: #ff8000; font-weight: bold; }
+.ipm-t-title         { color: #4d8a3a; }
+.ipm-t-alias         { color: #4d8a3a; }
+.ipm-t-title-aliased { color: #82b366; }
+.ipm-t-marker        { color: #4d8a3a; font-weight: bold; }
+.ipm-c-title         { color: #6c8ebf; }
+.ipm-c-alias         { color: #6c8ebf; }
+.ipm-c-title-aliased { color: #9bb4d6; }
+.ipm-c-marker        { color: #6c8ebf; font-weight: bold; }
+.ipm-arrow           { color: #d4d4d4; font-weight: bold; }
+.ipm-L               { color: #ff8000; font-weight: bold; }
+.ipm-P               { color: #4d8a3a; font-weight: bold; }
+.ipm-X               { color: #6c8ebf; font-weight: bold; }
+.ipm-N               { color: #aaaaaa; font-weight: bold; }
+.ipm-type-marker     { color: #b08fff; }
+.ipm-relation        { color: #b08fff; }
+.ipm-comment         { color: #6a9955; font-style: italic; }
+.ipm-string          { color: #ce9178; }
+.ipm-tooltip         { color: #b58900; font-style: italic; }
 /* GEN-END palette */
 
 html { font-size: 17px; }
@@ -178,7 +178,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="100" y="240" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-event">Some event E1</span> <span class="ipm-event-marker">::e</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">event (sst)</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">imp (sst)</span> <span class="ipm-concept-marker">::c</span></code></pre>
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-e-title">Some event E1</span> <span class="ipm-e-marker">::e</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">event (sst)</span> <span class="ipm-c-marker">::c</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">imp (sst)</span> <span class="ipm-c-marker">::c</span></code></pre>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="200" height="340" viewBox="0 0 200 340">
   <!-- ipm-svg meta: generated-by=md-embed@dev hash=e9a72a13 source-file=docs/examples/meta-ipm.md source-id=02 -->
   <defs>
@@ -205,7 +205,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="100" y="270" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">imp (sst)</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-thing">Patrick</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">thing (sst)</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">imp (sst)</span> <span class="ipm-concept-marker">::c</span></code></pre>
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-t-title">Patrick</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">thing (sst)</span> <span class="ipm-c-marker">::c</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">imp (sst)</span> <span class="ipm-c-marker">::c</span></code></pre>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="200" height="340" viewBox="0 0 200 340">
   <!-- ipm-svg meta: generated-by=md-embed@dev hash=1166c012 source-file=docs/examples/meta-ipm.md source-id=03 -->
   <defs>
@@ -233,7 +233,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="100" y="270" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">imp (sst)</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-concept">human</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">concept (sst)</span> <span class="ipm-concept-marker">::c</span> <span class="ipm-arrow-expresses">--&gt;</span> <span class="ipm-concept">imp (sst)</span> <span class="ipm-concept-marker">::c</span></code></pre>
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-c-title">human</span> <span class="ipm-c-marker">::c</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">concept (sst)</span> <span class="ipm-c-marker">::c</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">imp (sst)</span> <span class="ipm-c-marker">::c</span></code></pre>
 
 <script>
 document.addEventListener('click', function (e) {
