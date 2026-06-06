@@ -1,82 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infinite Process Modeling - Coming Soon</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>infinite.pm — Infinite Process Modeling</title>
+  <meta name="description" content="infinite.pm — Infinite Process Modeling: model processes, stories and systems as readable graphs, applying Mark Burgess's Semantic Spacetime γ(3,4).">
+  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'&gt;&lt;text y='13' font-size='13'&gt;🔗&lt;/text&gt;&lt;/svg&gt;">
+  <style>
+    :root {
+      --orange: #ff8000;
+      --green:  #4d8a3a;
+      --blue:   #3a78c2;
+      --green-stroke: #82b366;
+      --blue-stroke:  #6c8ebf;
+      --ink:    #1f2328;
+      --muted:  #57606a;
+      --line:   #e3e7ee;
+      --bg:     #f7f9fc;
+      --card:   #ffffff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1100px 480px at 50% -120px, rgba(255,128,0,0.06), transparent 60%),
+        var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 1.25rem; }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #ffffff;
-        }
+    /* top bar */
+    header.top {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.7rem 0; gap: 1rem;
+    }
+    .brand { display: flex; align-items: baseline; gap: .02rem; font-weight: 800; font-size: 1.15rem; letter-spacing: -.01em; }
+    .brand .inf { color: var(--green); }
+    .brand .dot { color: var(--muted); font-weight: 600; }
+    .brand .pm { color: var(--blue); }
+    nav.top-links a {
+      color: var(--muted); text-decoration: none; font-size: .92rem; font-weight: 600;
+      margin-left: 1.1rem; border-bottom: 2px solid transparent; padding-bottom: 2px; transition: color .15s, border-color .15s;
+    }
+    nav.top-links a:hover { color: var(--ink); border-color: var(--orange); }
 
-        .container {
-            text-align: center;
-            padding: 2rem;
-            max-width: 600px;
-			transform: translateY(-10vh);
-        }
+    /* hero */
+    .hero { text-align: center; padding: 1.4rem 0 .4rem; }
+    .hero h1 { font-size: clamp(2rem, 6vw, 3rem); font-weight: 800; letter-spacing: -.02em; }
+    .hero h1 .inf { color: var(--green); } .hero h1 .pm { color: var(--blue); } .hero h1 .dot { color: var(--muted); }
+    .hero .sub { color: var(--muted); font-size: 1.05rem; margin-top: .35rem; font-weight: 600; }
+    .hero .quote { color: var(--muted); font-style: italic; margin-top: 1rem; }
+    .hero .quote span { color: #8a93a3; font-style: normal; font-size: .9rem; }
+    .hero .lead { max-width: 640px; margin: .9rem auto 0; color: var(--ink); }
+    .hero .lead a { color: var(--blue); text-decoration: none; border-bottom: 1px solid rgba(58,120,194,.35); }
+    .hero .lead a:hover { border-color: var(--blue); }
+    .hero .lead b.e { color: var(--orange); } .hero .lead b.t { color: var(--green); } .hero .lead b.c { color: var(--blue); } .hero .lead b.n { color: #aaaaaa; }
 
-        h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
+    /* slideshow */
+    .show { position: relative; max-width: 760px; margin: 1.7rem auto 0; }
+    .stage {
+      position: relative; height: 440px; background: var(--card);
+      border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 1px 2px rgba(16,24,40,.04); overflow: hidden;
+    }
+    .slide { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 1.6rem; opacity: 0; transition: opacity .5s ease; }
+    .slide.on { opacity: 1; }
+    .slide img { max-width: 100%; max-height: 100%; width: auto; height: auto; }
+    .nav {
+      position: absolute; top: 50%; transform: translateY(-50%); width: 38px; height: 38px;
+      background: rgba(255,255,255,.85); border: 1px solid var(--line); border-radius: 50%;
+      cursor: pointer; color: var(--muted); font-size: 1.1rem; line-height: 1;
+      display: flex; align-items: center; justify-content: center; transition: color .15s, box-shadow .15s;
+    }
+    .nav:hover { color: var(--ink); box-shadow: 0 4px 14px rgba(16,24,40,.12); }
+    .nav.prev { left: .6rem; } .nav.next { right: .6rem; }
+    .cap { text-align: center; color: var(--muted); font-size: .95rem; margin-top: .8rem; min-height: 1.4em; padding: 0 1rem; }
+    .dots { display: flex; gap: .5rem; justify-content: center; margin-top: .7rem; }
+    .dots .dot { width: 9px; height: 9px; border-radius: 50%; border: none; background: var(--line); cursor: pointer; padding: 0; transition: background .15s, transform .15s; }
+    .dots .dot.on { background: var(--orange); transform: scale(1.25); }
 
-        p {
-            font-size: 1.25rem;
-            opacity: 0.9;
-            line-height: 1.6;
-        }
+    .cta { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; justify-content: center; margin-top: 1.8rem; }
+    /* both links are equal-sized pills: intro = filled (primary), lab = outlined (secondary) */
+    .cta a {
+      display: inline-block; text-decoration: none; font-size: 1rem; font-weight: 700;
+      padding: .6rem 1.3rem; border-radius: 999px; border: 1px solid transparent;
+      transition: transform .15s, box-shadow .15s, border-color .15s;
+    }
+    .cta a:hover { transform: translateY(-2px); }
+    .cta .btn { background: var(--orange); color: #fff; box-shadow: 0 2px 10px rgba(255,128,0,.25); }
+    .cta .btn:hover { box-shadow: 0 8px 22px rgba(255,128,0,.3); }
+    .cta .lablink { background: var(--card); border-color: var(--line); font-weight: 800; letter-spacing: -.01em; }
+    .cta .lablink:hover { border-color: var(--orange); box-shadow: 0 8px 22px rgba(16,24,40,.10); }
+    .cta .lablink .lab { color: var(--orange); } .cta .lablink .inf { color: var(--green); } .cta .lablink .pm { color: var(--blue); } .cta .lablink .d { color: var(--muted); font-weight: 600; } .cta .lablink .ar { color: var(--muted); font-weight: 600; }
 
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
+    /* footer */
+    footer.site { border-top: 1px solid var(--line); margin-top: 2.6rem; padding: 1.6rem 0 2.4rem; color: var(--muted); font-size: .9rem; }
+    footer.site .frow { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    footer.site a { color: var(--muted); text-decoration: none; border-bottom: 1px solid transparent; }
+    footer.site a:hover { color: var(--ink); border-color: var(--orange); }
+    footer.site .gh { display: inline-flex; align-items: center; gap: .4rem; }
 
-            p {
-                font-size: 1rem;
-            }
-
-			.container {
-				transform: translateY(-6vh);
-			}
-        }
-
-        .github-link {
-            position: fixed;
-            bottom: 1.5rem;
-            right: 1.5rem;
-            color: rgba(255, 255, 255, 0.4);
-            transition: color 0.2s ease;
-        }
-
-        .github-link:hover {
-            color: rgba(255, 255, 255, 0.8);
-        }
-    </style>
+    @media (max-width: 620px) {
+      nav.top-links a { margin-left: .8rem; font-size: .85rem; }
+      .brand { font-size: 1.02rem; }
+      .stage { height: 320px; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Infinite Process Modeling</h1>
-        <p>Coming Soon - We're working hard to bring you something amazing. Stay tuned!</p>
-    </div>
-    <a href="https://github.com/infinite-pm/infinite-pm-web" target="_blank" rel="noopener noreferrer" class="github-link" title="View source on GitHub">
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+  <div class="wrap">
+
+    <header class="top">
+      <div class="brand"><span class="inf">infinite</span><span class="dot">.</span><span class="pm">pm</span></div>
+      <nav class="top-links">
+        <a href="https://lab.infinite.pm">lab.infinite.pm</a>
+        <a href="https://semantic.st">semantic.st</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1><span class="inf">infinite</span><span class="dot">.</span><span class="pm">pm</span></h1>
+      <p class="sub">Infinite Process Modeling</p>
+      <p class="quote">“The universe is made of stories, not of atoms.” <span>— Muriel Rukeyser</span></p>
+      <p class="lead">
+        A way to model processes, stories and systems as <strong>readable graphs</strong> — an experiment applying
+        Mark Burgess's <a href="https://semantic.st">Semantic Spacetime γ(3,4)</a>. With just three node kinds
+        (<b class="e">event</b>, <b class="t">thing</b>, <b class="c">concept</b>) and four edge kinds
+        (<b class="e">leads-to</b>, <b class="t">part-of</b>, <b class="c">expresses</b>, <b class="n">near-to</b>),
+        you can sketch any observer's view of anything in space and time.
+      </p>
+
+      <div class="show" aria-roledescription="carousel" aria-label="The infinite.pm visual language, built up step by step">
+        <div class="stage">
+          <figure class="slide on" data-cap="An observer's account: a chain of events.">
+            <img src="slides/01.ipm.svg" alt="Two events on a worldline (orange).">
+          </figure>
+          <figure class="slide" data-cap="…with the things that take part in them.">
+            <img src="slides/03.ipm.svg" alt="Events plus the things (green) participating.">
+          </figure>
+          <figure class="slide" data-cap="Zoom in — a coarse event opens into its sub-events.">
+            <img src="slides/06.ipm.svg" alt="An event zoomed into a chain of sub-events.">
+          </figure>
+          <figure class="slide" data-cap="Events, things and concepts — one composed story.">
+            <img src="slides/08.ipm.svg" alt="The fully composed graph: events, things and concepts.">
+          </figure>
+          <button class="nav prev" aria-label="Previous">&#8249;</button>
+          <button class="nav next" aria-label="Next">&#8250;</button>
+        </div>
+        <p class="cap" aria-live="polite"></p>
+        <div class="dots" role="tablist" aria-label="Choose slide">
+          <button class="dot on" aria-label="Slide 1"></button>
+          <button class="dot" aria-label="Slide 2"></button>
+          <button class="dot" aria-label="Slide 3"></button>
+          <button class="dot" aria-label="Slide 4"></button>
+        </div>
+      </div>
+
+      <p class="cta">
+        <a class="btn" href="intro/">Read the intro &rarr;</a>
+        <a class="lablink" href="https://lab.infinite.pm"><span class="lab">lab</span><span class="d">.</span><span class="inf">infinite</span><span class="d">.</span><span class="pm">pm</span> <span class="ar">&rarr;</span></a>
+      </p>
+    </section>
+
+    <footer class="site">
+      <div class="frow">
+        <span>&copy; infinite.pm &middot; an experiment in Semantic Spacetime modeling &amp; cooperation between agents.</span>
+        <a class="gh" href="https://github.com/infinite-pm/infinite-pm-web" target="_blank" rel="noopener noreferrer" title="View source on GitHub">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-        </svg>
-    </a>
+          </svg>
+          GitHub
+        </a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    (function () {
+      var show = document.querySelector('.show');
+      var slides = [].slice.call(show.querySelectorAll('.slide'));
+      var dots = [].slice.call(show.querySelectorAll('.dot'));
+      var cap = show.querySelector('.cap');
+      var i = 0, timer, resume;
+      function go(n) {
+        i = (n + slides.length) % slides.length;
+        slides.forEach(function (s, k) { s.classList.toggle('on', k === i); });
+        dots.forEach(function (d, k) { d.classList.toggle('on', k === i); });
+        cap.textContent = slides[i].getAttribute('data-cap') || '';
+      }
+      function start() { clearInterval(timer); timer = setInterval(function () { go(i + 1); }, 4800); }
+      // manual prev/next/dot pauses auto-advance for 10 minutes (the pause resets on each interaction)
+      function manual(n) { go(n); clearInterval(timer); clearTimeout(resume); resume = setTimeout(start, 600000); }
+      show.querySelector('.prev').addEventListener('click', function () { manual(i - 1); });
+      show.querySelector('.next').addEventListener('click', function () { manual(i + 1); });
+      dots.forEach(function (d, k) { d.addEventListener('click', function () { manual(k); }); });
+      go(0); start();
+    })();
+  </script>
 </body>
 </html>
