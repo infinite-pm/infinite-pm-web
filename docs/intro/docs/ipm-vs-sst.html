@@ -5,17 +5,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>IPM vs default SST — what we rename</title>
 <style>
-/* Syntax highlighting for ```ipmt``` blocks in the VS Code markdown
- * preview. Colors MIRROR the editor-side
- * `editor.semanticTokenColorCustomizations` defaults in package.json so
- * both panes use the exact same palette.
- *
- * The token color rules below are GENERATED from src/palette.ts by
- * scripts/gen-palette.ts. Edit the palette there and run
- * `npm run gen-palette` — do not hand-edit between the GEN markers.
- *
- * The non-generated rules (`pre.ipmt-block` background etc.) are
- * preserved across generator runs.
+/* Syntax highlighting for ```ipmt``` blocks in the rendered HTML / VS Code
+ * markdown preview. The per-token color rules are composed at runtime from
+ * the palette source of truth (pkg/ipmtokens/palette.json) via
+ * ipmtokens.PaletteCSSRules(); this file holds only the static prelude.
  */
 
 /* Match the editor pane's background + default foreground for ipmt
@@ -40,7 +33,7 @@ code.language-ipmt {
     border-radius: 0;
 }
 
-/* GEN-START palette — do not edit; run `npm run gen-palette` */
+/* GEN-START palette — composed from pkg/ipmtokens/palette.json */
 .ipm-e-title         { color: #ff8000; }
 .ipm-e-alias         { color: #ff8000; }
 .ipm-e-title-aliased { color: #ffaa55; }
@@ -60,9 +53,10 @@ code.language-ipmt {
 .ipm-N               { color: #aaaaaa; font-weight: bold; }
 .ipm-type-marker     { color: #b08fff; }
 .ipm-relation        { color: #b08fff; }
-.ipm-comment         { color: #6a9955; font-style: italic; }
+.ipm-comment         { color: #808080; font-style: italic; }
 .ipm-string          { color: #ce9178; }
 .ipm-tooltip         { color: #b58900; font-style: italic; }
+.ipm-unresolved      { color: #8a8a8a; }
 /* GEN-END palette */
 
 html { font-size: 17px; }
