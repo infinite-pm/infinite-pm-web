@@ -80,13 +80,17 @@ code, kbd, samp { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, C
  * tokens look in the editor pane / fenced blocks. */
 code.language-ipmt { background: transparent; padding: 0; border-radius: 0; }
 blockquote { border-left: 4px solid #d0d7de; padding: 0 1em; color: #57606a; margin-left: 0; }
-header.page-header {
-  display: flex; justify-content: space-between; align-items: baseline;
-  padding-bottom: 0.6em; margin-bottom: 1.6em;
-  border-bottom: 1px solid #e5e5e5; font-size: 0.9em;
-}
-header.page-header a { color: inherit; text-decoration: none; }
-header.page-header a:hover { text-decoration: underline; }
+:root { --orange:#ff8000; --green:#4d8a3a; --blue:#3a78c2; --muted:#57606a; --ink:#1f2328; --line:#e3e7ee; }
+header.top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.6em 0; margin-bottom: 1.8em; border-bottom: 1px solid var(--line); }
+.brand { display: inline-flex; align-items: baseline; gap: .02em; font-weight: 800; font-size: 1.15rem; letter-spacing: -.01em; text-decoration: none; }
+.brand .inf { color: var(--green); } .brand .dot { color: var(--muted); font-weight: 600; } .brand .pm { color: var(--blue); }
+nav.top-links a { color: var(--muted); text-decoration: none; font-size: 0.92rem; font-weight: 600; margin-left: 1.1rem; border-bottom: 2px solid transparent; padding-bottom: 2px; transition: color .15s, border-color .15s; }
+nav.top-links a:hover { color: var(--ink); border-color: var(--orange); text-decoration: none; }
+footer.site { border-top: 1px solid var(--line); margin-top: 3em; padding: 1.6em 0 2em; color: var(--muted); font-size: 0.9rem; }
+footer.site .frow { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+footer.site a { color: var(--muted); text-decoration: none; border-bottom: 1px solid transparent; }
+footer.site a:hover { color: var(--ink); border-color: var(--orange); text-decoration: none; }
+footer.site .gh { display: inline-flex; align-items: center; gap: .4rem; }
 pre.ipmt-block { position: relative; padding: 0.7em 0.9em; border-radius: 4px; overflow-x: auto; background: #f6f8fa; }
 .ipmt-copy {
   position: absolute; top: 0.4em; right: 0.4em;
@@ -129,10 +133,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 
 </head>
 <body>
-<header class="page-header">
-  <a href="https://infinite.pm/intro">infinite.pm / intro</a>
-  <a href="https://github.com/infinite-pm/ipm-intro/blob/main/docs/examples/meta-ipm.md">View source on GitHub</a>
-</header>
+<header class="top"><a class="brand" href="https://infinite.pm/"><span class="inf">infinite</span><span class="dot">.</span><span class="pm">pm</span></a><nav class="top-links"><a href="https://infinite.pm/">Home</a><a href="https://infinite.pm/intro">Intro</a></nav></header>
 <h1 id="meta--implicit">Meta / Implicit</h1>
 <p>Every ipmt node has an implicit SST kind (event, thing, or concept). These snippets make that implicit kind explicit by pointing the node at its SST meta-concept and then at <code>imp (sst)</code> — the umbrella concept for &quot;an instance of an SST primitive.&quot;</p>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="560" height="300" viewBox="0 0 560 300">
@@ -229,6 +230,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 </svg></figure>
 <pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-c-title">human</span> <span class="ipm-c-marker">::c</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">concept (sst)</span> <span class="ipm-c-marker">::c</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">imp (sst)</span> <span class="ipm-c-marker">::c</span></code></pre>
 
+<footer class="site"><div class="frow"><span>© infinite.pm · an experiment in Semantic Spacetime modeling &amp; cooperation between agents.</span><a class="gh" href="https://github.com/infinite-pm/ipm-intro/blob/main/docs/examples/meta-ipm.md" target="_blank" rel="noopener noreferrer" title="View source on GitHub"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a></div></footer>
 <script>
 document.addEventListener('click', function (e) {
   var btn = e.target.closest && e.target.closest('.ipmt-copy');

@@ -80,13 +80,17 @@ code, kbd, samp { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, C
  * tokens look in the editor pane / fenced blocks. */
 code.language-ipmt { background: transparent; padding: 0; border-radius: 0; }
 blockquote { border-left: 4px solid #d0d7de; padding: 0 1em; color: #57606a; margin-left: 0; }
-header.page-header {
-  display: flex; justify-content: space-between; align-items: baseline;
-  padding-bottom: 0.6em; margin-bottom: 1.6em;
-  border-bottom: 1px solid #e5e5e5; font-size: 0.9em;
-}
-header.page-header a { color: inherit; text-decoration: none; }
-header.page-header a:hover { text-decoration: underline; }
+:root { --orange:#ff8000; --green:#4d8a3a; --blue:#3a78c2; --muted:#57606a; --ink:#1f2328; --line:#e3e7ee; }
+header.top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.6em 0; margin-bottom: 1.8em; border-bottom: 1px solid var(--line); }
+.brand { display: inline-flex; align-items: baseline; gap: .02em; font-weight: 800; font-size: 1.15rem; letter-spacing: -.01em; text-decoration: none; }
+.brand .inf { color: var(--green); } .brand .dot { color: var(--muted); font-weight: 600; } .brand .pm { color: var(--blue); }
+nav.top-links a { color: var(--muted); text-decoration: none; font-size: 0.92rem; font-weight: 600; margin-left: 1.1rem; border-bottom: 2px solid transparent; padding-bottom: 2px; transition: color .15s, border-color .15s; }
+nav.top-links a:hover { color: var(--ink); border-color: var(--orange); text-decoration: none; }
+footer.site { border-top: 1px solid var(--line); margin-top: 3em; padding: 1.6em 0 2em; color: var(--muted); font-size: 0.9rem; }
+footer.site .frow { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+footer.site a { color: var(--muted); text-decoration: none; border-bottom: 1px solid transparent; }
+footer.site a:hover { color: var(--ink); border-color: var(--orange); text-decoration: none; }
+footer.site .gh { display: inline-flex; align-items: center; gap: .4rem; }
 pre.ipmt-block { position: relative; padding: 0.7em 0.9em; border-radius: 4px; overflow-x: auto; background: #f6f8fa; }
 .ipmt-copy {
   position: absolute; top: 0.4em; right: 0.4em;
@@ -129,10 +133,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 
 </head>
 <body>
-<header class="page-header">
-  <a href="https://infinite.pm/intro">infinite.pm / intro</a>
-  <a href="https://github.com/infinite-pm/ipm-intro/blob/main/README.md">View source on GitHub</a>
-</header>
+<header class="top"><a class="brand" href="https://infinite.pm/"><span class="inf">infinite</span><span class="dot">.</span><span class="pm">pm</span></a><nav class="top-links"><a href="https://infinite.pm/">Home</a><a href="https://infinite.pm/intro">Intro</a></nav></header>
 <h1 id="infinitepm">infinite.pm</h1>
 <nav class="toc"><div class="toc-title">Contents</div><ul><li class="toc-lvl-2"><a href="#what-is-infinitepm">What is infinite.pm?</a></li><li class="toc-lvl-2"><a href="#the-three-node-kinds">The three node kinds</a></li><li class="toc-lvl-3"><a href="#every-model-has-a-purpose">Every model has a purpose</a></li><li class="toc-lvl-3"><a href="#every-model-is-an-observers-account">Every model is an observer&#039;s account</a></li><li class="toc-lvl-2"><a href="#build-it-up--by-example">Build it up — by example</a></li><li class="toc-lvl-3"><a href="#step-1--just-an-event-chain">Step 1 — just an event chain</a></li><li class="toc-lvl-3"><a href="#step-2--add-a-participant-thing--event">Step 2 — add a participant (thing → event)</a></li><li class="toc-lvl-3"><a href="#step-3--give-a-property-with-a-concept">Step 3 — give a property with a concept</a></li><li class="toc-lvl-3"><a href="#step-4--bring-it-together-with-a-parent-event">Step 4 — bring it together, with a parent event</a></li><li class="toc-lvl-2"><a href="#the-four-edge-kinds">The four edge kinds</a></li><li class="toc-lvl-2"><a href="#all-allowed-edges">All allowed edges</a></li><li class="toc-lvl-2"><a href="#where-to-look-next">Where to look next</a></li><li class="toc-lvl-2"><a href="#related-repos">Related repos</a></li></ul></nav>
 
@@ -662,131 +663,135 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <p>A concept is what stays the same across all events and things that express it — what Mark Burgess calls a <strong>quasi-invariant pattern</strong>. The patterns are out there in the scene, but <strong>which patterns the observer names</strong> is a choice, not a fact about the world: Mark writes that &quot;there is no universal set of concepts to subdivide knowledge … these are merely ad hoc ways of spanning a collection of connected ideas, chosen by convention or happenstance&quot; (<a href="https://medium.com/@mark-burgess-oslo-mb/avoiding-the-ontology-trap-how-biotech-shows-us-how-to-link-knowledge-spaces-654bcbb9122a">Avoiding the Ontology Trap</a>). Two honest observers can carve the same scene into different — and equally valid — concept vocabularies; writing <code class="language-ipmt"><span class="ipm-c-title">swap of clothing</span> <span class="ipm-c-marker">::c</span></code> is the modeler saying <em>this is the pattern I noticed and chose to name</em>.</p>
 <h3 id="step-4--bring-it-together-with-a-parent-event">Step 4 — bring it together, with a parent event<span class="heading-ctls"><a class="heading-ctl-anchor" href="#step-4--bring-it-together-with-a-parent-event" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h3>
 <p>The full story is now the <strong>strict composition of the earlier steps</strong>: the three-level event tree from Step 2's last diagram (top <code class="language-ipmt"><span class="ipm-e-title">wearBW</span></code>, mid-level wear → swap → wear, inner take-off → half-naked → take-on), the <strong>things from Step 2</strong> (Patrick, both t-shirts) attached at the same levels they appeared, and the <strong>concepts from Step 3</strong> (<code class="language-ipmt"><span class="ipm-c-title">human</span> <span class="ipm-c-marker">::c</span></code>, <code class="language-ipmt"><span class="ipm-c-title">swap of clothing</span> <span class="ipm-c-marker">::c</span></code>). Part-of transitivity carries Patrick into every sub-event automatically, so we attach him only at the top.</p>
-<figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="1460" height="750" viewBox="0 0 1460 750">
-  <!-- ipm-svg meta: generated-by=ipm-rpc@v0.0.0-20260605073218-920e71084a98 hash=9fab3bdb source-file=README.md source-id=08 -->
+<figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1390" viewBox="0 0 1280 1390">
+  <!-- ipm-svg meta: generated-by=ipm-rpc@v0.0.0-20260605073218-920e71084a98 hash=4c1f0991 source-file=README.md source-id=08 -->
   <defs>
   </defs>
   <g id="container-shells">
   </g>
   <g id="node-shadows">
-    <rect x="400" y="340" width="120" height="80" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
-    <rect x="40" y="350" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
-    <rect x="940" y="130" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
-    <rect x="940" y="370" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
-    <rect x="1120" y="320" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
-    <rect x="1120" y="180" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
-    <rect x="1120" y="420" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
-    <rect x="1300" y="420" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
-    <rect x="440" y="50" width="40" height="40" rx="4" ry="4" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
-    <rect x="440" y="670" width="40" height="40" rx="4" ry="4" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
-    <rect x="580" y="130" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
-    <rect x="580" y="275" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
-    <rect x="580" y="570" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
-    <rect x="760" y="130" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
-    <rect x="760" y="250" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
-    <rect x="760" y="370" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
-    <rect x="500" y="475" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
-    <rect x="220" y="350" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="400" y="655" width="120" height="80" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="500" y="880" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="220" y="665" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="40" y="665" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="940" y="390" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="940" y="490" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="940" y="1210" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="1120" y="490" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="440" y="40" width="40" height="40" rx="4" ry="4" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="440" y="1310" width="40" height="40" rx="4" ry="4" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="580" y="120" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="580" y="680" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="580" y="1000" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="760" y="440" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="760" y="1160" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="760" y="560" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="760" y="680" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="760" y="800" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
   </g>
   <g id="edges">
-    <line x1="460.00" y1="424.00" x2="460.00" y2="659.25" stroke="#ff8000" stroke-width="3" />
-    <path d="M 460.00 666.00 L 455.50 657.00 L 460.00 659.25 L 464.50 657.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
-    <line x1="1061.32" y1="172.78" x2="1116.46" y2="330.85" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
-    <path d="M 1118.68 337.22 L 1111.47 330.21 L 1116.46 330.85 L 1119.97 327.24 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
-    <line x1="1062.85" y1="153.80" x2="1112.33" y2="202.46" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
-    <path d="M 1117.15 207.20 L 1107.58 204.09 L 1112.33 202.46 L 1113.89 197.68 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
-    <line x1="936.00" y1="160.00" x2="890.75" y2="160.00" stroke="#82b366" stroke-width="3" />
-    <path d="M 884.00 160.00 L 893.00 155.50 L 890.75 160.00 L 893.00 164.50 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
-    <line x1="1063.53" y1="389.12" x2="1110.51" y2="364.06" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
-    <path d="M 1116.47 360.88 L 1110.65 369.09 L 1110.51 364.06 L 1106.41 361.15 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
-    <line x1="1063.30" y1="411.26" x2="1111.12" y2="443.93" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
-    <path d="M 1116.70 447.74 L 1106.73 446.38 L 1111.12 443.93 L 1111.81 438.95 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
-    <line x1="936.00" y1="400.00" x2="890.75" y2="400.00" stroke="#82b366" stroke-width="3" />
-    <path d="M 884.00 400.00 L 893.00 395.50 L 890.75 400.00 L 893.00 404.50 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
-    <line x1="1241.01" y1="213.87" x2="1297.30" y2="430.60" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
-    <path d="M 1298.99 437.13 L 1292.38 429.55 L 1297.30 430.60 L 1301.09 427.29 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
-    <line x1="1243.96" y1="450.59" x2="1289.37" y2="457.41" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
-    <path d="M 1296.04 458.41 L 1286.48 461.52 L 1289.37 457.41 L 1287.81 452.62 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
-    <line x1="460.00" y1="94.00" x2="460.00" y2="329.25" stroke="#ff8000" stroke-width="3" />
-    <path d="M 460.00 336.00 L 455.50 327.00 L 460.00 329.25 L 464.50 327.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
-    <line x1="578.83" y1="163.82" x2="523.15" y2="345.72" stroke="#82b366" stroke-width="3" />
-    <path d="M 521.17 352.18 L 519.50 342.25 L 523.15 345.72 L 528.11 344.89 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
-    <line x1="640.00" y1="194.00" x2="640.00" y2="264.25" stroke="#ff8000" stroke-width="3" />
-    <path d="M 640.00 271.00 L 635.50 262.00 L 640.00 264.25 L 644.50 262.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
-    <line x1="577.50" y1="308.12" x2="526.72" y2="371.61" stroke="#82b366" stroke-width="3" />
-    <path d="M 522.50 376.88 L 524.61 367.04 L 526.72 371.61 L 531.63 372.66 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
-    <line x1="657.69" y1="338.99" x2="640.82" y2="559.28" stroke="#ff8000" stroke-width="3" />
-    <path d="M 640.31 566.01 L 636.51 556.69 L 640.82 559.28 L 645.48 557.38 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
-    <line x1="620.38" y1="338.66" x2="564.35" y2="465.17" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
-    <path d="M 561.62 471.34 L 561.15 461.29 L 564.35 465.17 L 569.38 464.94 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
-    <line x1="578.83" y1="596.18" x2="523.15" y2="414.28" stroke="#82b366" stroke-width="3" />
-    <path d="M 521.17 407.82 L 528.11 415.11 L 523.15 414.28 L 519.50 417.75 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
-    <line x1="758.29" y1="163.62" x2="704.59" y2="277.28" stroke="#82b366" stroke-width="3" />
-    <path d="M 701.71 283.38 L 701.48 273.32 L 704.59 277.28 L 709.62 277.17 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
-    <line x1="820.00" y1="194.00" x2="820.00" y2="239.25" stroke="#ff8000" stroke-width="3" />
-    <path d="M 820.00 246.00 L 815.50 237.00 L 820.00 239.25 L 824.50 237.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
-    <line x1="756.31" y1="281.54" x2="709.92" y2="300.87" stroke="#82b366" stroke-width="3" />
-    <path d="M 703.69 303.46 L 710.27 295.85 L 709.92 300.87 L 713.73 304.15 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
-    <line x1="820.00" y1="314.00" x2="820.00" y2="359.25" stroke="#ff8000" stroke-width="3" />
-    <path d="M 820.00 366.00 L 815.50 357.00 L 820.00 359.25 L 824.50 357.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
-    <line x1="757.54" y1="396.84" x2="706.61" y2="331.48" stroke="#82b366" stroke-width="3" />
-    <path d="M 702.46 326.16 L 711.54 330.49 L 706.61 331.48 L 704.44 336.02 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
-    <line x1="344.00" y1="380.00" x2="389.25" y2="380.00" stroke="#82b366" stroke-width="3" />
-    <path d="M 396.00 380.00 L 387.00 384.50 L 389.25 380.00 L 387.00 375.50 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
-    <line x1="216.00" y1="380.00" x2="170.75" y2="380.00" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
-    <path d="M 164.00 380.00 L 173.00 375.50 L 170.75 380.00 L 173.00 384.50 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="460.00" y1="739.00" x2="460.00" y2="1299.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 460.00 1306.00 L 455.50 1297.00 L 460.00 1299.25 L 464.50 1297.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="344.00" y1="695.00" x2="389.25" y2="695.00" stroke="#82b366" stroke-width="3" />
+    <path d="M 396.00 695.00 L 387.00 699.50 L 389.25 695.00 L 387.00 690.50 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="216.00" y1="695.00" x2="170.75" y2="695.00" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 164.00 695.00 L 173.00 690.50 L 170.75 695.00 L 173.00 699.50 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="1063.96" y1="519.41" x2="1109.37" y2="512.59" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 1116.04 511.59 L 1107.81 517.38 L 1109.37 512.59 L 1106.48 508.48 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="1060.34" y1="1236.01" x2="1119.10" y2="539.71" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 1119.66 532.99 L 1123.39 542.33 L 1119.10 539.71 L 1114.42 541.58 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="460.00" y1="84.00" x2="460.00" y2="644.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 460.00 651.00 L 455.50 642.00 L 460.00 644.25 L 464.50 642.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="579.54" y1="153.97" x2="521.23" y2="660.32" stroke="#82b366" stroke-width="3" />
+    <path d="M 520.46 667.03 L 517.02 657.57 L 521.23 660.32 L 525.96 658.60 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="640.00" y1="184.00" x2="640.00" y2="669.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 640.00 676.00 L 635.50 667.00 L 640.00 669.25 L 644.50 667.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="576.12" y1="709.03" x2="530.43" y2="697.61" stroke="#82b366" stroke-width="3" />
+    <path d="M 523.88 695.97 L 533.70 693.79 L 530.43 697.61 L 531.52 702.52 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="620.75" y1="743.80" x2="579.36" y2="869.79" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 577.25 876.20 L 575.78 866.24 L 579.36 869.79 L 584.33 869.05 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="657.72" y1="743.99" x2="640.74" y2="989.28" stroke="#ff8000" stroke-width="3" />
+    <path d="M 640.28 996.01 L 636.41 986.72 L 640.74 989.28 L 645.39 987.34 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="579.24" y1="1026.07" x2="522.04" y2="729.56" stroke="#82b366" stroke-width="3" />
+    <path d="M 520.76 722.93 L 526.88 730.91 L 522.04 729.56 L 518.04 732.62 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="883.07" y1="458.44" x2="931.74" y2="417.88" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 936.93 413.56 L 932.89 422.78 L 931.74 417.88 L 927.13 415.87 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="883.30" y1="481.26" x2="931.12" y2="513.93" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 936.70 517.74 L 926.73 516.38 L 931.12 513.93 L 931.81 508.95 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="759.26" y1="466.07" x2="701.98" y2="160.57" stroke="#82b366" stroke-width="3" />
+    <path d="M 700.74 153.93 L 706.82 161.95 L 701.98 160.57 L 697.97 163.61 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="820.00" y1="504.00" x2="820.00" y2="549.25" stroke="#82b366" stroke-width="3" />
+    <path d="M 820.00 556.00 L 815.50 547.00 L 820.00 549.25 L 824.50 547.00 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="880.32" y1="1177.01" x2="939.15" y2="439.72" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 939.68 432.99 L 943.45 442.32 L 939.15 439.72 L 934.48 441.60 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="883.30" y1="1201.26" x2="931.12" y2="1233.93" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 936.70 1237.74 L 926.73 1236.38 L 931.12 1233.93 L 931.81 1228.95 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="758.60" y1="1186.25" x2="703.77" y2="1040.07" stroke="#82b366" stroke-width="3" />
+    <path d="M 701.40 1033.75 L 708.78 1040.59 L 703.77 1040.07 L 700.35 1043.75 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="820.00" y1="1156.00" x2="820.00" y2="870.75" stroke="#82b366" stroke-width="3" />
+    <path d="M 820.00 864.00 L 824.50 873.00 L 820.00 870.75 L 815.50 873.00 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="757.97" y1="593.45" x2="705.45" y2="682.73" stroke="#82b366" stroke-width="3" />
+    <path d="M 702.03 688.55 L 702.71 678.51 L 705.45 682.73 L 710.47 683.08 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="820.00" y1="624.00" x2="820.00" y2="669.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 820.00 676.00 L 815.50 667.00 L 820.00 669.25 L 824.50 667.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="756.00" y1="710.00" x2="710.75" y2="710.00" stroke="#82b366" stroke-width="3" />
+    <path d="M 704.00 710.00 L 713.00 705.50 L 710.75 710.00 L 713.00 714.50 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="820.00" y1="744.00" x2="820.00" y2="789.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 820.00 796.00 L 815.50 787.00 L 820.00 789.25 L 824.50 787.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="757.97" y1="826.55" x2="705.45" y2="737.27" stroke="#82b366" stroke-width="3" />
+    <path d="M 702.03 731.45 L 710.47 736.92 L 705.45 737.27 L 702.71 741.49 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
   </g>
   <g id="nodes">
-    <rect x="400" y="340" width="120" height="80" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
-    <text x="460" y="363" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">Patrick wears</text>
-    <text x="460" y="380" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">black then</text>
-    <text x="460" y="397" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">wears white</text>
-    <rect x="40" y="350" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
-    <text x="100" y="380" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">human</text>
-    <rect x="940" y="130" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
-    <text x="1000" y="150" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">black</text>
-    <text x="1000" y="170" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">t-shirt</text>
-    <rect x="940" y="370" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
-    <text x="1000" y="390" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">white</text>
-    <text x="1000" y="410" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">t-shirt</text>
-    <rect x="1120" y="320" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
-    <text x="1180" y="350" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">t-shirt</text>
-    <rect x="1120" y="180" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
-    <text x="1180" y="210" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">black</text>
-    <rect x="1120" y="420" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
-    <text x="1180" y="450" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">white</text>
-    <rect x="1300" y="420" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
-    <text x="1360" y="450" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">color</text>
-    <rect x="440" y="50" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
-    <text x="460" y="70" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">S</text>
-    <rect x="440" y="670" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
-    <text x="460" y="690" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
-    <rect x="580" y="130" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
-    <text x="640" y="141" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Patrick</text>
-    <text x="640" y="160" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">wears black</text>
-    <text x="640" y="179" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">t-shirt</text>
-    <rect x="580" y="275" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
-    <text x="640" y="286" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Patrick</text>
-    <text x="640" y="305" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">swaps</text>
-    <text x="640" y="324" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">t-shirt</text>
-    <rect x="580" y="570" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
-    <text x="640" y="581" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Patrick</text>
-    <text x="640" y="600" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">wears white</text>
-    <text x="640" y="619" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">t-shirt</text>
-    <rect x="760" y="130" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
-    <text x="820" y="150" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Take off</text>
-    <text x="820" y="170" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">black</text>
-    <rect x="760" y="250" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
-    <text x="820" y="270" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Patrick</text>
-    <text x="820" y="290" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">half-naked</text>
-    <rect x="760" y="370" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
-    <text x="820" y="390" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Take on</text>
-    <text x="820" y="410" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">white</text>
-    <rect x="500" y="475" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
-    <text x="560" y="495" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">swap of</text>
-    <text x="560" y="515" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">clothing</text>
-    <rect x="220" y="350" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
-    <text x="280" y="380" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">Patrick</text>
+    <rect x="400" y="655" width="120" height="80" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="460" y="678" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">Patrick wears</text>
+    <text x="460" y="695" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">black then</text>
+    <text x="460" y="712" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">wears white</text>
+    <rect x="500" y="880" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="560" y="900" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">swap of</text>
+    <text x="560" y="920" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">clothing</text>
+    <rect x="220" y="665" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+    <text x="280" y="695" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">Patrick</text>
+    <rect x="40" y="665" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="100" y="695" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">human</text>
+    <rect x="940" y="390" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="1000" y="420" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">t-shirt</text>
+    <rect x="940" y="490" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="1000" y="520" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">black</text>
+    <rect x="940" y="1210" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="1000" y="1240" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">white</text>
+    <rect x="1120" y="490" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="1180" y="520" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">color</text>
+    <rect x="440" y="40" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="460" y="60" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">S</text>
+    <rect x="440" y="1310" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="460" y="1330" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
+    <rect x="580" y="120" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="640" y="131" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Patrick</text>
+    <text x="640" y="150" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">wears black</text>
+    <text x="640" y="169" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">t-shirt</text>
+    <rect x="580" y="680" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="640" y="691" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Patrick</text>
+    <text x="640" y="710" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">swaps</text>
+    <text x="640" y="729" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">t-shirt</text>
+    <rect x="580" y="1000" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="640" y="1011" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Patrick</text>
+    <text x="640" y="1030" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">wears white</text>
+    <text x="640" y="1049" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">t-shirt</text>
+    <rect x="760" y="440" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+    <text x="820" y="460" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">black</text>
+    <text x="820" y="480" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">t-shirt</text>
+    <rect x="760" y="1160" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+    <text x="820" y="1180" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">white</text>
+    <text x="820" y="1200" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">t-shirt</text>
+    <rect x="760" y="560" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="820" y="580" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Take off</text>
+    <text x="820" y="600" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">black</text>
+    <rect x="760" y="680" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="820" y="700" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Patrick</text>
+    <text x="820" y="720" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">half-naked</text>
+    <rect x="760" y="800" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="820" y="820" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Take on</text>
+    <text x="820" y="840" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">white</text>
   </g>
 </svg></figure>
 <pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-e-title-aliased">Patrick wears black then wears white</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">wearBW</span><span class="ipm-type-marker">::a</span>
@@ -796,6 +801,8 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
   <span class="ipm-L">--&gt;</span> <span class="ipm-e-title-aliased">Patrick wears white t-shirt</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">wearW</span><span class="ipm-type-marker">::a</span>
 
 <span class="ipm-e-alias">wearB</span>, <span class="ipm-e-alias">swapT</span>, <span class="ipm-e-alias">wearW</span> <span class="ipm-P">--</span><span class="ipm-relation">::P</span><span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearBW</span>
+<span class="ipm-t-title">black t-shirt</span> <span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearB</span>
+<span class="ipm-t-title">white t-shirt</span> <span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearW</span>
 
 <span class="ipm-e-title-aliased">Take off black</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">takeOff</span><span class="ipm-type-marker">::a</span>       <span class="ipm-P">--</span><span class="ipm-relation">::P</span><span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">swapT</span>
 <span class="ipm-e-title-aliased">Patrick half-naked</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">halfNaked</span><span class="ipm-type-marker">::a</span> <span class="ipm-P">--</span><span class="ipm-relation">::P</span><span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">swapT</span>
@@ -974,6 +981,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <h2 id="related-repos">Related repos<span class="heading-ctls"><a class="heading-ctl-anchor" href="#related-repos" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
 <p>All <code>infinite.pm</code> repositories live under the <a href="https://github.com/orgs/infinite-pm/repositories"><code>infinite-pm</code> GitHub org</a>.</p>
 
+<footer class="site"><div class="frow"><span>© infinite.pm · an experiment in Semantic Spacetime modeling &amp; cooperation between agents.</span><a class="gh" href="https://github.com/infinite-pm/ipm-intro/blob/main/README.md" target="_blank" rel="noopener noreferrer" title="View source on GitHub"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a></div></footer>
 <script>
 document.addEventListener('click', function (e) {
   var btn = e.target.closest && e.target.closest('.ipmt-copy');
