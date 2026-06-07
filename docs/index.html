@@ -52,8 +52,15 @@
     .hero h1 { font-size: clamp(2rem, 6vw, 3rem); font-weight: 800; letter-spacing: -.02em; }
     .hero h1 .inf { color: var(--green); } .hero h1 .pm { color: var(--blue); } .hero h1 .dot { color: var(--muted); }
     .hero .sub { color: var(--muted); font-size: 1.05rem; margin-top: .35rem; font-weight: 600; }
-    .hero .quote { color: var(--muted); font-style: italic; margin-top: 1rem; }
-    .hero .quote span { color: #8a93a3; font-style: normal; font-size: .9rem; }
+    .hero .quotes { position: relative; max-width: 640px; min-height: 6em; margin: 1rem auto 0; }
+    .hero .q {
+      position: absolute; inset: 0; margin: 0; padding: 0 1rem;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; color: var(--muted); font-style: italic; font-size: 1.05rem;
+      opacity: 0; transition: opacity .6s ease;
+    }
+    .hero .q.on { opacity: 1; }
+    .hero .q cite { font-style: normal; color: #8a93a3; font-size: .88rem; margin-top: .25rem; }
     .hero .lead { max-width: 640px; margin: .9rem auto 0; color: var(--ink); }
     .hero .lead a { color: var(--blue); text-decoration: none; border-bottom: 1px solid rgba(58,120,194,.35); }
     .hero .lead a:hover { border-color: var(--blue); }
@@ -106,6 +113,7 @@
       nav.top-links a { margin-left: .8rem; font-size: .85rem; }
       .brand { font-size: 1.02rem; }
       .stage { height: 320px; }
+      .hero .quotes { min-height: 11em; }
     }
   </style>
 </head>
@@ -123,7 +131,29 @@
     <section class="hero">
       <h1><span class="inf">infinite</span><span class="dot">.</span><span class="pm">pm</span></h1>
       <p class="sub">Infinite Process Modeling</p>
-      <p class="quote">“The universe is made of stories, not of atoms.” <span>— Muriel Rukeyser</span></p>
+      <div class="quotes" aria-live="polite">
+        <blockquote class="q on">“The universe is made of stories, not of atoms.”<cite>— Muriel Rukeyser</cite></blockquote>
+        <blockquote class="q">“Everything said is said by an observer.”<cite>— Humberto Maturana</cite></blockquote>
+        <blockquote class="q">“We do not see things as they are, we see them as we are.”<cite>— Anaïs Nin</cite></blockquote>
+        <blockquote class="q">“All models are wrong, but some are useful.”<cite>— George Box (statistician)</cite></blockquote>
+        <blockquote class="q">“The world is not a collection of things, it is a collection of events.”<cite>— Carlo Rovelli</cite></blockquote>
+        <blockquote class="q">“No phenomenon is a real phenomenon until it is an observed phenomenon.”<cite>— John Archibald Wheeler</cite></blockquote>
+        <blockquote class="q">“The past has no existence except as it is recorded in the present.”<cite>— John Archibald Wheeler</cite></blockquote>
+        <blockquote class="q">“An object is a monotonous process.”<cite>— Nelson Goodman</cite></blockquote>
+        <blockquote class="q">“A model: a simplified representation of something for a purpose.”<cite>— Joshua Spodek</cite></blockquote>
+        <blockquote class="q">“The difference between things and events is that things persist in time; events have a limited duration… The world is made up of networks of kisses, not of stones.”<cite>— Carlo Rovelli</cite></blockquote>
+        <blockquote class="q">“The world is not made of objects, but of relationships.”<cite>— Carlo Rovelli</cite></blockquote>
+        <blockquote class="q">“Bits are not bugs, and data is not knowledge. Information is a relationship between a system and its environment.”<cite>— Heinz von Foerster</cite></blockquote>
+        <blockquote class="q">“The map is not the territory.”<cite>— Alfred Korzybski</cite></blockquote>
+        <blockquote class="q">“Our fascination with logic itself is based on the fallacy that there are invariant truths about the world.”<cite>— Mark Burgess</cite></blockquote>
+        <blockquote class="q">“A recording isn’t knowledge. A single data point is little better than looking up someone in the telephone directory — that doesn’t mean we know them!”<cite>— Mark Burgess</cite></blockquote>
+        <blockquote class="q">“Relationships between objects constitute our notion of space. When these relationships change we interpret this as the passage of time.”<cite>— Mark Burgess</cite></blockquote>
+        <blockquote class="q">“Observer interpretations are essential to the way we understand these relationships. Hence observer semantics are an integral part of what we mean by spacetime.”<cite>— Mark Burgess</cite></blockquote>
+        <blockquote class="q">“A promise is a statement of intent… It’s always better to flip the discussion around to what promises components can make independently.”<cite>— Mark Burgess</cite></blockquote>
+        <blockquote class="q">“Knowledge doesn’t always come directly from a specific thing or source. It’s a process about understanding processes — about telling stories.”<cite>— Mark Burgess</cite></blockquote>
+        <blockquote class="q">“The meaning in memory is derived from our Intentional Focus and our Ambient Context.”<cite>— Mark Burgess</cite></blockquote>
+        <blockquote class="q">“The nature of space and time is intrinsically linked to the problem of measurement.”<cite>— Mark Burgess</cite></blockquote>
+      </div>
       <p class="lead">
         A way to model processes, stories and systems as <strong>readable graphs</strong> — an experiment applying
         Mark Burgess's <a href="https://semantic.st">Semantic Spacetime γ(3,4)</a>. With just three node kinds
@@ -179,6 +209,20 @@
   </div>
 
   <script>
+    // rotating quotes — automated, every 10s, starting on a random quote
+    (function () {
+      var qs = [].slice.call(document.querySelectorAll('.hero .quotes .q'));
+      if (!qs.length) return;
+      var qi = Math.floor(Math.random() * qs.length);
+      qs.forEach(function (q, k) { q.classList.toggle('on', k === qi); });
+      if (qs.length > 1) {
+        setInterval(function () {
+          qs[qi].classList.remove('on');
+          qi = (qi + 1) % qs.length;
+          qs[qi].classList.add('on');
+        }, 10000);
+      }
+    })();
     (function () {
       var show = document.querySelector('.show');
       var slides = [].slice.call(show.querySelectorAll('.slide'));
