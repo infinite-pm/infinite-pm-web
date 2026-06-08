@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>IPM vs default SST — what we rename</title>
+<title>IPM vs default SST - what we rename</title>
 <style>
 /* Syntax highlighting for ```ipmt``` blocks in the rendered HTML / VS Code
  * markdown preview. The per-token color rules are composed at runtime from
@@ -134,20 +134,20 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 </head>
 <body>
 <header class="top"><a class="brand" href="https://infinite.pm/"><span class="inf">infinite</span><span class="dot">.</span><span class="pm">pm</span></a><nav class="top-links"><a href="https://infinite.pm/">Home</a><a href="https://infinite.pm/intro">Intro</a></nav></header>
-<h1 id="ipm-vs-default-sst--what-we-rename">IPM vs default SST — what we rename</h1>
+<h1 id="ipm-vs-default-sst---what-we-rename">IPM vs default SST - what we rename</h1>
 <nav class="toc"><div class="toc-title">Contents</div><ul><li class="toc-lvl-2"><a href="#further-reading">Further reading</a></li></ul></nav>
 
-<p>This doc explains the two label changes IPM makes on top of Mark Burgess's original Semantic Spacetime γ(3,4) — and why. For the main IPM modeling introduction, see the <a href="../README.html">README</a>.</p>
-<p>IPM is built directly on Mark Burgess's <strong><a href="https://semantic.st/">Semantic Spacetime γ(3,4)</a></strong> (&quot;gamma 3, 4&quot; — three kinds of nodes, four kinds of relations). IPM tweaks two of the original SST labels for readability:</p>
-<img src="etc-triangles.png" alt="SST γ(3,4) vs IPM triangles — LCEN on the left, LPXN on the right" height="500"/>
+<p>This doc explains the two label changes IPM makes on top of Mark Burgess's original Semantic Spacetime γ(3,4) - and why. For the main IPM modeling introduction, see the <a href="../README.html">README</a>.</p>
+<p>IPM is built directly on Mark Burgess's <strong><a href="https://semantic.st/">Semantic Spacetime γ(3,4)</a></strong> (&quot;gamma 3, 4&quot; - three kinds of nodes, four kinds of relations). IPM tweaks two of the original SST labels for readability:</p>
+<img src="etc-triangles.png" alt="SST γ(3,4) vs IPM triangles - LCEN on the left, LPXN on the right" height="500"/>
 <ul>
-<li><strong>C → P, with the direction reversed.</strong> SST's <em>contains</em> (<code>car --C--&gt; engine</code> — the car spatially encloses the engine) becomes IPM's <em>part-of</em> (<code>engine --P--&gt; car</code>). Containment in SST is a <strong>spatial</strong> property — a ring drawn around a region, not a generic hierarchy. The graph is the same; we prefer &quot;part-of&quot; because it reads naturally for participation (&quot;Patrick is part of the swap event&quot;), and the arrow then points from the small thing toward its larger spatial container.</li>
+<li><strong>C → P, with the direction reversed.</strong> SST's <em>contains</em> (<code>car --C--&gt; engine</code> - the car spatially encloses the engine) becomes IPM's <em>part-of</em> (<code>engine --P--&gt; car</code>). Containment in SST is a <strong>spatial</strong> property - a ring drawn around a region, not a generic hierarchy. The graph is the same; we prefer &quot;part-of&quot; because it reads naturally for participation (&quot;Patrick is part of the swap event&quot;), and the arrow then points from the small thing toward its larger spatial container.</li>
 <li><strong>E → X.</strong> SST's <em>expresses</em> relation is shortened to X so that the capital letter for the relation does not collide visually with the lowercase <strong>e</strong> used for an event node. (<code>E</code> next to <code>e</code> is easy to mis-read; <code>X</code> next to <code>e</code> is not.)</li>
 </ul>
 <p><code>L</code> (leads-to) and <code>N</code> (near-to) keep their SST names. So the IPM mnemonic for the four edges becomes <strong>LPXN</strong>, in place of SST's <strong>LCEN</strong>.</p>
 <h2 id="further-reading">Further reading<span class="heading-ctls"><a class="heading-ctl-anchor" href="#further-reading" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
 <ul>
-<li>Mark Burgess, <a href="https://mark-burgess-oslo-mb.medium.com/designing-nodes-and-arrows-in-knowledge-graphs-with-semantic-spacetime-0992b9cae595">Designing Nodes and Arrows in Knowledge Graphs with Semantic Spacetime</a> — the source article for the LCEN triangle.</li>
+<li>Mark Burgess, <a href="https://mark-burgess-oslo-mb.medium.com/designing-nodes-and-arrows-in-knowledge-graphs-with-semantic-spacetime-0992b9cae595">Designing Nodes and Arrows in Knowledge Graphs with Semantic Spacetime</a> - the source article for the LCEN triangle.</li>
 <li>The <a href="https://semantic.st/"><code>semantic.st</code></a> project home for the broader SST framework.</li>
 <li>The <a href="../README.html#where-to-look-next">README's &quot;Where to look next&quot; section</a> for the full external-reading list.</li>
 </ul>
