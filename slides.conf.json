@@ -1,0 +1,9 @@
+{
+  "out_dir": "docs/slides",
+  "slide": [
+    { "src": "../ipm-intro/_ipm/README/100.ipm.svg", "out": "01.ipm.svg" },
+    { "src": "../ipm-intro/_ipm/README/120.ipm.svg", "out": "02.ipm.svg" },
+    { "src": "../ipm-intro/_ipm/README/150.ipm.svg", "out": "03.ipm.svg" },
+    { "src": "../ipm-intro/_ipm/README/170.ipm.svg", "out": "04.ipm.svg" }
+  ]
+}
