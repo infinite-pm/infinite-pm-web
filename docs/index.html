@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>infinite.pm — Infinite Process Modeling</title>
   <meta name="description" content="infinite.pm — Infinite Process Modeling: model processes, stories and systems as readable graphs, applying Mark Burgess's Semantic Spacetime γ(3,4).">
-  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'&gt;&lt;text y='13' font-size='13'&gt;🔗&lt;/text&gt;&lt;/svg&gt;">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <style>
     :root {
       --orange: #ff8000;
@@ -37,10 +39,12 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 0.7rem 0; gap: 1rem;
     }
-    .brand { display: flex; align-items: baseline; gap: .02rem; font-weight: 800; font-size: 1.15rem; letter-spacing: -.01em; }
-    .brand .inf { color: var(--green); }
-    .brand .dot { color: var(--muted); font-weight: 600; }
-    .brand .pm { color: var(--blue); }
+    /* the MARK alone in the corner. The name is spelt out in the hero right
+       below it and in the tab title above it, so spelling it here as well is
+       the third time in one screen; the mark is the part that only this corner
+       can say. It costs almost no vertical space — the row was already here. */
+    .brand { display: flex; align-items: center; }
+    .brand img { height: 2rem; width: auto; display: block; }
     nav.top-links a {
       color: var(--muted); text-decoration: none; font-size: .92rem; font-weight: 600;
       margin-left: 1.1rem; border-bottom: 2px solid transparent; padding-bottom: 2px; transition: color .15s, border-color .15s;
@@ -49,8 +53,11 @@
 
     /* hero */
     .hero { text-align: center; padding: 1.4rem 0 .4rem; }
-    .hero h1 { font-size: clamp(2rem, 6vw, 3rem); font-weight: 800; letter-spacing: -.02em; }
-    .hero h1 .inf { color: var(--green); } .hero h1 .pm { color: var(--blue); } .hero h1 .dot { color: var(--muted); }
+    .hero h1 { font-size: 0; line-height: 0; margin: 0; }
+    /* the name alone here: the mark is already in the top bar, and a stacked
+       logo in the hero as well spent a third of the first screen saying the
+       same thing twice */
+    .hero h1 img { height: clamp(2rem, 6vw, 3rem); width: auto; max-width: 100%; display: inline-block; }
     .hero .sub { color: var(--muted); font-size: 1.05rem; margin-top: .35rem; font-weight: 600; }
     .hero .quotes { position: relative; max-width: 640px; min-height: 6em; margin: 1rem auto 0; }
     .hero .q {
@@ -111,7 +118,7 @@
 
     @media (max-width: 620px) {
       nav.top-links a { margin-left: .8rem; font-size: .85rem; }
-      .brand { font-size: 1.02rem; }
+      .brand img { height: 1.7rem; }
       .stage { height: 320px; }
       .hero .quotes { min-height: 11em; }
     }
@@ -121,7 +128,7 @@
   <div class="wrap">
 
     <header class="top">
-      <div class="brand"><span class="inf">infinite</span><span class="dot">.</span><span class="pm">pm</span></div>
+      <div class="brand"><img src="logo/mark.svg" alt="infinite.pm" width="620" height="340"></div>
       <nav class="top-links">
         <a href="https://lab.infinite.pm">lab.infinite.pm</a>
         <a href="https://semantic.st">semantic.st</a>
@@ -129,7 +136,7 @@
     </header>
 
     <section class="hero">
-      <h1><span class="inf">infinite</span><span class="dot">.</span><span class="pm">pm</span></h1>
+      <h1><img src="logo/wordmark.svg" alt="infinite.pm" width="842" height="160"></h1>
       <p class="sub">Infinite Process Modeling</p>
       <div class="quotes" aria-live="polite">
         <blockquote class="q on">“The universe is made of stories, not of atoms.”<cite>— Muriel Rukeyser</cite></blockquote>
