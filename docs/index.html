@@ -5,6 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>infinite.pm — Infinite Process Modeling</title>
   <meta name="description" content="infinite.pm — Infinite Process Modeling: model processes, stories and systems as readable graphs, applying Mark Burgess's Semantic Spacetime γ(3,4).">
+
+  <!-- what LinkedIn, X and the rest show when the URL is pasted. Without these
+       they scrape the page for a picture and crop whatever they find to their
+       own shape, which took the logo's gloss off. og.png is already 1.91:1 with
+       room on every side, so there is nothing to crop. Absolute URLs: a scraper
+       does not resolve relative ones. -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://infinite.pm/">
+  <meta property="og:title" content="infinite.pm — process modeling">
+  <meta property="og:description" content="Model processes, stories and systems as readable graphs. Three node kinds, four edge kinds, any observer's view of anything.">
+  <meta property="og:image" content="https://infinite.pm/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="628">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://infinite.pm/og.png">
   <link rel="icon" href="favicon.ico" sizes="32x32">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -35,16 +50,26 @@
     .wrap { max-width: 880px; margin: 0 auto; padding: 0 1.25rem; }
 
     /* top bar */
+    /* the margin goes ABOVE the row, not around the logo: the page needs air
+       over it, but the logo file is cut tight to its ink — its viewBox and its
+       data-ink are the same box — so the logo IS the height of this row and
+       anything under it would be a gap nothing asked for. The top inset matches
+       the wrap's own sides, so the page is evenly inset on three edges.
+       The links range with the logo's TOP rather than its middle, since the
+       logo is three things stacked and its middle is halfway down the name. */
     header.top {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0.7rem 0; gap: 1rem;
+      display: flex; align-items: flex-start; justify-content: space-between;
+      padding: 1.25rem 0 0; gap: 1rem;
     }
-    /* the MARK alone in the corner. The name is spelt out in the hero right
-       below it and in the tab title above it, so spelling it here as well is
-       the third time in one screen; the mark is the part that only this corner
-       can say. It costs almost no vertical space — the row was already here. */
+    /* line-height 1 so the top of the link's box IS the top of its letters —
+       leading would drop them a couple of pixels below the logo's own top */
+    nav.top-links { line-height: 1; }
+    /* the LOGO with its gloss, in the corner: the mark, the name, and what the
+       ".pm" is short for. It is the one place on the page that says the whole
+       thing at once, and it is nearly square, so it costs width rather than the
+       height a header has none of. */
     .brand { display: flex; align-items: center; }
-    .brand img { height: 2rem; width: auto; display: block; }
+    .brand img { height: 6rem; width: auto; display: block; }
     nav.top-links a {
       color: var(--muted); text-decoration: none; font-size: .92rem; font-weight: 600;
       margin-left: 1.1rem; border-bottom: 2px solid transparent; padding-bottom: 2px; transition: color .15s, border-color .15s;
@@ -52,13 +77,22 @@
     nav.top-links a:hover { color: var(--ink); border-color: var(--orange); }
 
     /* hero */
-    .hero { text-align: center; padding: 1.4rem 0 .4rem; }
+    /* the hero rises two characters into the header's band. The row is six rem
+       tall with the logo at one end and the links at the other, and nothing
+       between them — so the title can start well above the logo's foot without
+       crowding either. The logo stays where it is. */
+    .hero { text-align: center; padding: .4rem 0 .4rem; margin-top: -2rem; }
     .hero h1 { font-size: 0; line-height: 0; margin: 0; }
-    /* the name alone here: the mark is already in the top bar, and a stacked
-       logo in the hero as well spent a third of the first screen saying the
-       same thing twice */
+    /* the name alone here: the corner carries the whole logo, and a second one
+       in the hero spends a third of the first screen saying it again */
     .hero h1 img { height: clamp(2rem, 6vw, 3rem); width: auto; max-width: 100%; display: inline-block; }
+    /* the line reads word for word onto the logo above it: Infinite is the
+       green the name is, Process the orange of its p, Modeling the blue of its
+       m — the same three the gloss under the mark uses, for the same reason */
     .hero .sub { color: var(--muted); font-size: 1.05rem; margin-top: .35rem; font-weight: 600; }
+    .hero .sub .t { color: var(--green); }
+    .hero .sub .e { color: var(--orange); }
+    .hero .sub .c { color: var(--blue); }
     .hero .quotes { position: relative; max-width: 640px; min-height: 6em; margin: 1rem auto 0; }
     .hero .q {
       position: absolute; inset: 0; margin: 0; padding: 0 1rem;
@@ -118,7 +152,11 @@
 
     @media (max-width: 620px) {
       nav.top-links a { margin-left: .8rem; font-size: .85rem; }
-      .brand img { height: 1.7rem; }
+      .brand img { height: 4.8rem; }
+      /* no lift down here: the centred title is only clear of the logo while
+         the row has an empty middle, and at this width it has not — the title
+         lands on the logo's own gloss */
+      .hero { margin-top: 0; }
       .stage { height: 320px; }
       .hero .quotes { min-height: 11em; }
     }
@@ -128,7 +166,7 @@
   <div class="wrap">
 
     <header class="top">
-      <div class="brand"><img src="logo/mark.svg" alt="infinite.pm" width="620" height="340"></div>
+      <div class="brand"><img src="logo/logo-gloss.svg" alt="infinite.pm — process modeling" width="700" height="691"></div>
       <nav class="top-links">
         <a href="https://lab.infinite.pm">lab.infinite.pm</a>
         <a href="https://semantic.st">semantic.st</a>
@@ -137,7 +175,7 @@
 
     <section class="hero">
       <h1><img src="logo/wordmark.svg" alt="infinite.pm" width="842" height="160"></h1>
-      <p class="sub">Infinite Process Modeling</p>
+      <p class="sub"><span class="t">Infinite</span> <span class="e">Process</span> <span class="c">Modeling</span></p>
       <div class="quotes" aria-live="polite">
         <blockquote class="q on">“The universe is made of stories, not of atoms.”<cite>— Muriel Rukeyser</cite></blockquote>
         <blockquote class="q">“Everything said is said by an observer.”<cite>— Humberto Maturana</cite></blockquote>
