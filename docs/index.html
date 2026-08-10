@@ -162,6 +162,16 @@
       .stage { height: 320px; }
       .hero .quotes { min-height: 11em; }
     }
+
+    /* portrait phones: the corner logo and the hero's wordmark are the same
+       name twice, and at this width they are a few pixels apart — the logo's
+       "process modeling" tail runs right into the centred title. The hero
+       already says it, so the corner drops out and the links keep the row. */
+    @media (max-width: 480px) {
+      header.top { justify-content: flex-end; }
+      .brand { display: none; }
+      .hero { margin-top: .8rem; }
+    }
   </style>
 </head>
 <body>
