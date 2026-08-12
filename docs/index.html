@@ -142,6 +142,11 @@
     .cta .lablink { background: var(--card); border-color: var(--line); font-weight: 800; letter-spacing: -.01em; }
     .cta .lablink:hover { border-color: var(--orange); box-shadow: 0 8px 22px rgba(16,24,40,.10); }
     .cta .lablink .lab { color: var(--orange); } .cta .lablink .inf { color: var(--green); } .cta .lablink .pm { color: var(--blue); } .cta .lablink .d { color: var(--muted); font-weight: 600; } .cta .lablink .ar { color: var(--muted); font-weight: 600; }
+    /* the Marketplace listing — outlined like the lab pill, with the editor's
+       name carried in the muted weight so "Extension" is what the eye lands on */
+    .cta .extlink { background: var(--card); border-color: var(--line); color: var(--ink); }
+    .cta .extlink:hover { border-color: var(--blue); box-shadow: 0 8px 22px rgba(16,24,40,.10); }
+    .cta .extlink .for { color: var(--muted); font-weight: 600; } .cta .extlink .ar { color: var(--muted); font-weight: 600; }
 
     /* footer */
     footer.site { border-top: 1px solid var(--line); margin-top: 2.6rem; padding: 1.6rem 0 2.4rem; color: var(--muted); font-size: .9rem; }
@@ -170,7 +175,15 @@
     @media (max-width: 480px) {
       header.top { justify-content: flex-end; }
       .brand { display: none; }
-      .hero { margin-top: .8rem; }
+      /* with the logo gone the title has nothing above it but the two links, so
+         it gets the same air as it has below: the quote box centres its line
+         88px under the subtitle, and this margin puts 88px over the title —
+         the name sits between the links and the first line of content, not
+         tucked under the header */
+      .hero { margin-top: 5.1rem; }
+      /* "Extension for Visual Studio Code" is the longest pill by far; a notch
+         down keeps it on one line at 320px instead of breaking into a lozenge */
+      .cta a { font-size: .95rem; padding: .6rem 1.1rem; }
     }
   </style>
 </head>
@@ -248,6 +261,10 @@
       <p class="cta">
         <a class="btn" href="intro/">Read the intro &rarr;</a>
         <a class="lablink" href="https://lab.infinite.pm"><span class="lab">lab</span><span class="d">.</span><span class="inf">infinite</span><span class="d">.</span><span class="pm">pm</span> <span class="ar">&rarr;</span></a>
+        <!-- Microsoft's brand guidelines allow the plain descriptive form
+             ("<name> for Visual Studio Code") and nothing more: no VS Code icon
+             here, in the pill or anywhere near our own mark. -->
+        <a class="extlink" href="https://marketplace.visualstudio.com/items?itemName=infinite-pm.vscode-infinite-pm" target="_blank" rel="noopener noreferrer">Extension <span class="for">for Visual&nbsp;Studio&nbsp;Code</span> <span class="ar">&rarr;</span></a>
       </p>
     </section>
 
