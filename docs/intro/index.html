@@ -242,7 +242,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <h3 id="step-2---add-a-participant-thing--event">Step 2 - add a participant (thing → event)<span class="heading-ctls"><a class="heading-ctl-anchor" href="#step-2---add-a-participant-thing--event" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h3>
 <p>Thing <code class="language-ipmt"><span class="ipm-t-title">Patrick</span></code> is <em>in</em> every event. A thing participates in an event by being <code class="language-ipmt"><span class="ipm-P">part of</span></code> it - a <strong>spatial</strong> containment relation (the thing sits inside the event's region of space and time), rendered as a <code class="language-ipmt"><span class="ipm-P">green arrow</span></code>.</p>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="380" height="540" viewBox="0 0 380 540">
-  <!-- ipm-svg meta: generated-by=md-embed@dev hash=036d9600 source-file=README.md source-id=110 -->
+  <!-- ipm-svg meta: generated-by=md-embed@dev hash=e13e41db source-file=README.md source-id=110 -->
   <defs>
   </defs>
   <g id="container-shells">
@@ -306,9 +306,9 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="280" y="480" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-e-title-aliased">Patrick wears black t-shirt</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">wearB</span><span class="ipm-type-marker">::a</span>
-  <span class="ipm-L">--&gt;</span> <span class="ipm-e-title-aliased">Patrick swaps t-shirt</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">swapT</span><span class="ipm-type-marker">::a</span>
-  <span class="ipm-L">--&gt;</span> <span class="ipm-e-title-aliased">Patrick wears white t-shirt</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">wearW</span><span class="ipm-type-marker">::a</span>
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-e-alias">wearB</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears black t-shirt</span> <span class="ipm-e-marker">::e</span>
+  <span class="ipm-L">--&gt;</span> <span class="ipm-e-alias">swapT</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick swaps t-shirt</span> <span class="ipm-e-marker">::e</span>
+  <span class="ipm-L">--&gt;</span> <span class="ipm-e-alias">wearW</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears white t-shirt</span> <span class="ipm-e-marker">::e</span>
 
 <span class="ipm-t-title">Patrick</span> <span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearB</span>, <span class="ipm-e-alias">swapT</span>, <span class="ipm-e-alias">wearW</span></code></pre>
 <p>Two new tricks:</p>
@@ -319,7 +319,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <p>Unmarked nodes default to <strong>things</strong>. <code class="language-ipmt"><span class="ipm-P">The arrow</span></code> goes from <code class="language-ipmt"><span class="ipm-t-title">the thing</span></code> to <code class="language-ipmt"><span class="ipm-e-title">the event</span></code> - <code class="language-ipmt"><span class="ipm-t-title">the thing</span></code> is <code class="language-ipmt"><span class="ipm-P">part of</span></code> <code class="language-ipmt"><span class="ipm-e-title">the event</span></code>, never the other way around (a modeling rule, not a syntactic accident).</p>
 <p><strong>Add the t-shirts as participants too.</strong> <code class="language-ipmt"><span class="ipm-t-title">The black t-shirt</span></code> is worn in <code class="language-ipmt"><span class="ipm-e-title">wearB</span></code> and is still on Patrick (briefly) during <code class="language-ipmt"><span class="ipm-e-title">swapT</span></code>; <code class="language-ipmt"><span class="ipm-t-title">the white t-shirt</span></code> enters at <code class="language-ipmt"><span class="ipm-e-title">swapT</span></code> and stays on through <code class="language-ipmt"><span class="ipm-e-title">wearW</span></code>. Each thing attaches to the events where it actually appears.</p>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="560" height="540" viewBox="0 0 560 540">
-  <!-- ipm-svg meta: generated-by=md-embed@dev hash=ba3e167d source-file=README.md source-id=120 -->
+  <!-- ipm-svg meta: generated-by=md-embed@dev hash=e4401e34 source-file=README.md source-id=120 -->
   <defs>
   </defs>
   <g id="container-shells">
@@ -407,9 +407,9 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="280" y="480" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-e-title-aliased">Patrick wears black t-shirt</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">wearB</span><span class="ipm-type-marker">::a</span>
-  <span class="ipm-L">--&gt;</span> <span class="ipm-e-title-aliased">Patrick swaps t-shirt</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">swapT</span><span class="ipm-type-marker">::a</span>
-  <span class="ipm-L">--&gt;</span> <span class="ipm-e-title-aliased">Patrick wears white t-shirt</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">wearW</span><span class="ipm-type-marker">::a</span>
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-e-alias">wearB</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears black t-shirt</span> <span class="ipm-e-marker">::e</span>
+  <span class="ipm-L">--&gt;</span> <span class="ipm-e-alias">swapT</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick swaps t-shirt</span> <span class="ipm-e-marker">::e</span>
+  <span class="ipm-L">--&gt;</span> <span class="ipm-e-alias">wearW</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears white t-shirt</span> <span class="ipm-e-marker">::e</span>
 
 <span class="ipm-t-title">Patrick</span> <span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearB</span>, <span class="ipm-e-alias">swapT</span>, <span class="ipm-e-alias">wearW</span>
 
@@ -417,7 +417,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <span class="ipm-t-title">white t-shirt</span> <span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">swapT</span>, <span class="ipm-e-alias">wearW</span></code></pre>
 <p><strong>You can also zoom <em>out</em>.</strong> The same scene can be told at a coarser level: one single event that names only the <em>observable</em> change (Patrick wore black, then white), with every participant attached at that one level. The mechanism - <em>how</em> he changed t-shirts - is hidden inside the wrapper event and revealed only when you zoom in.</p>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="380" height="500" viewBox="0 0 380 500">
-  <!-- ipm-svg meta: generated-by=md-embed@dev hash=2e16c454 source-file=README.md source-id=130 -->
+  <!-- ipm-svg meta: generated-by=md-embed@dev hash=a609635a source-file=README.md source-id=130 -->
   <defs>
   </defs>
   <g id="container-shells">
@@ -471,7 +471,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="280" y="440" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-e-title-aliased">Patrick wears black then wears white</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">wearBW</span><span class="ipm-type-marker">::a</span>
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-e-alias">wearBW</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears black then wears white</span> <span class="ipm-e-marker">::e</span>
 
 <span class="ipm-t-title">Patrick</span>    <span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearBW</span>
 <span class="ipm-t-title">black t-shirt</span>  <span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearBW</span>
@@ -479,7 +479,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <p>Same story, different zoom level. The right level depends on the <strong>purpose</strong> of your model - and you don't have to pick just one.</p>
 <p>Going the other direction, <strong>zoom in</strong>: replace a coarse event with its sub-events. The next two diagrams show pure <em>event structure</em> - no participants, no concepts - so the zoom move stands on its own. First, drill into <code class="language-ipmt"><span class="ipm-e-title">wearBW</span></code> and show its three mid-level sub-events as a leads-to chain, each part-of the parent:</p>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="380" height="540" viewBox="0 0 380 540">
-  <!-- ipm-svg meta: generated-by=md-embed@dev hash=119e8e54 source-file=README.md source-id=140 -->
+  <!-- ipm-svg meta: generated-by=md-embed@dev hash=441bac12 source-file=README.md source-id=140 -->
   <defs>
   </defs>
   <g id="container-shells">
@@ -545,18 +545,18 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="100" y="480" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-e-title-aliased">Patrick wears black then wears white</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">wearBW</span><span class="ipm-type-marker">::a</span>
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-e-alias">wearBW</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears black then wears white</span> <span class="ipm-e-marker">::e</span>
 
-<span class="ipm-e-title-aliased">Patrick wears black t-shirt</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">wearB</span><span class="ipm-type-marker">::a</span>
-  <span class="ipm-L">--&gt;</span> <span class="ipm-e-title-aliased">Patrick swaps t-shirt</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">swapT</span><span class="ipm-type-marker">::a</span>
-  <span class="ipm-L">--&gt;</span> <span class="ipm-e-title-aliased">Patrick wears white t-shirt</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">wearW</span><span class="ipm-type-marker">::a</span>
+<span class="ipm-e-alias">wearB</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears black t-shirt</span> <span class="ipm-e-marker">::e</span>
+  <span class="ipm-L">--&gt;</span> <span class="ipm-e-alias">swapT</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick swaps t-shirt</span> <span class="ipm-e-marker">::e</span>
+  <span class="ipm-L">--&gt;</span> <span class="ipm-e-alias">wearW</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears white t-shirt</span> <span class="ipm-e-marker">::e</span>
 
 <span class="ipm-e-alias">wearB</span> <span class="ipm-P">--</span><span class="ipm-relation">::P</span><span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearBW</span>
 <span class="ipm-e-alias">swapT</span> <span class="ipm-P">--</span><span class="ipm-relation">::P</span><span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearBW</span>
 <span class="ipm-e-alias">wearW</span> <span class="ipm-P">--</span><span class="ipm-relation">::P</span><span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearBW</span></code></pre>
 <p>We can keep going - <code class="language-ipmt"><span class="ipm-e-title">swapT</span></code> itself decomposes into a finer chain of moments. Here are both zoom levels at once, three levels of pure event nesting:</p>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="560" height="540" viewBox="0 0 560 540">
-  <!-- ipm-svg meta: generated-by=md-embed@dev hash=01228d05 source-file=README.md source-id=150 -->
+  <!-- ipm-svg meta: generated-by=md-embed@dev hash=5c531ebd source-file=README.md source-id=150 -->
   <defs>
   </defs>
   <g id="container-shells">
@@ -654,17 +654,17 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="100" y="480" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-e-title-aliased">Patrick wears black then wears white</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">wearBW</span><span class="ipm-type-marker">::a</span>
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-e-alias">wearBW</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears black then wears white</span> <span class="ipm-e-marker">::e</span>
 
-<span class="ipm-e-title-aliased">Patrick wears black t-shirt</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">wearB</span><span class="ipm-type-marker">::a</span>
-  <span class="ipm-L">--&gt;</span> <span class="ipm-e-title-aliased">Patrick swaps t-shirt</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">swapT</span><span class="ipm-type-marker">::a</span>
-  <span class="ipm-L">--&gt;</span> <span class="ipm-e-title-aliased">Patrick wears white t-shirt</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">wearW</span><span class="ipm-type-marker">::a</span>
+<span class="ipm-e-alias">wearB</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears black t-shirt</span> <span class="ipm-e-marker">::e</span>
+  <span class="ipm-L">--&gt;</span> <span class="ipm-e-alias">swapT</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick swaps t-shirt</span> <span class="ipm-e-marker">::e</span>
+  <span class="ipm-L">--&gt;</span> <span class="ipm-e-alias">wearW</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears white t-shirt</span> <span class="ipm-e-marker">::e</span>
 
 <span class="ipm-e-alias">wearB</span>, <span class="ipm-e-alias">swapT</span>, <span class="ipm-e-alias">wearW</span> <span class="ipm-P">--</span><span class="ipm-relation">::P</span><span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearBW</span>
 
-<span class="ipm-e-title-aliased">Take off black</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">takeOff</span><span class="ipm-type-marker">::a</span>       <span class="ipm-P">--</span><span class="ipm-relation">::P</span><span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">swapT</span>
-<span class="ipm-e-title-aliased">Patrick half-naked</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">halfNaked</span><span class="ipm-type-marker">::a</span> <span class="ipm-P">--</span><span class="ipm-relation">::P</span><span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">swapT</span>
-<span class="ipm-e-title-aliased">Take on white</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">takeOn</span><span class="ipm-type-marker">::a</span>         <span class="ipm-P">--</span><span class="ipm-relation">::P</span><span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">swapT</span>
+<span class="ipm-e-alias">takeOff</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Take off black</span> <span class="ipm-e-marker">::e</span>       <span class="ipm-P">--</span><span class="ipm-relation">::P</span><span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">swapT</span>
+<span class="ipm-e-alias">halfNaked</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick half-naked</span> <span class="ipm-e-marker">::e</span> <span class="ipm-P">--</span><span class="ipm-relation">::P</span><span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">swapT</span>
+<span class="ipm-e-alias">takeOn</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Take on white</span> <span class="ipm-e-marker">::e</span>         <span class="ipm-P">--</span><span class="ipm-relation">::P</span><span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">swapT</span>
 
 <span class="ipm-e-alias">takeOff</span> <span class="ipm-L">--&gt;</span> <span class="ipm-e-alias">halfNaked</span> <span class="ipm-L">--&gt;</span> <span class="ipm-e-alias">takeOn</span></code></pre>
 <p>Step 4 will bring Patrick, the t-shirts, and the concepts back into this nested structure.</p>
@@ -775,7 +775,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <h3 id="step-4---bring-it-together-with-a-parent-event">Step 4 - bring it together, with a parent event<span class="heading-ctls"><a class="heading-ctl-anchor" href="#step-4---bring-it-together-with-a-parent-event" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h3>
 <p>The full story is now the <strong>strict composition of the earlier steps</strong>: the three-level event tree from Step 2's last diagram (top <code class="language-ipmt"><span class="ipm-e-title">wearBW</span></code>, mid-level wear → swap → wear, inner take-off → half-naked → take-on), the <strong>things from Step 2</strong> (Patrick, both t-shirts), and the <strong>concepts from Step 3</strong> (<code class="language-ipmt"><span class="ipm-c-title">human</span> <span class="ipm-c-marker">::c</span></code>, <code class="language-ipmt"><span class="ipm-c-title">swap of clothing</span> <span class="ipm-c-marker">::c</span></code>). Zooming into an event, each participant either stays on it - present in every sub-event, like Patrick, attached only at the top - or moves down to just the sub-events it was in, like the t-shirts, which were on him for only part of the swap. Zoomed out again, both are still in the parent event.</p>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="1340" height="830" viewBox="0 0 1340 830">
-  <!-- ipm-svg meta: generated-by=md-embed@dev hash=4c1f0991 source-file=README.md source-id=170 -->
+  <!-- ipm-svg meta: generated-by=md-embed@dev hash=2b23857c source-file=README.md source-id=170 -->
   <defs>
   </defs>
   <g id="container-shells">
@@ -955,19 +955,19 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="820" y="590" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">white</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-e-title-aliased">Patrick wears black then wears white</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">wearBW</span><span class="ipm-type-marker">::a</span>
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-e-alias">wearBW</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears black then wears white</span> <span class="ipm-e-marker">::e</span>
 
-<span class="ipm-e-title-aliased">Patrick wears black t-shirt</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">wearB</span><span class="ipm-type-marker">::a</span>
-  <span class="ipm-L">--&gt;</span> <span class="ipm-e-title-aliased">Patrick swaps t-shirt</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">swapT</span><span class="ipm-type-marker">::a</span>
-  <span class="ipm-L">--&gt;</span> <span class="ipm-e-title-aliased">Patrick wears white t-shirt</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">wearW</span><span class="ipm-type-marker">::a</span>
+<span class="ipm-e-alias">wearB</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears black t-shirt</span> <span class="ipm-e-marker">::e</span>
+  <span class="ipm-L">--&gt;</span> <span class="ipm-e-alias">swapT</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick swaps t-shirt</span> <span class="ipm-e-marker">::e</span>
+  <span class="ipm-L">--&gt;</span> <span class="ipm-e-alias">wearW</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears white t-shirt</span> <span class="ipm-e-marker">::e</span>
 
 <span class="ipm-e-alias">wearB</span>, <span class="ipm-e-alias">swapT</span>, <span class="ipm-e-alias">wearW</span> <span class="ipm-P">--</span><span class="ipm-relation">::P</span><span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearBW</span>
 <span class="ipm-t-title">black t-shirt</span> <span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearB</span>
 <span class="ipm-t-title">white t-shirt</span> <span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearW</span>
 
-<span class="ipm-e-title-aliased">Take off black</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">takeOff</span><span class="ipm-type-marker">::a</span>       <span class="ipm-P">--</span><span class="ipm-relation">::P</span><span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">swapT</span>
-<span class="ipm-e-title-aliased">Patrick half-naked</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">halfNaked</span><span class="ipm-type-marker">::a</span> <span class="ipm-P">--</span><span class="ipm-relation">::P</span><span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">swapT</span>
-<span class="ipm-e-title-aliased">Take on white</span> <span class="ipm-e-marker">::e</span> <span class="ipm-e-alias">takeOn</span><span class="ipm-type-marker">::a</span>         <span class="ipm-P">--</span><span class="ipm-relation">::P</span><span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">swapT</span>
+<span class="ipm-e-alias">takeOff</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Take off black</span> <span class="ipm-e-marker">::e</span>       <span class="ipm-P">--</span><span class="ipm-relation">::P</span><span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">swapT</span>
+<span class="ipm-e-alias">halfNaked</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick half-naked</span> <span class="ipm-e-marker">::e</span> <span class="ipm-P">--</span><span class="ipm-relation">::P</span><span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">swapT</span>
+<span class="ipm-e-alias">takeOn</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Take on white</span> <span class="ipm-e-marker">::e</span>         <span class="ipm-P">--</span><span class="ipm-relation">::P</span><span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">swapT</span>
 <span class="ipm-e-alias">takeOff</span> <span class="ipm-L">--&gt;</span> <span class="ipm-e-alias">halfNaked</span> <span class="ipm-L">--&gt;</span> <span class="ipm-e-alias">takeOn</span>
 <span class="ipm-e-alias">swapT</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">swap of clothing</span> <span class="ipm-c-marker">::c</span>
 
@@ -1015,7 +1015,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <td><code class="language-ipmt"><span class="ipm-X">blue dashed</span></code></td>
 <td><code class="language-ipmt"><span class="ipm-X">EXPRESSES</span></code></td>
 <td>Property (a single promise)</td>
-<td>An event or thing expresses a concept as a property; a concept itself can express another concept the same way. Not is-a - a node can express many independent properties</td>
+<td>An event or thing expresses a concept as a property; an event can also express another event; a concept itself can express another concept the same way. Not is-a - a node can express many independent properties</td>
 </tr>
 <tr>
 <td style="text-align:center"><code class="language-ipmt"><span class="ipm-N">N</span></code></td>
