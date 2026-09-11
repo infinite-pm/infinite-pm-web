@@ -3,7 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>infinite.pm</title>
+<title>infinite.pm intro — Infinite Process Modeling for newcomers</title>
+<meta name="description" content="A newcomer&#039;s introduction to infinite.pm: model processes, stories and systems as readable graphs with three node kinds and four edge kinds.">
+<link rel="canonical" href="https://infinite.pm/intro/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="infinite.pm">
+<meta property="og:url" content="https://infinite.pm/intro/">
+<meta property="og:title" content="infinite.pm intro — Infinite Process Modeling for newcomers">
+<meta property="og:description" content="A newcomer&#039;s introduction to infinite.pm: model processes, stories and systems as readable graphs with three node kinds and four edge kinds.">
+<meta property="og:image" content="https://infinite.pm/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="628">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://infinite.pm/og.png">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <style>
 /* Syntax highlighting for ```ipmt``` blocks in the rendered HTML / VS Code
  * markdown preview. The per-token color rules are composed at runtime from
@@ -104,7 +119,7 @@ pre.ipmt-block { position: relative; padding: 0.7em 0.9em; border-radius: 4px; o
 pre.ipmt-block:hover .ipmt-copy, .ipmt-copy:focus { opacity: 1; }
 figure.ipm-diagram { margin: 1em 0; }
 figure.ipm-diagram svg { max-width: 100%; height: auto; }
-img { max-width: 100%; }
+img { max-width: 100%; height: auto; }
 table { border-collapse: collapse; margin: 1em 0; }
 th, td { border: 1px solid #d0d7de; padding: 0.4em 0.7em; text-align: left; vertical-align: top; }
 th { background: #f6f8fa; font-weight: 600; }
@@ -195,7 +210,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <p>We'll model the same tiny scene step by step: <em>Patrick swaps a black t-shirt for a white one.</em></p>
 <h3 id="step-1---just-an-event-chain">Step 1 - just an event chain<span class="heading-ctls"><a class="heading-ctl-anchor" href="#step-1---just-an-event-chain" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h3>
 <p>Start with the activity. Events lead to other events.</p>
-<figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="200" height="420" viewBox="0 0 200 420">
+<figure class="ipm-diagram"><svg role="img" aria-label="Step 1: two events in a leads-to chain - Patrick wears black t-shirt, then Patrick wears white t-shirt" xmlns="http://www.w3.org/2000/svg" width="200" height="420" viewBox="0 0 200 420">
   <!-- ipm-svg meta: generated-by=md-embed@dev hash=0183bb61 source-file=README.md source-id=100 -->
   <defs>
   </defs>
@@ -241,7 +256,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <p>The arrow <code class="language-ipmt"><span class="ipm-L">--&gt;</span></code> between two events means <code class="language-ipmt"><span class="ipm-L">leads-to</span></code> (rendered as an <code class="language-ipmt"><span class="ipm-L">orange arrow</span></code>) - temporal/causal flow. <code class="language-ipmt"><span class="ipm-e-marker">::e</span></code> marks each node as an <code class="language-ipmt"><span class="ipm-e-title">event</span></code>. The chain shows only what the observer <em>directly saw</em>: two observed stretches of wearing. Step 2 onward adds a <code class="language-ipmt"><span class="ipm-e-title">swap</span></code> event between them - a <em>hypothesized</em> middle step the observer didn't witness.</p>
 <h3 id="step-2---add-a-participant-thing--event">Step 2 - add a participant (thing → event)<span class="heading-ctls"><a class="heading-ctl-anchor" href="#step-2---add-a-participant-thing--event" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h3>
 <p>Thing <code class="language-ipmt"><span class="ipm-t-title">Patrick</span></code> is <em>in</em> every event. A thing participates in an event by being <code class="language-ipmt"><span class="ipm-P">part of</span></code> it - a <strong>spatial</strong> containment relation (the thing sits inside the event's region of space and time), rendered as a <code class="language-ipmt"><span class="ipm-P">green arrow</span></code>.</p>
-<figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="380" height="540" viewBox="0 0 380 540">
+<figure class="ipm-diagram"><svg role="img" aria-label="Step 2: the events wearB, swapT and wearW in a leads-to chain, with the thing Patrick part of each" xmlns="http://www.w3.org/2000/svg" width="380" height="540" viewBox="0 0 380 540">
   <!-- ipm-svg meta: generated-by=md-embed@dev hash=e13e41db source-file=README.md source-id=110 -->
   <defs>
   </defs>
@@ -318,7 +333,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 </ul>
 <p>Unmarked nodes default to <strong>things</strong>. <code class="language-ipmt"><span class="ipm-P">The arrow</span></code> goes from <code class="language-ipmt"><span class="ipm-t-title">the thing</span></code> to <code class="language-ipmt"><span class="ipm-e-title">the event</span></code> - <code class="language-ipmt"><span class="ipm-t-title">the thing</span></code> is <code class="language-ipmt"><span class="ipm-P">part of</span></code> <code class="language-ipmt"><span class="ipm-e-title">the event</span></code>, never the other way around (a modeling rule, not a syntactic accident).</p>
 <p><strong>Add the t-shirts as participants too.</strong> <code class="language-ipmt"><span class="ipm-t-title">The black t-shirt</span></code> is worn in <code class="language-ipmt"><span class="ipm-e-title">wearB</span></code> and is still on Patrick (briefly) during <code class="language-ipmt"><span class="ipm-e-title">swapT</span></code>; <code class="language-ipmt"><span class="ipm-t-title">the white t-shirt</span></code> enters at <code class="language-ipmt"><span class="ipm-e-title">swapT</span></code> and stays on through <code class="language-ipmt"><span class="ipm-e-title">wearW</span></code>. Each thing attaches to the events where it actually appears.</p>
-<figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="560" height="540" viewBox="0 0 560 540">
+<figure class="ipm-diagram"><svg role="img" aria-label="Step 2: the same chain with Patrick in all three events, the black t-shirt in wearB and swapT, and the white t-shirt in swapT and wearW" xmlns="http://www.w3.org/2000/svg" width="560" height="540" viewBox="0 0 560 540">
   <!-- ipm-svg meta: generated-by=md-embed@dev hash=e4401e34 source-file=README.md source-id=120 -->
   <defs>
   </defs>
@@ -416,7 +431,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <span class="ipm-t-title">black t-shirt</span> <span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearB</span>, <span class="ipm-e-alias">swapT</span>
 <span class="ipm-t-title">white t-shirt</span> <span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">swapT</span>, <span class="ipm-e-alias">wearW</span></code></pre>
 <p><strong>You can also zoom <em>out</em>.</strong> The same scene can be told at a coarser level: one single event that names only the <em>observable</em> change (Patrick wore black, then white), with every participant attached at that one level. The mechanism - <em>how</em> he changed t-shirts - is hidden inside the wrapper event and revealed only when you zoom in.</p>
-<figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="380" height="500" viewBox="0 0 380 500">
+<figure class="ipm-diagram"><svg role="img" aria-label="Zoomed out: one event wearBW with Patrick, the black t-shirt and the white t-shirt as its participants" xmlns="http://www.w3.org/2000/svg" width="380" height="500" viewBox="0 0 380 500">
   <!-- ipm-svg meta: generated-by=md-embed@dev hash=a609635a source-file=README.md source-id=130 -->
   <defs>
   </defs>
@@ -478,7 +493,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <span class="ipm-t-title">white t-shirt</span>  <span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearBW</span></code></pre>
 <p>Same story, different zoom level. The right level depends on the <strong>purpose</strong> of your model - and you don't have to pick just one.</p>
 <p>Going the other direction, <strong>zoom in</strong>: replace a coarse event with its sub-events. The next two diagrams show pure <em>event structure</em> - no participants, no concepts - so the zoom move stands on its own. First, drill into <code class="language-ipmt"><span class="ipm-e-title">wearBW</span></code> and show its three mid-level sub-events as a leads-to chain, each part-of the parent:</p>
-<figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="380" height="540" viewBox="0 0 380 540">
+<figure class="ipm-diagram"><svg role="img" aria-label="Zoomed in: wearBW with its three sub-events wearB, swapT and wearW, which lead to one another" xmlns="http://www.w3.org/2000/svg" width="380" height="540" viewBox="0 0 380 540">
   <!-- ipm-svg meta: generated-by=md-embed@dev hash=441bac12 source-file=README.md source-id=140 -->
   <defs>
   </defs>
@@ -556,7 +571,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <span class="ipm-e-alias">wearW</span> <span class="ipm-P">--</span><span class="ipm-relation">::P</span><span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearBW</span></code></pre>
 <p>Between two events a bare <code class="language-ipmt"><span class="ipm-L">--&gt;</span></code> means <code class="language-ipmt"><span class="ipm-L">leads-to</span></code>, so part-of has to be spelled out: <code class="language-ipmt"><span class="ipm-P">--::P--&gt;</span></code>. Every edge has such an explicit form - see <a href="https://infinite.pm/ipm11/maxed.html">all eleven combinations</a>, each with its implicit and explicit syntax.</p>
 <p>We can keep going - <code class="language-ipmt"><span class="ipm-e-title">swapT</span></code> itself decomposes into a finer chain of moments. Here are both zoom levels at once, three levels of pure event nesting:</p>
-<figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="560" height="540" viewBox="0 0 560 540">
+<figure class="ipm-diagram"><svg role="img" aria-label="Three levels: wearBW holds wearB, swapT and wearW, and swapT holds the take-off, half-naked and take-on moments" xmlns="http://www.w3.org/2000/svg" width="560" height="540" viewBox="0 0 560 540">
   <!-- ipm-svg meta: generated-by=md-embed@dev hash=5c531ebd source-file=README.md source-id=150 -->
   <defs>
   </defs>
@@ -671,7 +686,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <p>Step 4 will bring Patrick, the t-shirts, and the concepts back into this nested structure.</p>
 <h3 id="step-3---give-a-property-with-a-concept">Step 3 - give a property with a concept<span class="heading-ctls"><a class="heading-ctl-anchor" href="#step-3---give-a-property-with-a-concept" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h3>
 <p>What <em>properties</em> does Patrick express? What <em>property</em> does the swap event express? Each concept names a single, independent property.</p>
-<figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="1220" height="340" viewBox="0 0 1220 340">
+<figure class="ipm-diagram"><svg role="img" aria-label="Step 3: concepts - Patrick expresses human, the swap expresses swap of clothing, each t-shirt expresses t-shirt and its color, and black and white express color" xmlns="http://www.w3.org/2000/svg" width="1220" height="340" viewBox="0 0 1220 340">
   <!-- ipm-svg meta: generated-by=md-embed@dev hash=d7a55b1b source-file=README.md source-id=160 -->
   <defs>
   </defs>
@@ -776,7 +791,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <p>A concept is what stays the same across all events and things that express it - what Mark Burgess calls a <strong>quasi-invariant pattern</strong>. The patterns are out there in the scene, but <strong>which patterns the observer names</strong> is a choice, not a fact about the world: Mark writes that &quot;there is no universal set of concepts to subdivide knowledge … these are merely ad hoc ways of spanning a collection of connected ideas, chosen by convention or happenstance&quot; (<a href="https://medium.com/@mark-burgess-oslo-mb/avoiding-the-ontology-trap-how-biotech-shows-us-how-to-link-knowledge-spaces-654bcbb9122a">Avoiding the Ontology Trap</a>). Two honest observers can carve the same scene into different - and equally valid - concept vocabularies; writing <code class="language-ipmt"><span class="ipm-c-title">swap of clothing</span> <span class="ipm-c-marker">::c</span></code> is the modeler saying <em>this is the pattern I noticed and chose to name</em>.</p>
 <h3 id="step-4---bring-it-together-with-a-parent-event">Step 4 - bring it together, with a parent event<span class="heading-ctls"><a class="heading-ctl-anchor" href="#step-4---bring-it-together-with-a-parent-event" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h3>
 <p>The full story is now the <strong>strict composition of the earlier steps</strong>: the three-level event tree from Step 2's last diagram (top <code class="language-ipmt"><span class="ipm-e-title">wearBW</span></code>, mid-level wear → swap → wear, inner take-off → half-naked → take-on), the <strong>things from Step 2</strong> (Patrick, both t-shirts), and the <strong>concepts from Step 3</strong> (<code class="language-ipmt"><span class="ipm-c-title">human</span> <span class="ipm-c-marker">::c</span></code>, <code class="language-ipmt"><span class="ipm-c-title">swap of clothing</span> <span class="ipm-c-marker">::c</span></code>). Zooming into an event, each participant either stays on it - present in every sub-event, like Patrick, attached only at the top - or moves down to just the sub-events it was in, like the t-shirts, which were on him for only part of the swap. Zoomed out again, both are still in the parent event.</p>
-<figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="1340" height="830" viewBox="0 0 1340 830">
+<figure class="ipm-diagram"><svg role="img" aria-label="Step 4: the whole model - the three-level event tree, Patrick on wearBW, each t-shirt on the sub-events it was in, and the concepts" xmlns="http://www.w3.org/2000/svg" width="1340" height="830" viewBox="0 0 1340 830">
   <!-- ipm-svg meta: generated-by=md-embed@dev hash=2b23857c source-file=README.md source-id=170 -->
   <defs>
   </defs>
@@ -1131,7 +1146,6 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <ul>
 <li><a href="docs/examples/murder-full.html"><code>docs/examples/murder-full.md</code></a> - a Clue-style murder narrative</li>
 <li><a href="docs/examples/tshirt-magic.html"><code>docs/examples/tshirt-magic.md</code></a> - alternative t-shirts storyline</li>
-<li><a href="docs/examples/meta-ipm.html"><code>docs/examples/meta-ipm.md</code></a> - infinite.pm modeling itself</li>
 </ul>
 <p><strong>ipmt syntax spec:</strong> the formal grammar of the text format - type markers, aliases, arrow forms, edge tooltips, escaping, fence behaviour - is published as <a href="https://github.com/infinite-pm/ipm-tools/blob/main/docs/ipmt-spec.md"><code>ipm-tools/docs/ipmt-spec.md</code></a>. The build-up section above plus the worked examples in <code>docs/examples/</code> show the vocabulary that covers nearly every model in the wild.</p>
 <p>External reading - Mark Burgess (<a href="https://www.researchgate.net/profile/Mark-Burgess-9">ResearchGate profile</a>) on Semantic Spacetime γ(3,4):</p>
@@ -1146,7 +1160,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <p>All <code>infinite.pm</code> repositories live under the <a href="https://github.com/orgs/infinite-pm/repositories"><code>infinite-pm</code> GitHub org</a>:</p>
 <ul>
 <li><a href="https://github.com/infinite-pm/ipm-tools"><code>ipm-tools</code></a> - the Go <code>ipmt</code> toolchain: parser, validator, layout engine, SVG renderer, markdown embedding, and the <code>ipm-rpc</code> language server.</li>
-<li><a href="https://github.com/infinite-pm/vscode-infinite-pm"><code>vscode-infinite-pm</code></a> - the VS Code extension: <code>ipmt</code> highlighting and live preview.</li>
+<li><a href="https://github.com/infinite-pm/vscode-infinite-pm"><code>vscode-infinite-pm</code></a> - the <a href="https://marketplace.visualstudio.com/items?itemName=infinite-pm.vscode-infinite-pm">VS Code extension</a>: <code>ipmt</code> highlighting and live preview.</li>
 <li><a href="https://github.com/infinite-pm/infinite-pm-web"><code>infinite-pm-web</code></a> - the <a href="https://infinite.pm">infinite.pm</a> website.</li>
 <li><a href="https://github.com/infinite-pm/infinite-pm-lab"><code>infinite-pm-lab</code></a> - the <a href="https://lab.infinite.pm">lab.infinite.pm</a> experiments sandbox.</li>
 </ul>
