@@ -197,12 +197,7 @@ Only the labels and the <code>C</code>/<code>P</code> arrow direction differ bet
 </tbody>
 </table>
 <p>The signs are directions, not different relations: <code>+C</code> is <em>contains</em>, <code>-C</code> is the same relation read from the other end, and <code>N</code> is undirected. Count each relation once and the matrix gives exactly the eleven edges IPM allows:</p>
-<ul>
-<li>the <code>e</code> row: <code>±L</code> between events, <code>±C</code> for a sub-event inside an event, <code>±E</code> for an event expressing an event, <code>N_e</code>, then <code>+C</code> into a thing and <code>+E</code> into a concept;</li>
-<li>the <code>t</code> row: <code>-C</code> back to the event - the same edge as the event's <code>+C</code>, seen from the thing - then <code>±C</code> between things, <code>N_t</code>, and <code>+E</code> into a concept;</li>
-<li>the <code>c</code> row: <code>-E</code> twice, which are the reverse <em>readings</em> of <code>e → c</code> and <code>t → c</code> rather than edges of their own, plus <code>±E</code> and <code>N_c</code> among concepts.</li>
-</ul>
-<p>So IPM changes the <em>labels</em>, never which edges exist: the <a href="https://infinite.pm/ipm11/maxed.html">eleven combinations</a> are Mark's, one for one.</p>
+<p>Count each relation once - the <code>c → e</code> and <code>c → t</code> cells are the reverse <em>readings</em> of <code>e → c</code> and <code>t → c</code>, not edges of their own - and the matrix gives exactly the eleven edges IPM allows. So IPM changes the <em>labels</em>, never which edges exist: the <a href="https://infinite.pm/ipm11/maxed.html">eleven combinations</a> are Mark's, one for one. Each transition with its ipmt syntax, in both directions, is tabulated in <a href="https://github.com/infinite-pm/ipm-tools/blob/main/docs/sst-gamma34.md"><code>ipm-tools/docs/sst-gamma34.md</code></a>.</p>
 <p><strong>This is also what <code>(-C)</code> and <code>(+E)</code> mean on the triangles above.</strong> IPM's <code>part-of</code> is SST's <code>C</code> taken in the <code>-C</code> direction - from the part towards the whole - and IPM's <code>expresses</code> is SST's <code>E</code> in its <code>+E</code> direction.</p>
 <h2 id="further-reading">Further reading<span class="heading-ctls"><a class="heading-ctl-anchor" href="#further-reading" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
 <ul>
