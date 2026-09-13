@@ -151,7 +151,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <body>
 <header class="top"><a class="brand" href="https://infinite.pm/"><img src="../../logo/wordmark.svg" alt="infinite.pm"></a><nav class="top-links"><a href="https://infinite.pm/">Home</a><a href="https://infinite.pm/intro">Intro</a></nav></header>
 <h1 id="ipm-vs-default-sst---what-we-rename">IPM vs default SST - what we rename</h1>
-<nav class="toc"><div class="toc-title">Contents</div><ul><li class="toc-lvl-2"><a href="#further-reading">Further reading</a></li></ul></nav>
+<nav class="toc"><div class="toc-title">Contents</div><ul><li class="toc-lvl-2"><a href="#the-skeleton-matrix---where-the-eleven-edges-come-from">The skeleton matrix - where the eleven edges come from</a></li><li class="toc-lvl-2"><a href="#further-reading">Further reading</a></li></ul></nav>
 
 <p>This doc explains the two label changes IPM makes on top of Mark Burgess's original Semantic Spacetime γ(3,4) - and why. For the main IPM modeling introduction, see the <a href="https://infinite.pm/intro/">intro</a>.</p>
 <p>IPM is built directly on Mark Burgess's <strong><a href="https://semantic.st/">Semantic Spacetime γ(3,4)</a></strong> (&quot;gamma 3, 4&quot; - three kinds of nodes, four kinds of relations). IPM tweaks two of the original SST labels for readability:</p>
@@ -164,6 +164,46 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <p>Both panels draw a same-kind relation between a corner and a second node of that kind (<code>e</code> and <code>e2</code>, and so on)
 rather than as a loop back to the corner itself: an event that leads to an event leads to a <em>different</em> event.
 Only the labels and the <code>C</code>/<code>P</code> arrow direction differ between the two panels; the geometry is identical.</p>
+<h2 id="the-skeleton-matrix---where-the-eleven-edges-come-from">The skeleton matrix - where the eleven edges come from<span class="heading-ctls"><a class="heading-ctl-anchor" href="#the-skeleton-matrix---where-the-eleven-edges-come-from" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
+<p>Mark states the allowed transitions as a matrix: <em>Agent Semantics, Semantic Spacetime, and Graphical Reasoning</em> (<a href="https://arxiv.org/abs/2506.07756">arXiv:2506.07756</a>, June 2025), §4.1 <em>&quot;Matrices for γ(3,4) skeleton&quot;</em>, equation 21. Rows are the source node kind, columns the target:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">source → target</th>
+<th style="text-align:left">→ <code>e</code></th>
+<th style="text-align:left">→ <code>t</code></th>
+<th style="text-align:left">→ <code>c</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong><code>e</code></strong></td>
+<td style="text-align:left">±L, ±C, ±E, N_e</td>
+<td style="text-align:left">+C</td>
+<td style="text-align:left">+E</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>t</code></strong></td>
+<td style="text-align:left">-C</td>
+<td style="text-align:left">±C, N_t</td>
+<td style="text-align:left">+E</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>c</code></strong></td>
+<td style="text-align:left">-E</td>
+<td style="text-align:left">-E</td>
+<td style="text-align:left">±E, N_c</td>
+</tr>
+</tbody>
+</table>
+<p>The signs are directions, not different relations: <code>+C</code> is <em>contains</em>, <code>-C</code> is the same relation read from the other end, and <code>N</code> is undirected. Count each relation once and the matrix gives exactly the eleven edges IPM allows:</p>
+<ul>
+<li>the <code>e</code> row: <code>±L</code> between events, <code>±C</code> for a sub-event inside an event, <code>±E</code> for an event expressing an event, <code>N_e</code>, then <code>+C</code> into a thing and <code>+E</code> into a concept;</li>
+<li>the <code>t</code> row: <code>-C</code> back to the event - the same edge as the event's <code>+C</code>, seen from the thing - then <code>±C</code> between things, <code>N_t</code>, and <code>+E</code> into a concept;</li>
+<li>the <code>c</code> row: <code>-E</code> twice, which are the reverse <em>readings</em> of <code>e → c</code> and <code>t → c</code> rather than edges of their own, plus <code>±E</code> and <code>N_c</code> among concepts.</li>
+</ul>
+<p>So IPM changes the <em>labels</em>, never which edges exist: the <a href="https://infinite.pm/ipm11/maxed.html">eleven combinations</a> are Mark's, one for one.</p>
+<p><strong>This is also what <code>(-C)</code> and <code>(+E)</code> mean on the triangles above.</strong> IPM's <code>part-of</code> is SST's <code>C</code> taken in the <code>-C</code> direction - from the part towards the whole - and IPM's <code>expresses</code> is SST's <code>E</code> in its <code>+E</code> direction.</p>
 <h2 id="further-reading">Further reading<span class="heading-ctls"><a class="heading-ctl-anchor" href="#further-reading" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
 <ul>
 <li>Mark Burgess, <a href="https://mark-burgess-oslo-mb.medium.com/designing-nodes-and-arrows-in-knowledge-graphs-with-semantic-spacetime-0992b9cae595">Designing Nodes and Arrows in Knowledge Graphs with Semantic Spacetime</a> - the source article for the LCEN triangle.</li>
