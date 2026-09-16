@@ -150,6 +150,21 @@ function show(v) {
   }
 }
 
+// maxed.html fits the slide to the window. Fitting with CSS alone would re-fit it
+// on every browser zoom, so zoom would only grow the buttons; instead the fit is
+// scaled by how far the zoom has moved since the page loaded (devicePixelRatio
+// changes with zoom, not with window size), and the stage scrolls when it grows.
+const stage = document.querySelector('.stage');
+const dpr0 = window.devicePixelRatio || 1;
+function fitSlide() {
+  if (!stage) return;
+  const fit = Math.min(stage.clientWidth, stage.clientHeight * 16 / 9);
+  const zoom = (window.devicePixelRatio || 1) / dpr0;
+  stage.firstElementChild.style.width = Math.floor(fit * zoom) + 'px';
+}
+addEventListener('resize', fitSlide);
+fitSlide();
+
 addEventListener('hashchange', () => show(resolve(location.hash)));
 document.addEventListener('keydown', e => {
   if (e.altKey || e.ctrlKey || e.metaKey) return;
