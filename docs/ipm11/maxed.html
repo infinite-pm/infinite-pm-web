@@ -146,7 +146,24 @@ function fitSlide() {
   if (!stage) return;
   const fit = Math.min(stage.clientWidth, stage.clientHeight * 16 / 9);
   const zoom = (window.devicePixelRatio || 1) / dpr0;
-  stage.firstElementChild.style.width = Math.floor(fit * zoom) + 'px';
+  const w = Math.floor(fit * zoom);
+  stage.firstElementChild.style.width = w + 'px';
+  alignBar(w);
+}
+
+// Above a slide narrower than the window, the bar's buttons line up with the
+// slide's card, whose border sits 20 slide units in from a 1920-wide slide's
+// edge — but only when they fit in that width; otherwise the bar keeps its own
+// small margins and the full window width.
+const bar = document.querySelector('.bar');
+function alignBar(slideW) {
+  if (!bar) return;
+  bar.style.paddingLeft = bar.style.paddingRight = '';
+  const inset = (stage.clientWidth - slideW) / 2 + slideW * 20 / 1920;
+  if (inset <= parseFloat(getComputedStyle(bar).paddingLeft)) return;
+  bar.style.paddingLeft = bar.style.paddingRight = inset + 'px';
+  const nav = bar.querySelector('nav.tabs');
+  if (nav && nav.scrollWidth > nav.clientWidth + 1) bar.style.paddingLeft = bar.style.paddingRight = '';
 }
 addEventListener('resize', fitSlide);
 fitSlide();
