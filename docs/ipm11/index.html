@@ -166,11 +166,22 @@ addEventListener('resize', fitSlide);
 fitSlide();
 
 addEventListener('hashchange', () => show(resolve(location.hash)));
+
+// Escape leaves maxed.html — but not while the browser is in full screen, where
+// Escape belongs to the browser: navigating then would swallow the key the
+// reader pressed to get out of full screen. Full screen is the page's own
+// (Fullscreen API), the browser's (F11, which Chromium reports as display-mode
+// fullscreen), or failing both, a window exactly as large as the screen.
+function inFullScreen() {
+  return !!document.fullscreenElement ||
+    matchMedia('(display-mode: fullscreen)').matches ||
+    (outerWidth >= screen.width && outerHeight >= screen.height);
+}
 document.addEventListener('keydown', e => {
   if (e.altKey || e.ctrlKey || e.metaKey) return;
   if (e.key === 'ArrowLeft') location.hash = prev.getAttribute('href');
   if (e.key === 'ArrowRight') location.hash = next.getAttribute('href');
-  if (e.key === 'Escape' && maxed) location.href = mode.href;
+  if (e.key === 'Escape' && maxed && !inFullScreen()) location.href = mode.href;
 });
 show(resolve(location.hash));
 </script>
