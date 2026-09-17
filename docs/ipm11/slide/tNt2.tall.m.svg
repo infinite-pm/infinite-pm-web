@@ -118,17 +118,17 @@
 </svg>
   <text x="91.00" y="763.93" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="24.00" font-weight="700" letter-spacing="1.44" fill="#57606a">IMPLICIT</text>
   <text x="91.00" y="811.53" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="40.00" opacity="1.00"><tspan fill="#4d8a3a">t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#aaaaaa" font-weight="bold">---</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a">t2</tspan></text>
-  <text x="91.00" y="865.53" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="24.00" font-weight="700" letter-spacing="1.44" fill="#57606a">EXPLICIT</text>
-  <text x="91.00" y="913.13" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="40.00" opacity="1.00"><tspan fill="#4d8a3a">t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">::t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#aaaaaa" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::N</tspan><tspan fill="#aaaaaa" font-weight="bold">--</tspan><tspan fill="#4d8a3a" font-weight="bold">- t2</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">::t</tspan></text>
-  <text x="91.00" y="967.13" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="24.00" font-weight="700" letter-spacing="1.44" fill="#57606a">READS AS</text>
-  <rect x="48.00" y="988.25" width="21.00" height="7.00" fill="#aaaaaa"/>
-  <rect x="48.00" y="997.17" width="21.00" height="7.00" fill="#aaaaaa"/>
-  <rect x="48.00" y="1006.09" width="21.00" height="7.00" fill="#aaaaaa"/>
-  <rect x="48.00" y="979.97" width="7.00" height="41.40" fill="#4d8a3a"/>
-  <rect x="62.00" y="979.97" width="7.00" height="41.40" fill="#4d8a3a"/>
-  <text x="91.00" y="1010.93" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="36.00" fill="#303640"><tspan fill="#4d8a3a">t</tspan><tspan fill="#8a93a3"> is near / similar to </tspan><tspan fill="#4d8a3a">t2</tspan></text>
-  <text x="91.00" y="1050.71" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="30.60" fill="#57606a">(and the other way round)</text>
-  <svg x="157.75" y="1340.34" width="764.49" height="254.83" viewBox="0 0 420.00 140.00">
+  <text x="91.00" y="887.53" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="24.00" font-weight="700" letter-spacing="1.44" fill="#57606a">EXPLICIT</text>
+  <text x="91.00" y="935.13" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="40.00" opacity="1.00"><tspan fill="#4d8a3a">t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">::t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#aaaaaa" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::N</tspan><tspan fill="#aaaaaa" font-weight="bold">--</tspan><tspan fill="#4d8a3a" font-weight="bold">- t2</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">::t</tspan></text>
+  <text x="91.00" y="1011.13" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="24.00" font-weight="700" letter-spacing="1.44" fill="#57606a">READS AS</text>
+  <rect x="48.00" y="1032.25" width="21.00" height="7.00" fill="#aaaaaa"/>
+  <rect x="48.00" y="1041.17" width="21.00" height="7.00" fill="#aaaaaa"/>
+  <rect x="48.00" y="1050.09" width="21.00" height="7.00" fill="#aaaaaa"/>
+  <rect x="48.00" y="1023.97" width="7.00" height="41.40" fill="#4d8a3a"/>
+  <rect x="62.00" y="1023.97" width="7.00" height="41.40" fill="#4d8a3a"/>
+  <text x="91.00" y="1054.93" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="36.00" fill="#303640"><tspan fill="#4d8a3a">t</tspan><tspan fill="#8a93a3"> is near / similar to </tspan><tspan fill="#4d8a3a">t2</tspan></text>
+  <text x="91.00" y="1094.71" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="30.60" fill="#57606a">(and the other way round)</text>
+  <svg x="179.75" y="1369.67" width="720.49" height="240.16" viewBox="0 0 420.00 140.00">
   <defs>
   </defs>
   <g id="dtNt2-container-shells">
