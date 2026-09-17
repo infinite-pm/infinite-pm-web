@@ -116,7 +116,7 @@
     <text x="666.63" y="799.86" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="48.00" fill="#cfcfcf" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="0.42">c2</text>
   </g>
 </svg>
-  <text x="89.00" y="1046.64" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="42.00" opacity="1.00"><tspan fill="#ff8000">e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::L</tspan><tspan fill="#ff8000" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000">e2</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan></text>
+  <text x="89.00" y="1046.64" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="42.00" opacity="1.00"><tspan fill="#ff8000">e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000">e2</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan></text>
   <rect x="48.00" y="1071.96" width="21.00" height="24.84" fill="#ff8000"/>
   <rect x="48.00" y="1063.68" width="7.00" height="41.40" fill="#ff8000"/>
   <rect x="62.00" y="1063.68" width="7.00" height="41.40" fill="#ff8000"/>

@@ -115,19 +115,19 @@
     <text x="666.63" y="799.86" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="48.00" fill="#cfcfcf" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="0.42">c2</text>
   </g>
 </svg>
-  <text x="791.98" y="242.75" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="42.00" opacity="1.00"><tspan fill="#4d8a3a">t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">::t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::P</tspan><tspan fill="#4d8a3a" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000">e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan></text>
+  <text x="791.98" y="242.75" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="42.00" opacity="1.00"><tspan fill="#4d8a3a">t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000">e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan></text>
   <rect x="750.98" y="268.07" width="21.00" height="24.84" fill="#4d8a3a"/>
   <rect x="750.98" y="259.79" width="7.00" height="41.40" fill="#4d8a3a"/>
   <rect x="764.98" y="259.79" width="7.00" height="41.40" fill="#ff8000"/>
   <text x="791.98" y="290.75" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="36.00" fill="#303640"><tspan fill="#4d8a3a">t</tspan><tspan fill="#4d8a3a"> participates in (is part of) </tspan><tspan fill="#ff8000">e</tspan></text>
   <line x1="750.98" y1="316.00" x2="1880.00" y2="316.00" stroke="#e3e7ee" stroke-width="1.5"/>
-  <text x="791.98" y="372.75" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="42.00" opacity="1.00"><tspan fill="#4d8a3a">t2</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">::t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::P</tspan><tspan fill="#4d8a3a" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a">t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">::t</tspan></text>
+  <text x="791.98" y="372.75" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="42.00" opacity="1.00"><tspan fill="#4d8a3a">t2</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a">t</tspan></text>
   <rect x="750.98" y="398.07" width="21.00" height="24.84" fill="#4d8a3a"/>
   <rect x="750.98" y="389.79" width="7.00" height="41.40" fill="#4d8a3a"/>
   <rect x="764.98" y="389.79" width="7.00" height="41.40" fill="#4d8a3a"/>
   <text x="791.98" y="420.75" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="36.00" fill="#303640"><tspan fill="#4d8a3a">t2</tspan><tspan fill="#4d8a3a"> is part of </tspan><tspan fill="#4d8a3a">t</tspan><tspan fill="#57606a"> (physical composition)</tspan></text>
   <line x1="750.98" y1="446.00" x2="1880.00" y2="446.00" stroke="#e3e7ee" stroke-width="1.5"/>
-  <text x="791.98" y="502.75" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="42.00" opacity="1.00"><tspan fill="#4d8a3a">t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">::t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#aaaaaa" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::N</tspan><tspan fill="#aaaaaa" font-weight="bold">--</tspan><tspan fill="#4d8a3a" font-weight="bold">- t2</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">::t</tspan></text>
+  <text x="791.98" y="502.75" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="42.00" opacity="1.00"><tspan fill="#4d8a3a">t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#aaaaaa" font-weight="bold">---</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a">t2</tspan></text>
   <rect x="750.98" y="528.07" width="21.00" height="7.00" fill="#aaaaaa"/>
   <rect x="750.98" y="536.99" width="21.00" height="7.00" fill="#aaaaaa"/>
   <rect x="750.98" y="545.91" width="21.00" height="7.00" fill="#aaaaaa"/>
@@ -135,7 +135,7 @@
   <rect x="764.98" y="519.79" width="7.00" height="41.40" fill="#4d8a3a"/>
   <text x="791.98" y="550.75" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="36.00" fill="#303640"><tspan fill="#4d8a3a">t</tspan><tspan fill="#8a93a3"> is near / similar to </tspan><tspan fill="#4d8a3a">t2</tspan><tspan fill="#57606a"> (and the other way round)</tspan></text>
   <line x1="750.98" y1="576.00" x2="1880.00" y2="576.00" stroke="#e3e7ee" stroke-width="1.5"/>
-  <text x="791.98" y="632.75" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="42.00" opacity="1.00"><tspan fill="#4d8a3a">t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">::t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::X</tspan><tspan fill="#6c8ebf" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf">c</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">::c</tspan></text>
+  <text x="791.98" y="632.75" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="42.00" opacity="1.00"><tspan fill="#4d8a3a">t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf">c</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">::c</tspan></text>
   <rect x="750.98" y="658.07" width="21.00" height="9.31" fill="#6c8ebf"/>
   <rect x="750.98" y="673.60" width="21.00" height="9.31" fill="#6c8ebf"/>
   <rect x="750.98" y="649.79" width="7.00" height="41.40" fill="#4d8a3a"/>
