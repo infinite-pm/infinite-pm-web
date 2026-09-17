@@ -17,6 +17,14 @@
           border-radius:9px; padding:.28rem .6rem; white-space:nowrap; }
   a.tab.edge { font-family:'SFMono-Regular',Menlo,Consolas,'Liberation Mono',monospace; font-size:.88rem; }
   a.tab.icon { display:inline-flex; align-items:center; padding:.3rem .45rem; }
+  button.tab { font:inherit; font-weight:700; line-height:inherit; border:1px solid var(--line); background:var(--card);
+               color:var(--muted); border-radius:9px; cursor:pointer; }
+  button.tab.icon { display:inline-flex; align-items:center; padding:.3rem .45rem; }
+  button.tab:hover { color:var(--ink); border-color:#c9d2de; }
+  .tab.icon[hidden] { display:none; }
+  .tab.icon.dim { opacity:.4; }
+  #fs span { display:flex; } #fs .i-exit, #fs[aria-pressed="true"] .i-enter { display:none; }
+  #fs[aria-pressed="true"] .i-exit { display:flex; }
   a.tab:hover { color:var(--ink); border-color:#c9d2de; }
   a.tab[aria-current="true"] { background:var(--ink); border-color:var(--ink); color:#fff; }
   a.tab[aria-current="true"] span { color:#fff; }
@@ -80,7 +88,7 @@
   <div class="dock">
     <button type="button" id="menu" aria-label="all views" aria-expanded="false" aria-controls="sheet"><svg viewBox="0 0 16 16" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 2.5h4v4h-4zM9.5 2.5h4v4h-4zM2.5 9.5h4v4h-4zM9.5 9.5h4v4h-4z"/></svg></button>
     <span class="where" id="where">all 11</span>
-    <button type="button" id="fs" aria-label="full screen" hidden><svg viewBox="0 0 16 16" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4"/></svg></button>
+    <button type="button" class="" id="fs" title="full screen (F)" aria-label="full screen" aria-pressed="false" hidden><span class="i-enter"><svg viewBox="0 0 16 16" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4"/></svg></span><span class="i-exit"><svg viewBox="0 0 16 16" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2v4H2M14 6h-4V2M10 14v-4h4M2 10h4v4"/></svg></span></button>
     <a id="mode" href="index.html#all" aria-label="desktop page"><svg viewBox="0 0 16 16" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 2.5h13v8.5h-13zM5.5 14h5M8 11v3"/></svg></a>
     <a id="home" href="https://infinite.pm/" aria-label="infinite.pm home"><svg viewBox="0 0 16 16" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8 8 2.5 14 8M4 6.5V14h8V6.5"/></svg></a>
   </div>
@@ -143,6 +151,22 @@ function resolve(hash) {
     VIEWS.find(v => v.old.includes(h)) || VIEWS.find(v => v.key === 'all');
 }
 
+const fsButton = document.getElementById('fs');
+function toggleFullScreen() {
+  if (!document.fullscreenEnabled) return;
+  if (document.fullscreenElement) document.exitFullscreen();
+  else document.documentElement.requestFullscreen().catch(() => {});
+}
+if (fsButton && document.fullscreenEnabled) {
+  fsButton.hidden = false;
+  fsButton.addEventListener('click', toggleFullScreen);
+  document.addEventListener('fullscreenchange', () => {
+    const on = !!document.fullscreenElement;
+    fsButton.setAttribute('aria-pressed', on ? 'true' : 'false');
+    fsButton.title = on ? 'leave full screen (F)' : 'full screen (F)';
+  });
+}
+
 const slide = document.getElementById('slide');
 const where = document.getElementById('where');
 const prev = document.getElementById('prev');
@@ -150,7 +174,6 @@ const next = document.getElementById('next');
 const mode = document.getElementById('mode');
 const menu = document.getElementById('menu');
 const sheet = document.getElementById('sheet');
-const fs = document.getElementById('fs');
 let cur = VIEWS[0];
 
 // a phone held upright gets the tall slide, one on its side the wide one
@@ -219,19 +242,12 @@ addEventListener('touchend', e => {
   if (Math.abs(dx) > 60 && Math.abs(dx) > 2 * Math.abs(dy)) step(dx < 0 ? 1 : -1);
 }, { passive: true });
 
-if (document.fullscreenEnabled) {
-  fs.hidden = false;
-  fs.addEventListener('click', () => {
-    if (document.fullscreenElement) document.exitFullscreen();
-    else document.documentElement.requestFullscreen().catch(() => {});
-  });
-}
-
 document.addEventListener('keydown', e => {
   if (e.altKey || e.ctrlKey || e.metaKey) return;
   if (e.key === 'ArrowLeft') step(-1);
   if (e.key === 'ArrowRight') step(1);
   if (e.key === 'Escape') openSheet(false);
+  if (e.key === 'f' || e.key === 'F') toggleFullScreen();
 });
 addEventListener('resize', () => show(cur));
 addEventListener('hashchange', () => show(resolve(location.hash)));

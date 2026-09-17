@@ -17,6 +17,14 @@
           border-radius:9px; padding:.28rem .6rem; white-space:nowrap; }
   a.tab.edge { font-family:'SFMono-Regular',Menlo,Consolas,'Liberation Mono',monospace; font-size:.88rem; }
   a.tab.icon { display:inline-flex; align-items:center; padding:.3rem .45rem; }
+  button.tab { font:inherit; font-weight:700; line-height:inherit; border:1px solid var(--line); background:var(--card);
+               color:var(--muted); border-radius:9px; cursor:pointer; }
+  button.tab.icon { display:inline-flex; align-items:center; padding:.3rem .45rem; }
+  button.tab:hover { color:var(--ink); border-color:#c9d2de; }
+  .tab.icon[hidden] { display:none; }
+  .tab.icon.dim { opacity:.4; }
+  #fs span { display:flex; } #fs .i-exit, #fs[aria-pressed="true"] .i-enter { display:none; }
+  #fs[aria-pressed="true"] .i-exit { display:flex; }
   a.tab:hover { color:var(--ink); border-color:#c9d2de; }
   a.tab[aria-current="true"] { background:var(--ink); border-color:var(--ink); color:#fff; }
   a.tab[aria-current="true"] span { color:#fff; }
@@ -89,7 +97,8 @@
     <a class="tab" id="prev" href="#near" title="previous">&larr;</a>
     <span class="count" id="count">all 11 edges</span>
     <a class="tab" id="next" href="#eLe2" title="next">&rarr;</a>
-    <a class="tab icon" id="mode" data-page="maxed.html" href="maxed.html#all" title="full screen" aria-label="full screen"><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4"/></svg></a>
+    <a class="tab icon" id="mode" data-page="maxed.html" href="maxed.html#all" title="presenting page" aria-label="presenting page"><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 2.5h13M2.5 2.5v7.5h11V2.5M8 10v4M5.5 14h5"/></svg></a>
+    <a class="tab icon" id="phone" href="mobile.html#all" title="phone version" aria-label="phone version"><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 1.5h7v13h-7zM7 12h2"/></svg></a>
   </div>
 
   <figure class="slide"><div class="frame"><img id="slide" src="slide/all.svg" alt="ipm gamma(3,4) edges: event leads-to other event; event part-of other event; event expresses other event; event near other event; thing part-of event; thing part-of other thing; thing near other thing; event expresses concept; thing expresses concept; concept expresses other concept; concept near other concept. The triangle on the right keeps these elements and greys the rest."><nav class="rows" aria-label="table rows"><a href="#eLe2" title="e leads to e2" aria-label="e-L-e2" style="left:2.917%;top:20.926%;width:62.917%;height:6.667%"></a><a href="#e2Pe" title="e2 is part of e" aria-label="e2-P-e" style="left:2.917%;top:27.593%;width:62.917%;height:6.667%"></a><a href="#eXe2" title="e expresses e2" aria-label="e-X-e2" style="left:2.917%;top:34.259%;width:62.917%;height:6.667%"></a><a href="#eNe2" title="e is similar to e2 (and the other way round)" aria-label="e-N-e2" style="left:2.917%;top:40.926%;width:62.917%;height:6.667%"></a><a href="#tPe" title="t participates in (is part of) e" aria-label="t-P-e" style="left:2.917%;top:47.593%;width:62.917%;height:6.667%"></a><a href="#t2Pt" title="t2 is part of t (physical composition)" aria-label="t2-P-t" style="left:2.917%;top:54.259%;width:62.917%;height:6.667%"></a><a href="#tNt2" title="t is near / similar to t2 (and the other way round)" aria-label="t-N-t2" style="left:2.917%;top:60.926%;width:62.917%;height:6.667%"></a><a href="#eXc" title="e expresses property c" aria-label="e-X-c" style="left:2.917%;top:67.593%;width:62.917%;height:6.667%"></a><a href="#tXc" title="t expresses property c" aria-label="t-X-c" style="left:2.917%;top:74.259%;width:62.917%;height:6.667%"></a><a href="#cXc2" title="c expresses property c2" aria-label="c-X-c2" style="left:2.917%;top:80.926%;width:62.917%;height:6.667%"></a><a href="#cNc2" title="c is similar to c2 (and the other way round)" aria-label="c-N-c2" style="left:2.917%;top:87.593%;width:62.917%;height:6.667%"></a></nav></div></figure>
@@ -130,12 +139,36 @@ function resolve(hash) {
     VIEWS.find(v => v.old.includes(h)) || VIEWS.find(v => v.key === 'all');
 }
 
+const fsButton = document.getElementById('fs');
+function toggleFullScreen() {
+  if (!document.fullscreenEnabled) return;
+  if (document.fullscreenElement) document.exitFullscreen();
+  else document.documentElement.requestFullscreen().catch(() => {});
+}
+if (fsButton && document.fullscreenEnabled) {
+  fsButton.hidden = false;
+  fsButton.addEventListener('click', toggleFullScreen);
+  document.addEventListener('fullscreenchange', () => {
+    const on = !!document.fullscreenElement;
+    fsButton.setAttribute('aria-pressed', on ? 'true' : 'false');
+    fsButton.title = on ? 'leave full screen (F)' : 'full screen (F)';
+  });
+}
+
 const slide = document.getElementById('slide');
 const count = document.getElementById('count');
 const prev = document.getElementById('prev');
 const next = document.getElementById('next');
 const mode = document.getElementById('mode');
+const phone = document.getElementById('phone');
 const maxed = document.body.classList.contains('maxed');
+
+// the phone link is greyed where the screen is no phone's — a phone is a touch
+// screen whose shorter side is under 600 CSS pixels — yet still works
+if (phone && !(matchMedia('(pointer: coarse)').matches && Math.min(screen.width, screen.height) < 600)) {
+  phone.classList.add('dim');
+  phone.title = 'phone version (made for phones)';
+}
 
 function show(v) {
   slide.src = 'slide/' + v.key + '.svg';
@@ -147,6 +180,7 @@ function show(v) {
   next.href = '#' + VIEWS[(i + 1) % n].anchor;
   // the full-screen icon opens the other page on the same view
   mode.href = mode.dataset.page + '#' + v.anchor;
+  if (phone) phone.href = 'mobile.html#' + v.anchor;
   for (const a of document.querySelectorAll('a.tab[data-key]')) {
     a.setAttribute('aria-current', a.dataset.key === v.key ? 'true' : 'false');
   }
@@ -201,6 +235,7 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowLeft') location.hash = prev.getAttribute('href');
   if (e.key === 'ArrowRight') location.hash = next.getAttribute('href');
   if (e.key === 'Escape' && maxed && !inFullScreen()) location.href = mode.href;
+  if ((e.key === 'f' || e.key === 'F') && maxed) toggleFullScreen();
 });
 show(resolve(location.hash));
 </script>

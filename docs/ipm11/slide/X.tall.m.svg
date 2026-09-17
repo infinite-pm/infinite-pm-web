@@ -116,32 +116,32 @@
     <text x="666.63" y="799.86" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="48.00" fill="#6c8ebf" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">c2</text>
   </g>
 </svg>
-  <rect x="48.00" y="1032.49" width="36.00" height="27.07" fill="#6c8ebf"/>
-  <rect x="48.00" y="1070.23" width="36.00" height="27.07" fill="#6c8ebf"/>
-  <rect x="48.00" y="1010.89" width="12.00" height="108.00" fill="#ff8000"/>
-  <rect x="72.00" y="1010.89" width="12.00" height="108.00" fill="#ff8000"/>
-  <text x="106.00" y="1055.39" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="50.00" opacity="1.00"><tspan fill="#ff8000">e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::X</tspan><tspan fill="#6c8ebf" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000">e2</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan></text>
-  <text x="106.00" y="1111.89" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="42.00" fill="#303640"><tspan fill="#ff8000">e</tspan><tspan fill="#6c8ebf"> expresses </tspan><tspan fill="#ff8000">e2</tspan></text>
-  <line x1="48.00" y1="1139.89" x2="1032.00" y2="1139.89" stroke="#e3e7ee" stroke-width="1.5"/>
-  <rect x="48.00" y="1182.49" width="36.00" height="27.07" fill="#6c8ebf"/>
-  <rect x="48.00" y="1220.23" width="36.00" height="27.07" fill="#6c8ebf"/>
-  <rect x="48.00" y="1160.89" width="12.00" height="108.00" fill="#ff8000"/>
-  <rect x="72.00" y="1160.89" width="12.00" height="108.00" fill="#6c8ebf"/>
-  <text x="106.00" y="1205.39" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="50.00" opacity="1.00"><tspan fill="#ff8000">e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::X</tspan><tspan fill="#6c8ebf" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf">c</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">::c</tspan></text>
-  <text x="106.00" y="1261.89" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="42.00" fill="#303640"><tspan fill="#ff8000">e</tspan><tspan fill="#6c8ebf"> expresses property </tspan><tspan fill="#6c8ebf">c</tspan></text>
-  <line x1="48.00" y1="1289.89" x2="1032.00" y2="1289.89" stroke="#e3e7ee" stroke-width="1.5"/>
-  <rect x="48.00" y="1332.49" width="36.00" height="27.07" fill="#6c8ebf"/>
-  <rect x="48.00" y="1370.23" width="36.00" height="27.07" fill="#6c8ebf"/>
-  <rect x="48.00" y="1310.89" width="12.00" height="108.00" fill="#4d8a3a"/>
-  <rect x="72.00" y="1310.89" width="12.00" height="108.00" fill="#6c8ebf"/>
-  <text x="106.00" y="1355.39" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="50.00" opacity="1.00"><tspan fill="#4d8a3a">t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">::t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::X</tspan><tspan fill="#6c8ebf" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf">c</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">::c</tspan></text>
-  <text x="106.00" y="1411.89" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="42.00" fill="#303640"><tspan fill="#4d8a3a">t</tspan><tspan fill="#6c8ebf"> expresses property </tspan><tspan fill="#6c8ebf">c</tspan></text>
-  <line x1="48.00" y1="1439.89" x2="1032.00" y2="1439.89" stroke="#e3e7ee" stroke-width="1.5"/>
-  <rect x="48.00" y="1482.49" width="36.00" height="27.07" fill="#6c8ebf"/>
-  <rect x="48.00" y="1520.23" width="36.00" height="27.07" fill="#6c8ebf"/>
-  <rect x="48.00" y="1460.89" width="12.00" height="108.00" fill="#6c8ebf"/>
-  <rect x="72.00" y="1460.89" width="12.00" height="108.00" fill="#6c8ebf"/>
-  <text x="106.00" y="1505.39" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="50.00" opacity="1.00"><tspan fill="#6c8ebf">c</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">::c</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::X</tspan><tspan fill="#6c8ebf" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf">c2</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">::c</tspan></text>
-  <text x="106.00" y="1561.89" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="42.00" fill="#303640"><tspan fill="#6c8ebf">c</tspan><tspan fill="#6c8ebf"> expresses property </tspan><tspan fill="#6c8ebf">c2</tspan></text>
+  <text x="89.00" y="1046.64" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="42.00" opacity="1.00"><tspan fill="#ff8000">e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::X</tspan><tspan fill="#6c8ebf" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000">e2</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan></text>
+  <rect x="48.00" y="1071.96" width="21.00" height="9.31" fill="#6c8ebf"/>
+  <rect x="48.00" y="1087.49" width="21.00" height="9.31" fill="#6c8ebf"/>
+  <rect x="48.00" y="1063.68" width="7.00" height="41.40" fill="#ff8000"/>
+  <rect x="62.00" y="1063.68" width="7.00" height="41.40" fill="#ff8000"/>
+  <text x="89.00" y="1094.64" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="36.00" fill="#303640"><tspan fill="#ff8000">e</tspan><tspan fill="#6c8ebf"> expresses </tspan><tspan fill="#ff8000">e2</tspan></text>
+  <line x1="48.00" y1="1119.89" x2="1032.00" y2="1119.89" stroke="#e3e7ee" stroke-width="1.5"/>
+  <text x="89.00" y="1176.64" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="42.00" opacity="1.00"><tspan fill="#ff8000">e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::X</tspan><tspan fill="#6c8ebf" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf">c</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">::c</tspan></text>
+  <rect x="48.00" y="1201.96" width="21.00" height="9.31" fill="#6c8ebf"/>
+  <rect x="48.00" y="1217.49" width="21.00" height="9.31" fill="#6c8ebf"/>
+  <rect x="48.00" y="1193.68" width="7.00" height="41.40" fill="#ff8000"/>
+  <rect x="62.00" y="1193.68" width="7.00" height="41.40" fill="#6c8ebf"/>
+  <text x="89.00" y="1224.64" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="36.00" fill="#303640"><tspan fill="#ff8000">e</tspan><tspan fill="#6c8ebf"> expresses property </tspan><tspan fill="#6c8ebf">c</tspan></text>
+  <line x1="48.00" y1="1249.89" x2="1032.00" y2="1249.89" stroke="#e3e7ee" stroke-width="1.5"/>
+  <text x="89.00" y="1306.64" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="42.00" opacity="1.00"><tspan fill="#4d8a3a">t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">::t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::X</tspan><tspan fill="#6c8ebf" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf">c</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">::c</tspan></text>
+  <rect x="48.00" y="1331.96" width="21.00" height="9.31" fill="#6c8ebf"/>
+  <rect x="48.00" y="1347.49" width="21.00" height="9.31" fill="#6c8ebf"/>
+  <rect x="48.00" y="1323.68" width="7.00" height="41.40" fill="#4d8a3a"/>
+  <rect x="62.00" y="1323.68" width="7.00" height="41.40" fill="#6c8ebf"/>
+  <text x="89.00" y="1354.64" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="36.00" fill="#303640"><tspan fill="#4d8a3a">t</tspan><tspan fill="#6c8ebf"> expresses property </tspan><tspan fill="#6c8ebf">c</tspan></text>
+  <line x1="48.00" y1="1379.89" x2="1032.00" y2="1379.89" stroke="#e3e7ee" stroke-width="1.5"/>
+  <text x="89.00" y="1436.64" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="42.00" opacity="1.00"><tspan fill="#6c8ebf">c</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">::c</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::X</tspan><tspan fill="#6c8ebf" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf">c2</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">::c</tspan></text>
+  <rect x="48.00" y="1461.96" width="21.00" height="9.31" fill="#6c8ebf"/>
+  <rect x="48.00" y="1477.49" width="21.00" height="9.31" fill="#6c8ebf"/>
+  <rect x="48.00" y="1453.68" width="7.00" height="41.40" fill="#6c8ebf"/>
+  <rect x="62.00" y="1453.68" width="7.00" height="41.40" fill="#6c8ebf"/>
+  <text x="89.00" y="1484.64" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="36.00" fill="#303640"><tspan fill="#6c8ebf">c</tspan><tspan fill="#6c8ebf"> expresses property </tspan><tspan fill="#6c8ebf">c2</tspan></text>
   <a href="https://infinite.pm/ipm11/mobile.html#expresses"><text x="1032.00" y="1888.00" text-anchor="end" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="26.00" fill="#57606a">infinite.pm/ipm11</text></a>
 </svg>

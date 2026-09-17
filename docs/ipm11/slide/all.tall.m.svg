@@ -112,80 +112,80 @@
     <text x="666.63" y="799.86" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="48.00" fill="#6c8ebf" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">c2</text>
   </g>
 </svg>
-  <rect x="48.00" y="671.24" width="33.00" height="47.52" fill="#ff8000"/>
-  <rect x="48.00" y="655.40" width="11.00" height="79.20" fill="#ff8000"/>
-  <rect x="70.00" y="655.40" width="11.00" height="79.20" fill="#ff8000"/>
-  <text x="103.00" y="687.71" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="37.40" opacity="1.00"><tspan fill="#ff8000">e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::L</tspan><tspan fill="#ff8000" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000">e2</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan></text>
-  <text x="103.00" y="730.34" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="31.90" fill="#303640"><tspan fill="#ff8000">e</tspan><tspan fill="#ff8000"> leads to </tspan><tspan fill="#ff8000">e2</tspan></text>
+  <text x="89.00" y="687.71" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="37.40" opacity="1.00"><tspan fill="#ff8000">e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::L</tspan><tspan fill="#ff8000" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000">e2</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan></text>
+  <rect x="48.00" y="710.24" width="21.00" height="22.01" fill="#ff8000"/>
+  <rect x="48.00" y="702.90" width="7.00" height="36.68" fill="#ff8000"/>
+  <rect x="62.00" y="702.90" width="7.00" height="36.68" fill="#ff8000"/>
+  <text x="89.00" y="730.34" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="31.90" fill="#303640"><tspan fill="#ff8000">e</tspan><tspan fill="#ff8000"> leads to </tspan><tspan fill="#ff8000">e2</tspan></text>
   <line x1="48.00" y1="750.00" x2="1032.00" y2="750.00" stroke="#e3e7ee" stroke-width="1.5"/>
-  <rect x="48.00" y="781.24" width="33.00" height="47.52" fill="#4d8a3a"/>
-  <rect x="48.00" y="765.40" width="11.00" height="79.20" fill="#ff8000"/>
-  <rect x="70.00" y="765.40" width="11.00" height="79.20" fill="#ff8000"/>
-  <text x="103.00" y="797.71" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="37.40" opacity="1.00"><tspan fill="#ff8000">e2</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::P</tspan><tspan fill="#4d8a3a" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000">e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan></text>
-  <text x="103.00" y="840.34" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="31.90" fill="#303640"><tspan fill="#ff8000">e2</tspan><tspan fill="#4d8a3a"> is part of </tspan><tspan fill="#ff8000">e</tspan></text>
+  <text x="89.00" y="797.71" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="37.40" opacity="1.00"><tspan fill="#ff8000">e2</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::P</tspan><tspan fill="#4d8a3a" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000">e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan></text>
+  <rect x="48.00" y="820.24" width="21.00" height="22.01" fill="#4d8a3a"/>
+  <rect x="48.00" y="812.90" width="7.00" height="36.68" fill="#ff8000"/>
+  <rect x="62.00" y="812.90" width="7.00" height="36.68" fill="#ff8000"/>
+  <text x="89.00" y="840.34" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="31.90" fill="#303640"><tspan fill="#ff8000">e2</tspan><tspan fill="#4d8a3a"> is part of </tspan><tspan fill="#ff8000">e</tspan></text>
   <line x1="48.00" y1="860.00" x2="1032.00" y2="860.00" stroke="#e3e7ee" stroke-width="1.5"/>
-  <rect x="48.00" y="891.24" width="33.00" height="18.87" fill="#6c8ebf"/>
-  <rect x="48.00" y="919.89" width="33.00" height="18.87" fill="#6c8ebf"/>
-  <rect x="48.00" y="875.40" width="11.00" height="79.20" fill="#ff8000"/>
-  <rect x="70.00" y="875.40" width="11.00" height="79.20" fill="#ff8000"/>
-  <text x="103.00" y="907.71" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="37.40" opacity="1.00"><tspan fill="#ff8000">e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::X</tspan><tspan fill="#6c8ebf" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000">e2</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan></text>
-  <text x="103.00" y="950.34" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="31.90" fill="#303640"><tspan fill="#ff8000">e</tspan><tspan fill="#6c8ebf"> expresses </tspan><tspan fill="#ff8000">e2</tspan></text>
+  <text x="89.00" y="907.71" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="37.40" opacity="1.00"><tspan fill="#ff8000">e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::X</tspan><tspan fill="#6c8ebf" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000">e2</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan></text>
+  <rect x="48.00" y="930.24" width="21.00" height="7.89" fill="#6c8ebf"/>
+  <rect x="48.00" y="944.36" width="21.00" height="7.89" fill="#6c8ebf"/>
+  <rect x="48.00" y="922.90" width="7.00" height="36.68" fill="#ff8000"/>
+  <rect x="62.00" y="922.90" width="7.00" height="36.68" fill="#ff8000"/>
+  <text x="89.00" y="950.34" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="31.90" fill="#303640"><tspan fill="#ff8000">e</tspan><tspan fill="#6c8ebf"> expresses </tspan><tspan fill="#ff8000">e2</tspan></text>
   <line x1="48.00" y1="970.00" x2="1032.00" y2="970.00" stroke="#e3e7ee" stroke-width="1.5"/>
-  <rect x="48.00" y="1001.24" width="33.00" height="11.00" fill="#aaaaaa"/>
-  <rect x="48.00" y="1019.50" width="33.00" height="11.00" fill="#aaaaaa"/>
-  <rect x="48.00" y="1037.76" width="33.00" height="11.00" fill="#aaaaaa"/>
-  <rect x="48.00" y="985.40" width="11.00" height="79.20" fill="#ff8000"/>
-  <rect x="70.00" y="985.40" width="11.00" height="79.20" fill="#ff8000"/>
-  <text x="103.00" y="1017.71" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="37.40" opacity="1.00"><tspan fill="#ff8000">e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#aaaaaa" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::N</tspan><tspan fill="#aaaaaa" font-weight="bold">--</tspan><tspan fill="#ff8000" font-weight="bold">- e2</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan></text>
-  <text x="103.00" y="1060.34" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="31.90" fill="#303640"><tspan fill="#ff8000">e</tspan><tspan fill="#8a93a3"> is similar to </tspan><tspan fill="#ff8000">e2</tspan><tspan fill="#57606a"> (and the other way round)</tspan></text>
+  <text x="89.00" y="1017.71" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="37.40" opacity="1.00"><tspan fill="#ff8000">e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#aaaaaa" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::N</tspan><tspan fill="#aaaaaa" font-weight="bold">--</tspan><tspan fill="#ff8000" font-weight="bold">- e2</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan></text>
+  <rect x="48.00" y="1040.24" width="21.00" height="7.00" fill="#aaaaaa"/>
+  <rect x="48.00" y="1047.75" width="21.00" height="7.00" fill="#aaaaaa"/>
+  <rect x="48.00" y="1055.25" width="21.00" height="7.00" fill="#aaaaaa"/>
+  <rect x="48.00" y="1032.90" width="7.00" height="36.68" fill="#ff8000"/>
+  <rect x="62.00" y="1032.90" width="7.00" height="36.68" fill="#ff8000"/>
+  <text x="89.00" y="1060.34" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="31.90" fill="#303640"><tspan fill="#ff8000">e</tspan><tspan fill="#8a93a3"> is similar to </tspan><tspan fill="#ff8000">e2</tspan><tspan fill="#57606a"> (and the other way round)</tspan></text>
   <line x1="48.00" y1="1080.00" x2="1032.00" y2="1080.00" stroke="#e3e7ee" stroke-width="1.5"/>
-  <rect x="48.00" y="1111.24" width="33.00" height="47.52" fill="#4d8a3a"/>
-  <rect x="48.00" y="1095.40" width="11.00" height="79.20" fill="#4d8a3a"/>
-  <rect x="70.00" y="1095.40" width="11.00" height="79.20" fill="#ff8000"/>
-  <text x="103.00" y="1127.71" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="37.40" opacity="1.00"><tspan fill="#4d8a3a">t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">::t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::P</tspan><tspan fill="#4d8a3a" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000">e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan></text>
-  <text x="103.00" y="1170.34" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="31.90" fill="#303640"><tspan fill="#4d8a3a">t</tspan><tspan fill="#4d8a3a"> participates in (is part of) </tspan><tspan fill="#ff8000">e</tspan></text>
+  <text x="89.00" y="1127.71" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="37.40" opacity="1.00"><tspan fill="#4d8a3a">t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">::t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::P</tspan><tspan fill="#4d8a3a" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000">e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan></text>
+  <rect x="48.00" y="1150.24" width="21.00" height="22.01" fill="#4d8a3a"/>
+  <rect x="48.00" y="1142.90" width="7.00" height="36.68" fill="#4d8a3a"/>
+  <rect x="62.00" y="1142.90" width="7.00" height="36.68" fill="#ff8000"/>
+  <text x="89.00" y="1170.34" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="31.90" fill="#303640"><tspan fill="#4d8a3a">t</tspan><tspan fill="#4d8a3a"> participates in (is part of) </tspan><tspan fill="#ff8000">e</tspan></text>
   <line x1="48.00" y1="1190.00" x2="1032.00" y2="1190.00" stroke="#e3e7ee" stroke-width="1.5"/>
-  <rect x="48.00" y="1221.24" width="33.00" height="47.52" fill="#4d8a3a"/>
-  <rect x="48.00" y="1205.40" width="11.00" height="79.20" fill="#4d8a3a"/>
-  <rect x="70.00" y="1205.40" width="11.00" height="79.20" fill="#4d8a3a"/>
-  <text x="103.00" y="1237.71" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="37.40" opacity="1.00"><tspan fill="#4d8a3a">t2</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">::t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::P</tspan><tspan fill="#4d8a3a" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a">t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">::t</tspan></text>
-  <text x="103.00" y="1280.34" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="31.90" fill="#303640"><tspan fill="#4d8a3a">t2</tspan><tspan fill="#4d8a3a"> is part of </tspan><tspan fill="#4d8a3a">t</tspan><tspan fill="#57606a"> (physical composition)</tspan></text>
+  <text x="89.00" y="1237.71" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="37.40" opacity="1.00"><tspan fill="#4d8a3a">t2</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">::t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::P</tspan><tspan fill="#4d8a3a" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a">t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">::t</tspan></text>
+  <rect x="48.00" y="1260.24" width="21.00" height="22.01" fill="#4d8a3a"/>
+  <rect x="48.00" y="1252.90" width="7.00" height="36.68" fill="#4d8a3a"/>
+  <rect x="62.00" y="1252.90" width="7.00" height="36.68" fill="#4d8a3a"/>
+  <text x="89.00" y="1280.34" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="31.90" fill="#303640"><tspan fill="#4d8a3a">t2</tspan><tspan fill="#4d8a3a"> is part of </tspan><tspan fill="#4d8a3a">t</tspan><tspan fill="#57606a"> (physical composition)</tspan></text>
   <line x1="48.00" y1="1300.00" x2="1032.00" y2="1300.00" stroke="#e3e7ee" stroke-width="1.5"/>
-  <rect x="48.00" y="1331.24" width="33.00" height="11.00" fill="#aaaaaa"/>
-  <rect x="48.00" y="1349.50" width="33.00" height="11.00" fill="#aaaaaa"/>
-  <rect x="48.00" y="1367.76" width="33.00" height="11.00" fill="#aaaaaa"/>
-  <rect x="48.00" y="1315.40" width="11.00" height="79.20" fill="#4d8a3a"/>
-  <rect x="70.00" y="1315.40" width="11.00" height="79.20" fill="#4d8a3a"/>
-  <text x="103.00" y="1347.71" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="37.40" opacity="1.00"><tspan fill="#4d8a3a">t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">::t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#aaaaaa" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::N</tspan><tspan fill="#aaaaaa" font-weight="bold">--</tspan><tspan fill="#4d8a3a" font-weight="bold">- t2</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">::t</tspan></text>
-  <text x="103.00" y="1390.34" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="31.90" fill="#303640"><tspan fill="#4d8a3a">t</tspan><tspan fill="#8a93a3"> is near / similar to </tspan><tspan fill="#4d8a3a">t2</tspan><tspan fill="#57606a"> (and the other way round)</tspan></text>
+  <text x="89.00" y="1347.71" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="37.40" opacity="1.00"><tspan fill="#4d8a3a">t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">::t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#aaaaaa" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::N</tspan><tspan fill="#aaaaaa" font-weight="bold">--</tspan><tspan fill="#4d8a3a" font-weight="bold">- t2</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">::t</tspan></text>
+  <rect x="48.00" y="1370.24" width="21.00" height="7.00" fill="#aaaaaa"/>
+  <rect x="48.00" y="1377.75" width="21.00" height="7.00" fill="#aaaaaa"/>
+  <rect x="48.00" y="1385.25" width="21.00" height="7.00" fill="#aaaaaa"/>
+  <rect x="48.00" y="1362.90" width="7.00" height="36.68" fill="#4d8a3a"/>
+  <rect x="62.00" y="1362.90" width="7.00" height="36.68" fill="#4d8a3a"/>
+  <text x="89.00" y="1390.34" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="31.90" fill="#303640"><tspan fill="#4d8a3a">t</tspan><tspan fill="#8a93a3"> is near / similar to </tspan><tspan fill="#4d8a3a">t2</tspan><tspan fill="#57606a"> (and the other way round)</tspan></text>
   <line x1="48.00" y1="1410.00" x2="1032.00" y2="1410.00" stroke="#e3e7ee" stroke-width="1.5"/>
-  <rect x="48.00" y="1441.24" width="33.00" height="18.87" fill="#6c8ebf"/>
-  <rect x="48.00" y="1469.89" width="33.00" height="18.87" fill="#6c8ebf"/>
-  <rect x="48.00" y="1425.40" width="11.00" height="79.20" fill="#ff8000"/>
-  <rect x="70.00" y="1425.40" width="11.00" height="79.20" fill="#6c8ebf"/>
-  <text x="103.00" y="1457.71" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="37.40" opacity="1.00"><tspan fill="#ff8000">e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::X</tspan><tspan fill="#6c8ebf" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf">c</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">::c</tspan></text>
-  <text x="103.00" y="1500.34" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="31.90" fill="#303640"><tspan fill="#ff8000">e</tspan><tspan fill="#6c8ebf"> expresses property </tspan><tspan fill="#6c8ebf">c</tspan></text>
+  <text x="89.00" y="1457.71" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="37.40" opacity="1.00"><tspan fill="#ff8000">e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#ff8000" font-weight="bold">::e</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::X</tspan><tspan fill="#6c8ebf" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf">c</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">::c</tspan></text>
+  <rect x="48.00" y="1480.24" width="21.00" height="7.89" fill="#6c8ebf"/>
+  <rect x="48.00" y="1494.36" width="21.00" height="7.89" fill="#6c8ebf"/>
+  <rect x="48.00" y="1472.90" width="7.00" height="36.68" fill="#ff8000"/>
+  <rect x="62.00" y="1472.90" width="7.00" height="36.68" fill="#6c8ebf"/>
+  <text x="89.00" y="1500.34" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="31.90" fill="#303640"><tspan fill="#ff8000">e</tspan><tspan fill="#6c8ebf"> expresses property </tspan><tspan fill="#6c8ebf">c</tspan></text>
   <line x1="48.00" y1="1520.00" x2="1032.00" y2="1520.00" stroke="#e3e7ee" stroke-width="1.5"/>
-  <rect x="48.00" y="1551.24" width="33.00" height="18.87" fill="#6c8ebf"/>
-  <rect x="48.00" y="1579.89" width="33.00" height="18.87" fill="#6c8ebf"/>
-  <rect x="48.00" y="1535.40" width="11.00" height="79.20" fill="#4d8a3a"/>
-  <rect x="70.00" y="1535.40" width="11.00" height="79.20" fill="#6c8ebf"/>
-  <text x="103.00" y="1567.71" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="37.40" opacity="1.00"><tspan fill="#4d8a3a">t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">::t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::X</tspan><tspan fill="#6c8ebf" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf">c</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">::c</tspan></text>
-  <text x="103.00" y="1610.34" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="31.90" fill="#303640"><tspan fill="#4d8a3a">t</tspan><tspan fill="#6c8ebf"> expresses property </tspan><tspan fill="#6c8ebf">c</tspan></text>
+  <text x="89.00" y="1567.71" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="37.40" opacity="1.00"><tspan fill="#4d8a3a">t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#4d8a3a" font-weight="bold">::t</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::X</tspan><tspan fill="#6c8ebf" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf">c</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">::c</tspan></text>
+  <rect x="48.00" y="1590.24" width="21.00" height="7.89" fill="#6c8ebf"/>
+  <rect x="48.00" y="1604.36" width="21.00" height="7.89" fill="#6c8ebf"/>
+  <rect x="48.00" y="1582.90" width="7.00" height="36.68" fill="#4d8a3a"/>
+  <rect x="62.00" y="1582.90" width="7.00" height="36.68" fill="#6c8ebf"/>
+  <text x="89.00" y="1610.34" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="31.90" fill="#303640"><tspan fill="#4d8a3a">t</tspan><tspan fill="#6c8ebf"> expresses property </tspan><tspan fill="#6c8ebf">c</tspan></text>
   <line x1="48.00" y1="1630.00" x2="1032.00" y2="1630.00" stroke="#e3e7ee" stroke-width="1.5"/>
-  <rect x="48.00" y="1661.24" width="33.00" height="18.87" fill="#6c8ebf"/>
-  <rect x="48.00" y="1689.89" width="33.00" height="18.87" fill="#6c8ebf"/>
-  <rect x="48.00" y="1645.40" width="11.00" height="79.20" fill="#6c8ebf"/>
-  <rect x="70.00" y="1645.40" width="11.00" height="79.20" fill="#6c8ebf"/>
-  <text x="103.00" y="1677.71" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="37.40" opacity="1.00"><tspan fill="#6c8ebf">c</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">::c</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::X</tspan><tspan fill="#6c8ebf" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf">c2</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">::c</tspan></text>
-  <text x="103.00" y="1720.34" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="31.90" fill="#303640"><tspan fill="#6c8ebf">c</tspan><tspan fill="#6c8ebf"> expresses property </tspan><tspan fill="#6c8ebf">c2</tspan></text>
+  <text x="89.00" y="1677.71" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="37.40" opacity="1.00"><tspan fill="#6c8ebf">c</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">::c</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::X</tspan><tspan fill="#6c8ebf" font-weight="bold">--&gt;</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf">c2</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">::c</tspan></text>
+  <rect x="48.00" y="1700.24" width="21.00" height="7.89" fill="#6c8ebf"/>
+  <rect x="48.00" y="1714.36" width="21.00" height="7.89" fill="#6c8ebf"/>
+  <rect x="48.00" y="1692.90" width="7.00" height="36.68" fill="#6c8ebf"/>
+  <rect x="62.00" y="1692.90" width="7.00" height="36.68" fill="#6c8ebf"/>
+  <text x="89.00" y="1720.34" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="31.90" fill="#303640"><tspan fill="#6c8ebf">c</tspan><tspan fill="#6c8ebf"> expresses property </tspan><tspan fill="#6c8ebf">c2</tspan></text>
   <line x1="48.00" y1="1740.00" x2="1032.00" y2="1740.00" stroke="#e3e7ee" stroke-width="1.5"/>
-  <rect x="48.00" y="1771.24" width="33.00" height="11.00" fill="#aaaaaa"/>
-  <rect x="48.00" y="1789.50" width="33.00" height="11.00" fill="#aaaaaa"/>
-  <rect x="48.00" y="1807.76" width="33.00" height="11.00" fill="#aaaaaa"/>
-  <rect x="48.00" y="1755.40" width="11.00" height="79.20" fill="#6c8ebf"/>
-  <rect x="70.00" y="1755.40" width="11.00" height="79.20" fill="#6c8ebf"/>
-  <text x="103.00" y="1787.71" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="37.40" opacity="1.00"><tspan fill="#6c8ebf">c</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">::c</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#aaaaaa" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::N</tspan><tspan fill="#aaaaaa" font-weight="bold">--</tspan><tspan fill="#6c8ebf" font-weight="bold">- c2</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">::c</tspan></text>
-  <text x="103.00" y="1830.34" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="31.90" fill="#303640"><tspan fill="#6c8ebf">c</tspan><tspan fill="#8a93a3"> is similar to </tspan><tspan fill="#6c8ebf">c2</tspan><tspan fill="#57606a"> (and the other way round)</tspan></text>
+  <text x="89.00" y="1787.71" xml:space="preserve" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="37.40" opacity="1.00"><tspan fill="#6c8ebf">c</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">::c</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#aaaaaa" font-weight="bold">--</tspan><tspan fill="#b08fff" font-weight="bold">::N</tspan><tspan fill="#aaaaaa" font-weight="bold">--</tspan><tspan fill="#6c8ebf" font-weight="bold">- c2</tspan><tspan fill="#1f2328"> </tspan><tspan fill="#6c8ebf" font-weight="bold">::c</tspan></text>
+  <rect x="48.00" y="1810.24" width="21.00" height="7.00" fill="#aaaaaa"/>
+  <rect x="48.00" y="1817.75" width="21.00" height="7.00" fill="#aaaaaa"/>
+  <rect x="48.00" y="1825.25" width="21.00" height="7.00" fill="#aaaaaa"/>
+  <rect x="48.00" y="1802.90" width="7.00" height="36.68" fill="#6c8ebf"/>
+  <rect x="62.00" y="1802.90" width="7.00" height="36.68" fill="#6c8ebf"/>
+  <text x="89.00" y="1830.34" xml:space="preserve" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="31.90" fill="#303640"><tspan fill="#6c8ebf">c</tspan><tspan fill="#8a93a3"> is similar to </tspan><tspan fill="#6c8ebf">c2</tspan><tspan fill="#57606a"> (and the other way round)</tspan></text>
   <a href="https://infinite.pm/ipm11/mobile.html#all"><text x="1032.00" y="1888.00" text-anchor="end" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="26.00" fill="#57606a">infinite.pm/ipm11</text></a>
 </svg>
