@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>The 11 legal edges · ipm γ(3,4)</title>
+<meta name="description" content="Every legal edge of the infinite.pm γ(3,4) triangle, one slide at a time: implicit and explicit ipmt syntax, what it reads as, and the triangle with that edge kept and the rest greyed.">
+<style>
+  :root { --orange:#ff8000; --green:#4d8a3a; --blue:#6c8ebf; --grey:#8a93a3;
+          --ink:#1f2328; --muted:#57606a; --line:#e3e7ee; --bg:#f7f9fc; --card:#fff; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; color:var(--ink);
+         line-height:1.6; background:var(--bg); -webkit-font-smoothing:antialiased; }
+  nav.tabs { display:flex; flex-wrap:wrap; gap:.35rem; justify-content:center; }
+  nav.tabs .sep { width:1px; align-self:stretch; background:var(--line); margin:0 .3rem; }
+  a.tab { font-weight:700; text-decoration:none; border:1px solid var(--line); background:var(--card); color:var(--muted);
+          border-radius:9px; padding:.28rem .6rem; white-space:nowrap; }
+  a.tab.edge { font-family:'SFMono-Regular',Menlo,Consolas,'Liberation Mono',monospace; font-size:.88rem; }
+  a.tab.icon { display:inline-flex; align-items:center; padding:.3rem .45rem; }
+  a.tab:hover { color:var(--ink); border-color:#c9d2de; }
+  a.tab[aria-current="true"] { background:var(--ink); border-color:var(--ink); color:#fff; }
+  a.tab[aria-current="true"] span { color:#fff; }
+  a.tab.k-e { color:var(--orange); } a.tab.k-t { color:var(--green); } a.tab.k-c { color:var(--blue); }
+  a.tab.k-e[aria-current="true"] { background:var(--orange); border-color:var(--orange); color:#fff; }
+  a.tab.k-t[aria-current="true"] { background:var(--green); border-color:var(--green); color:#fff; }
+  a.tab.k-c[aria-current="true"] { background:var(--blue); border-color:var(--blue); color:#fff; }
+  a.tab.rel-L { color:var(--orange); } a.tab.rel-P { color:var(--green); }
+  a.tab.rel-X { color:var(--blue); } a.tab.rel-N { color:var(--grey); }
+  a.tab.rel-L[aria-current="true"] { background:var(--orange); border-color:var(--orange); color:#fff; }
+  a.tab.rel-P[aria-current="true"] { background:var(--green); border-color:var(--green); color:#fff; }
+  a.tab.rel-X[aria-current="true"] { background:var(--blue); border-color:var(--blue); color:#fff; }
+  a.tab.rel-N[aria-current="true"] { background:var(--grey); border-color:var(--grey); color:#fff; }
+  .n-e,.r-L { color:var(--orange); } .n-t,.r-P { color:var(--green); } .n-c,.r-X { color:var(--blue); }
+  .r-N { color:var(--grey); } .d { color:#b4bcc8; }
+  .frame { position:relative; }
+  .frame img { display:block; width:100%; height:auto; }
+  nav.rows a { position:absolute; display:block; border-radius:4px; }
+  nav.rows a:hover { background:rgba(31,35,40,.045); }
+  nav.rows a:focus-visible { outline:2px solid var(--blue); outline-offset:-2px; }
+  html, body { height:100%; }
+  body.mobile { position:fixed; inset:0; overflow:hidden; background:var(--card); touch-action:manipulation;
+                -webkit-user-select:none; user-select:none; -webkit-tap-highlight-color:transparent; }
+  #slide { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; }
+  .hud { position:fixed; inset:0; pointer-events:none; transition:opacity .18s; }
+  body.bare .hud { opacity:0; }
+  body.bare .hud * { pointer-events:none !important; }
+  .fab, .dock { pointer-events:auto; background:rgba(255,255,255,.94); border:1px solid var(--line);
+                box-shadow:0 4px 18px rgba(31,35,40,.16); color:var(--ink); }
+  .fab { position:absolute; top:50%; width:2.9rem; height:2.9rem; margin-top:-1.45rem; border-radius:50%;
+         display:flex; align-items:center; justify-content:center; }
+  #prev { left:calc(.5rem + env(safe-area-inset-left)); }
+  #next { right:calc(.5rem + env(safe-area-inset-right)); }
+  .dock { position:absolute; left:50%; transform:translateX(-50%); bottom:calc(.7rem + env(safe-area-inset-bottom));
+          display:flex; align-items:center; gap:.1rem; padding:.2rem; border-radius:999px; white-space:nowrap; }
+  .dock button, .dock a { width:2.6rem; height:2.6rem; border:0; border-radius:50%; background:none; color:var(--ink);
+                          display:flex; align-items:center; justify-content:center; cursor:pointer; }
+  .dock [hidden] { display:none; }
+  .dock button[aria-expanded="true"] { background:var(--ink); color:#fff; }
+  .where { padding:0 .45rem; font-weight:700; font-size:.95rem; }
+  .where .edge { font-family:'SFMono-Regular',Menlo,Consolas,'Liberation Mono',monospace; }
+  .where .k-e, .where .rel-L { color:var(--orange); } .where .k-t, .where .rel-P { color:var(--green); }
+  .where .k-c, .where .rel-X { color:var(--blue); } .where .rel-N { color:var(--grey); }
+  .where .pos { margin-left:.35rem; color:var(--muted); font-weight:600; font-size:.78rem; }
+  .sheet { position:fixed; left:calc(.6rem + env(safe-area-inset-left)); right:calc(.6rem + env(safe-area-inset-right));
+           bottom:calc(4.1rem + env(safe-area-inset-bottom)); max-height:calc(100% - 5.2rem); overflow:auto;
+           background:var(--card); border:1px solid var(--line); border-radius:16px; padding:.7rem;
+           box-shadow:0 10px 32px rgba(31,35,40,.22); }
+  .sheet nav.tabs { gap:.4rem; }
+  .sheet nav.tabs .sep { display:none; } /* it dangles at a line end once the links wrap */
+  .sheet nav.tabs + nav.tabs { margin-top:.55rem; padding-top:.55rem; border-top:1px solid var(--line); }
+  .sheet a.tab { padding:.4rem .65rem; }
+  .sheet a.tab.edge { font-size:.95rem; }
+</style>
+</head>
+<body class="mobile">
+<img id="slide" src="slide/all.tall.m.svg" alt="ipm gamma(3,4) edges: event leads-to other event; event part-of other event; event expresses other event; event near other event; thing part-of event; thing part-of other thing; thing near other thing; event expresses concept; thing expresses concept; concept expresses other concept; concept near other concept. The triangle keeps these elements and greys the rest.">
+<div class="hud">
+  <a class="fab" id="prev" href="#near" aria-label="previous"><svg viewBox="0 0 16 16" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.5 4.5 8l5.5 5.5"/></svg></a>
+  <a class="fab" id="next" href="#eLe2" aria-label="next"><svg viewBox="0 0 16 16" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5l5.5 5.5L6 13.5"/></svg></a>
+  <div class="dock">
+    <button type="button" id="menu" aria-label="all views" aria-expanded="false" aria-controls="sheet"><svg viewBox="0 0 16 16" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 2.5h4v4h-4zM9.5 2.5h4v4h-4zM2.5 9.5h4v4h-4zM9.5 9.5h4v4h-4z"/></svg></button>
+    <span class="where" id="where">all 11</span>
+    <button type="button" id="fs" aria-label="full screen" hidden><svg viewBox="0 0 16 16" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4"/></svg></button>
+    <a id="mode" href="index.html#all" aria-label="desktop page"><svg viewBox="0 0 16 16" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 2.5h13v8.5h-13zM5.5 14h5M8 11v3"/></svg></a>
+    <a id="home" href="https://infinite.pm/" aria-label="infinite.pm home"><svg viewBox="0 0 16 16" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8 8 2.5 14 8M4 6.5V14h8V6.5"/></svg></a>
+  </div>
+</div>
+<div class="sheet" id="sheet" hidden>
+  <nav class="tabs" aria-label="edges">
+    <a class="tab" href="#all" data-key="all" aria-current="true">all 11</a>
+    <a class="tab edge" href="#eLe2" data-key="eLe2" aria-current="false"><span class="n-e">e</span><span class="d">-</span><span class="r-L">L</span><span class="d">-</span><span class="n-e">e2</span></a>
+    <a class="tab edge" href="#e2Pe" data-key="e2Pe" aria-current="false"><span class="n-e">e2</span><span class="d">-</span><span class="r-P">P</span><span class="d">-</span><span class="n-e">e</span></a>
+    <a class="tab edge" href="#eXe2" data-key="eXe2" aria-current="false"><span class="n-e">e</span><span class="d">-</span><span class="r-X">X</span><span class="d">-</span><span class="n-e">e2</span></a>
+    <a class="tab edge" href="#eNe2" data-key="eNe2" aria-current="false"><span class="n-e">e</span><span class="d">-</span><span class="r-N">N</span><span class="d">-</span><span class="n-e">e2</span></a>
+    <a class="tab edge" href="#tPe" data-key="tPe" aria-current="false"><span class="n-t">t</span><span class="d">-</span><span class="r-P">P</span><span class="d">-</span><span class="n-e">e</span></a>
+    <a class="tab edge" href="#t2Pt" data-key="t2Pt" aria-current="false"><span class="n-t">t2</span><span class="d">-</span><span class="r-P">P</span><span class="d">-</span><span class="n-t">t</span></a>
+    <a class="tab edge" href="#tNt2" data-key="tNt2" aria-current="false"><span class="n-t">t</span><span class="d">-</span><span class="r-N">N</span><span class="d">-</span><span class="n-t">t2</span></a>
+    <a class="tab edge" href="#eXc" data-key="eXc" aria-current="false"><span class="n-e">e</span><span class="d">-</span><span class="r-X">X</span><span class="d">-</span><span class="n-c">c</span></a>
+    <a class="tab edge" href="#tXc" data-key="tXc" aria-current="false"><span class="n-t">t</span><span class="d">-</span><span class="r-X">X</span><span class="d">-</span><span class="n-c">c</span></a>
+    <a class="tab edge" href="#cXc2" data-key="cXc2" aria-current="false"><span class="n-c">c</span><span class="d">-</span><span class="r-X">X</span><span class="d">-</span><span class="n-c">c2</span></a>
+    <a class="tab edge" href="#cNc2" data-key="cNc2" aria-current="false"><span class="n-c">c</span><span class="d">-</span><span class="r-N">N</span><span class="d">-</span><span class="n-c">c2</span></a>
+  </nav>
+  <nav class="tabs" aria-label="filters">
+    <a class="tab k-e" href="#events" data-key="e" aria-current="false">events</a>
+    <a class="tab k-t" href="#things" data-key="t" aria-current="false">things</a>
+    <a class="tab k-c" href="#concepts" data-key="c" aria-current="false">concepts</a>
+    <span class="sep"></span>
+    <a class="tab rel-L" href="#leads-to" data-key="L" aria-current="false">L · leads-to</a>
+    <a class="tab rel-P" href="#part-of" data-key="P" aria-current="false">P · part-of</a>
+    <a class="tab rel-X" href="#expresses" data-key="X" aria-current="false">X · expresses</a>
+    <a class="tab rel-N" href="#near" data-key="N" aria-current="false">N · near</a>
+  </nav>
+</div>
+<script>
+const VIEWS = [
+  {"key":"all","anchor":"all","old":[],"step":-1,"count":"all 11 edges","alt":"ipm gamma(3,4) edges: event leads-to other event; event part-of other event; event expresses other event; event near other event; thing part-of event; thing part-of other thing; thing near other thing; event expresses concept; thing expresses concept; concept expresses other concept; concept near other concept. The triangle on the right keeps these elements and greys the rest."},
+  {"key":"eLe2","anchor":"eLe2","old":["e-L-e2","01"],"step":0,"count":"edge 1 of 11","alt":"ipm gamma(3,4) edges: event leads-to other event. The triangle on the right keeps these elements and greys the rest."},
+  {"key":"e2Pe","anchor":"e2Pe","old":["e2-P-e","02"],"step":1,"count":"edge 2 of 11","alt":"ipm gamma(3,4) edges: event part-of other event. The triangle on the right keeps these elements and greys the rest."},
+  {"key":"eXe2","anchor":"eXe2","old":["e-X-e2","03"],"step":2,"count":"edge 3 of 11","alt":"ipm gamma(3,4) edges: event expresses other event. The triangle on the right keeps these elements and greys the rest."},
+  {"key":"eNe2","anchor":"eNe2","old":["e-N-e2","04"],"step":3,"count":"edge 4 of 11","alt":"ipm gamma(3,4) edges: event near other event. The triangle on the right keeps these elements and greys the rest."},
+  {"key":"tPe","anchor":"tPe","old":["t-P-e","05"],"step":4,"count":"edge 5 of 11","alt":"ipm gamma(3,4) edges: thing part-of event. The triangle on the right keeps these elements and greys the rest."},
+  {"key":"t2Pt","anchor":"t2Pt","old":["t2-P-t","06"],"step":5,"count":"edge 6 of 11","alt":"ipm gamma(3,4) edges: thing part-of other thing. The triangle on the right keeps these elements and greys the rest."},
+  {"key":"tNt2","anchor":"tNt2","old":["t-N-t2","07"],"step":6,"count":"edge 7 of 11","alt":"ipm gamma(3,4) edges: thing near other thing. The triangle on the right keeps these elements and greys the rest."},
+  {"key":"eXc","anchor":"eXc","old":["e-X-c","08"],"step":7,"count":"edge 8 of 11","alt":"ipm gamma(3,4) edges: event expresses concept. The triangle on the right keeps these elements and greys the rest."},
+  {"key":"tXc","anchor":"tXc","old":["t-X-c","09"],"step":8,"count":"edge 9 of 11","alt":"ipm gamma(3,4) edges: thing expresses concept. The triangle on the right keeps these elements and greys the rest."},
+  {"key":"cXc2","anchor":"cXc2","old":["c-X-c2","10"],"step":9,"count":"edge 10 of 11","alt":"ipm gamma(3,4) edges: concept expresses other concept. The triangle on the right keeps these elements and greys the rest."},
+  {"key":"cNc2","anchor":"cNc2","old":["c-N-c2","11"],"step":10,"count":"edge 11 of 11","alt":"ipm gamma(3,4) edges: concept near other concept. The triangle on the right keeps these elements and greys the rest."},
+  {"key":"e","anchor":"events","old":[],"step":-1,"count":"events — 6 edges","alt":"ipm gamma(3,4) edges: event leads-to other event; event part-of other event; event expresses other event; event near other event; thing part-of event; event expresses concept. The triangle on the right keeps these elements and greys the rest."},
+  {"key":"t","anchor":"things","old":[],"step":-1,"count":"things — 4 edges","alt":"ipm gamma(3,4) edges: thing part-of event; thing part-of other thing; thing near other thing; thing expresses concept. The triangle on the right keeps these elements and greys the rest."},
+  {"key":"c","anchor":"concepts","old":[],"step":-1,"count":"concepts — 4 edges","alt":"ipm gamma(3,4) edges: event expresses concept; thing expresses concept; concept expresses other concept; concept near other concept. The triangle on the right keeps these elements and greys the rest."},
+  {"key":"L","anchor":"leads-to","old":[],"step":-1,"count":"leads-to — 1 edge","alt":"ipm gamma(3,4) edges: event leads-to other event. The triangle on the right keeps these elements and greys the rest."},
+  {"key":"P","anchor":"part-of","old":[],"step":-1,"count":"part-of — 3 edges","alt":"ipm gamma(3,4) edges: event part-of other event; thing part-of event; thing part-of other thing. The triangle on the right keeps these elements and greys the rest."},
+  {"key":"X","anchor":"expresses","old":[],"step":-1,"count":"expresses — 4 edges","alt":"ipm gamma(3,4) edges: event expresses other event; event expresses concept; thing expresses concept; concept expresses other concept. The triangle on the right keeps these elements and greys the rest."},
+  {"key":"N","anchor":"near","old":["near-to"],"step":-1,"count":"near — 3 edges","alt":"ipm gamma(3,4) edges: event near other event; thing near other thing; concept near other concept. The triangle on the right keeps these elements and greys the rest."}
+];
+const LABELS = {"L":"\u003cspan class=\"rel-L\"\u003eL · leads-to\u003c/span\u003e","N":"\u003cspan class=\"rel-N\"\u003eN · near\u003c/span\u003e","P":"\u003cspan class=\"rel-P\"\u003eP · part-of\u003c/span\u003e","X":"\u003cspan class=\"rel-X\"\u003eX · expresses\u003c/span\u003e","all":"all 11","c":"\u003cspan class=\"k-c\"\u003econcepts\u003c/span\u003e","cNc2":"\u003cspan class=\"edge\"\u003e\u003cspan class=\"n-c\"\u003ec\u003c/span\u003e\u003cspan class=\"d\"\u003e-\u003c/span\u003e\u003cspan class=\"r-N\"\u003eN\u003c/span\u003e\u003cspan class=\"d\"\u003e-\u003c/span\u003e\u003cspan class=\"n-c\"\u003ec2\u003c/span\u003e\u003c/span\u003e","cXc2":"\u003cspan class=\"edge\"\u003e\u003cspan class=\"n-c\"\u003ec\u003c/span\u003e\u003cspan class=\"d\"\u003e-\u003c/span\u003e\u003cspan class=\"r-X\"\u003eX\u003c/span\u003e\u003cspan class=\"d\"\u003e-\u003c/span\u003e\u003cspan class=\"n-c\"\u003ec2\u003c/span\u003e\u003c/span\u003e","e":"\u003cspan class=\"k-e\"\u003eevents\u003c/span\u003e","e2Pe":"\u003cspan class=\"edge\"\u003e\u003cspan class=\"n-e\"\u003ee2\u003c/span\u003e\u003cspan class=\"d\"\u003e-\u003c/span\u003e\u003cspan class=\"r-P\"\u003eP\u003c/span\u003e\u003cspan class=\"d\"\u003e-\u003c/span\u003e\u003cspan class=\"n-e\"\u003ee\u003c/span\u003e\u003c/span\u003e","eLe2":"\u003cspan class=\"edge\"\u003e\u003cspan class=\"n-e\"\u003ee\u003c/span\u003e\u003cspan class=\"d\"\u003e-\u003c/span\u003e\u003cspan class=\"r-L\"\u003eL\u003c/span\u003e\u003cspan class=\"d\"\u003e-\u003c/span\u003e\u003cspan class=\"n-e\"\u003ee2\u003c/span\u003e\u003c/span\u003e","eNe2":"\u003cspan class=\"edge\"\u003e\u003cspan class=\"n-e\"\u003ee\u003c/span\u003e\u003cspan class=\"d\"\u003e-\u003c/span\u003e\u003cspan class=\"r-N\"\u003eN\u003c/span\u003e\u003cspan class=\"d\"\u003e-\u003c/span\u003e\u003cspan class=\"n-e\"\u003ee2\u003c/span\u003e\u003c/span\u003e","eXc":"\u003cspan class=\"edge\"\u003e\u003cspan class=\"n-e\"\u003ee\u003c/span\u003e\u003cspan class=\"d\"\u003e-\u003c/span\u003e\u003cspan class=\"r-X\"\u003eX\u003c/span\u003e\u003cspan class=\"d\"\u003e-\u003c/span\u003e\u003cspan class=\"n-c\"\u003ec\u003c/span\u003e\u003c/span\u003e","eXe2":"\u003cspan class=\"edge\"\u003e\u003cspan class=\"n-e\"\u003ee\u003c/span\u003e\u003cspan class=\"d\"\u003e-\u003c/span\u003e\u003cspan class=\"r-X\"\u003eX\u003c/span\u003e\u003cspan class=\"d\"\u003e-\u003c/span\u003e\u003cspan class=\"n-e\"\u003ee2\u003c/span\u003e\u003c/span\u003e","t":"\u003cspan class=\"k-t\"\u003ethings\u003c/span\u003e","t2Pt":"\u003cspan class=\"edge\"\u003e\u003cspan class=\"n-t\"\u003et2\u003c/span\u003e\u003cspan class=\"d\"\u003e-\u003c/span\u003e\u003cspan class=\"r-P\"\u003eP\u003c/span\u003e\u003cspan class=\"d\"\u003e-\u003c/span\u003e\u003cspan class=\"n-t\"\u003et\u003c/span\u003e\u003c/span\u003e","tNt2":"\u003cspan class=\"edge\"\u003e\u003cspan class=\"n-t\"\u003et\u003c/span\u003e\u003cspan class=\"d\"\u003e-\u003c/span\u003e\u003cspan class=\"r-N\"\u003eN\u003c/span\u003e\u003cspan class=\"d\"\u003e-\u003c/span\u003e\u003cspan class=\"n-t\"\u003et2\u003c/span\u003e\u003c/span\u003e","tPe":"\u003cspan class=\"edge\"\u003e\u003cspan class=\"n-t\"\u003et\u003c/span\u003e\u003cspan class=\"d\"\u003e-\u003c/span\u003e\u003cspan class=\"r-P\"\u003eP\u003c/span\u003e\u003cspan class=\"d\"\u003e-\u003c/span\u003e\u003cspan class=\"n-e\"\u003ee\u003c/span\u003e\u003c/span\u003e","tXc":"\u003cspan class=\"edge\"\u003e\u003cspan class=\"n-t\"\u003et\u003c/span\u003e\u003cspan class=\"d\"\u003e-\u003c/span\u003e\u003cspan class=\"r-X\"\u003eX\u003c/span\u003e\u003cspan class=\"d\"\u003e-\u003c/span\u003e\u003cspan class=\"n-c\"\u003ec\u003c/span\u003e\u003c/span\u003e"};
+
+// a fragment names a view by its anchor (#eLe2, #part-of), its slide key, or an
+// address it had before (#e-L-e2, #05)
+function resolve(hash) {
+  const h = decodeURIComponent(hash.replace(/^#/, ''));
+  return VIEWS.find(v => v.anchor === h) || VIEWS.find(v => v.key === h) ||
+    VIEWS.find(v => v.old.includes(h)) || VIEWS.find(v => v.key === 'all');
+}
+
+const slide = document.getElementById('slide');
+const where = document.getElementById('where');
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+const mode = document.getElementById('mode');
+const menu = document.getElementById('menu');
+const sheet = document.getElementById('sheet');
+const fs = document.getElementById('fs');
+let cur = VIEWS[0];
+
+// a phone held upright gets the tall slide, one on its side the wide one
+function src(v) {
+  return 'slide/' + v.key + (innerHeight >= innerWidth ? '.tall' : '.wide') + '.m.svg';
+}
+function at(d) {
+  const n = VIEWS.length;
+  return VIEWS[(VIEWS.indexOf(cur) + d + n) % n];
+}
+
+function show(v) {
+  cur = v;
+  if (slide.getAttribute('src') !== src(v)) slide.src = src(v);
+  slide.alt = v.alt;
+  where.innerHTML = LABELS[v.key] + '<span class="pos">' + (VIEWS.indexOf(v) + 1) + '/' + VIEWS.length + '</span>';
+  prev.href = '#' + at(-1).anchor;
+  next.href = '#' + at(1).anchor;
+  mode.href = 'index.html#' + v.anchor;
+  for (const a of sheet.querySelectorAll('a.tab[data-key]')) {
+    a.setAttribute('aria-current', a.dataset.key === v.key ? 'true' : 'false');
+  }
+  // the neighbours load ahead, so a step swaps the slide at once
+  for (const d of [-1, 1]) new Image().src = src(at(d));
+}
+
+// steps replace the address: the back gesture leaves the page, it does not
+// rewind it slide by slide
+function go(anchor) { location.replace('#' + anchor); }
+function step(d) { go(at(d).anchor); }
+function openSheet(open) {
+  sheet.hidden = !open;
+  menu.setAttribute('aria-expanded', open ? 'true' : 'false');
+  if (open) document.body.classList.remove('bare');
+}
+// while pinch-zoomed in, taps and swipes pan the slide instead of stepping
+function zoomed() { return !!window.visualViewport && visualViewport.scale > 1.01; }
+
+menu.addEventListener('click', () => openSheet(sheet.hidden));
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href^="#"]');
+  if (a) {
+    e.preventDefault();
+    openSheet(false);
+    go(a.getAttribute('href').slice(1));
+    return;
+  }
+  if (e.target.closest('a, button, .dock, .sheet')) return;
+  if (!sheet.hidden) { openSheet(false); return; }
+  if (zoomed()) return;
+  const x = e.clientX / innerWidth;
+  if (x < 0.3) step(-1);
+  else if (x > 0.7) step(1);
+  else document.body.classList.toggle('bare');
+});
+
+let touch = null;
+addEventListener('touchstart', e => {
+  touch = e.touches.length === 1 && !e.target.closest('.sheet')
+    ? { x: e.touches[0].clientX, y: e.touches[0].clientY } : null;
+}, { passive: true });
+addEventListener('touchend', e => {
+  if (!touch || zoomed()) return;
+  const t = e.changedTouches[0], dx = t.clientX - touch.x, dy = t.clientY - touch.y;
+  touch = null;
+  if (Math.abs(dx) > 60 && Math.abs(dx) > 2 * Math.abs(dy)) step(dx < 0 ? 1 : -1);
+}, { passive: true });
+
+if (document.fullscreenEnabled) {
+  fs.hidden = false;
+  fs.addEventListener('click', () => {
+    if (document.fullscreenElement) document.exitFullscreen();
+    else document.documentElement.requestFullscreen().catch(() => {});
+  });
+}
+
+document.addEventListener('keydown', e => {
+  if (e.altKey || e.ctrlKey || e.metaKey) return;
+  if (e.key === 'ArrowLeft') step(-1);
+  if (e.key === 'ArrowRight') step(1);
+  if (e.key === 'Escape') openSheet(false);
+});
+addEventListener('resize', () => show(cur));
+addEventListener('hashchange', () => show(resolve(location.hash)));
+show(resolve(location.hash));
+</script>
+</body>
+</html>

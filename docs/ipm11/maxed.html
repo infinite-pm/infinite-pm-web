@@ -107,13 +107,6 @@ const VIEWS = [
   {"key":"N","anchor":"near","old":["near-to"],"step":-1,"count":"near — 3 edges","alt":"ipm gamma(3,4) edges: event near other event; thing near other thing; concept near other concept. The triangle on the right keeps these elements and greys the rest."}
 ];
 
-const slide = document.getElementById('slide');
-const count = document.getElementById('count');
-const prev = document.getElementById('prev');
-const next = document.getElementById('next');
-const mode = document.getElementById('mode');
-const maxed = document.body.classList.contains('maxed');
-
 // a fragment names a view by its anchor (#eLe2, #part-of), its slide key, or an
 // address it had before (#e-L-e2, #05)
 function resolve(hash) {
@@ -121,6 +114,13 @@ function resolve(hash) {
   return VIEWS.find(v => v.anchor === h) || VIEWS.find(v => v.key === h) ||
     VIEWS.find(v => v.old.includes(h)) || VIEWS.find(v => v.key === 'all');
 }
+
+const slide = document.getElementById('slide');
+const count = document.getElementById('count');
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+const mode = document.getElementById('mode');
+const maxed = document.body.classList.contains('maxed');
 
 function show(v) {
   slide.src = 'slide/' + v.key + '.svg';
