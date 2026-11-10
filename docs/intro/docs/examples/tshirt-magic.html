@@ -50,18 +50,18 @@ code.language-ipmt {
 
 /* GEN-START palette — composed from pkg/ipmtokens/palette.json */
 .ipm-e-title         { color: #ff8000; }
-.ipm-e-alias         { color: #ff8000; }
-.ipm-e-title-aliased { color: #ffaa55; }
+.ipm-e-alias         { color: #ffaa55; }
+.ipm-e-title-aliased { color: #ff8000; }
 .ipm-e-marker        { color: #ff8000; font-weight: bold; }
 .ipm-t-title         { color: #4d8a3a; }
-.ipm-t-alias         { color: #4d8a3a; }
-.ipm-t-title-aliased { color: #82b366; }
+.ipm-t-alias         { color: #82b366; }
+.ipm-t-title-aliased { color: #4d8a3a; }
 .ipm-t-marker        { color: #4d8a3a; font-weight: bold; }
 .ipm-c-title         { color: #6c8ebf; }
-.ipm-c-alias         { color: #6c8ebf; }
-.ipm-c-title-aliased { color: #9bb4d6; }
+.ipm-c-alias         { color: #7f9dc9; }
+.ipm-c-title-aliased { color: #6c8ebf; }
 .ipm-c-marker        { color: #6c8ebf; font-weight: bold; }
-.ipm-arrow           { color: #d4d4d4; font-weight: bold; }
+.ipm-arrow           { color: #404040; font-weight: bold; }
 .ipm-L               { color: #ff8000; font-weight: bold; }
 .ipm-P               { color: #4d8a3a; font-weight: bold; }
 .ipm-X               { color: #6c8ebf; font-weight: bold; }
@@ -72,6 +72,29 @@ code.language-ipmt {
 .ipm-string          { color: #ce9178; }
 .ipm-tooltip         { color: #b58900; font-style: italic; }
 .ipm-unresolved      { color: #8a8a8a; }
+.vscode-dark .ipm-e-title, .vscode-high-contrast:not(.vscode-high-contrast-light) .ipm-e-title { color: #ff8000; }
+.vscode-dark .ipm-e-alias, .vscode-high-contrast:not(.vscode-high-contrast-light) .ipm-e-alias { color: #ffaa55; }
+.vscode-dark .ipm-e-title-aliased, .vscode-high-contrast:not(.vscode-high-contrast-light) .ipm-e-title-aliased { color: #ff8000; }
+.vscode-dark .ipm-e-marker, .vscode-high-contrast:not(.vscode-high-contrast-light) .ipm-e-marker { color: #ff8000; }
+.vscode-dark .ipm-t-title, .vscode-high-contrast:not(.vscode-high-contrast-light) .ipm-t-title { color: #6fc24f; }
+.vscode-dark .ipm-t-alias, .vscode-high-contrast:not(.vscode-high-contrast-light) .ipm-t-alias { color: #82b366; }
+.vscode-dark .ipm-t-title-aliased, .vscode-high-contrast:not(.vscode-high-contrast-light) .ipm-t-title-aliased { color: #6fc24f; }
+.vscode-dark .ipm-t-marker, .vscode-high-contrast:not(.vscode-high-contrast-light) .ipm-t-marker { color: #6fc24f; }
+.vscode-dark .ipm-c-title, .vscode-high-contrast:not(.vscode-high-contrast-light) .ipm-c-title { color: #6c8ebf; }
+.vscode-dark .ipm-c-alias, .vscode-high-contrast:not(.vscode-high-contrast-light) .ipm-c-alias { color: #9bb4d6; }
+.vscode-dark .ipm-c-title-aliased, .vscode-high-contrast:not(.vscode-high-contrast-light) .ipm-c-title-aliased { color: #6c8ebf; }
+.vscode-dark .ipm-c-marker, .vscode-high-contrast:not(.vscode-high-contrast-light) .ipm-c-marker { color: #6c8ebf; }
+.vscode-dark .ipm-arrow, .vscode-high-contrast:not(.vscode-high-contrast-light) .ipm-arrow { color: #d4d4d4; }
+.vscode-dark .ipm-L, .vscode-high-contrast:not(.vscode-high-contrast-light) .ipm-L { color: #ff8000; }
+.vscode-dark .ipm-P, .vscode-high-contrast:not(.vscode-high-contrast-light) .ipm-P { color: #6fc24f; }
+.vscode-dark .ipm-X, .vscode-high-contrast:not(.vscode-high-contrast-light) .ipm-X { color: #6c8ebf; }
+.vscode-dark .ipm-N, .vscode-high-contrast:not(.vscode-high-contrast-light) .ipm-N { color: #aaaaaa; }
+.vscode-dark .ipm-type-marker, .vscode-high-contrast:not(.vscode-high-contrast-light) .ipm-type-marker { color: #b08fff; }
+.vscode-dark .ipm-relation, .vscode-high-contrast:not(.vscode-high-contrast-light) .ipm-relation { color: #b08fff; }
+.vscode-dark .ipm-comment, .vscode-high-contrast:not(.vscode-high-contrast-light) .ipm-comment { color: #8c8c8c; }
+.vscode-dark .ipm-string, .vscode-high-contrast:not(.vscode-high-contrast-light) .ipm-string { color: #ce9178; }
+.vscode-dark .ipm-tooltip, .vscode-high-contrast:not(.vscode-high-contrast-light) .ipm-tooltip { color: #b58900; }
+.vscode-dark .ipm-unresolved, .vscode-high-contrast:not(.vscode-high-contrast-light) .ipm-unresolved { color: #8a8a8a; }
 /* GEN-END palette */
 
 html { font-size: 17px; }
@@ -164,7 +187,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <p>The ipmt source for this graph lives in a sibling file (<a href="https://github.com/infinite-pm/ipm-intro/blob/main/docs/examples/tshirt-magic-recap.ipmt"><code>tshirt-magic-recap.ipmt</code></a>) and is included here via <code>ipm-include</code>:</p>
 <!-- ipm-include src=tshirt-magic-recap.ipmt -->
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="1100" height="660" viewBox="0 0 1100 660">
-  <!-- ipm-svg meta: generated-by=md-embed@dev hash=c7fb41c5 source-file=docs/examples/tshirt-magic.md source-id=tshirt-magic-recap -->
+  <!-- ipm-svg meta: generated-by=ipm-rpc@v0.4.3-0.20261026162940-d50c98ba5e47 hash=f61f8deb source-file=docs/examples/tshirt-magic.md source-id=tshirt-magic-recap -->
   <defs>
   </defs>
   <g id="container-shells">
@@ -312,7 +335,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <p>The intro's Step 1 keeps only the two states the observer directly <em>saw</em>: Patrick wore a black t-shirt at one moment, then later Patrick wore a white t-shirt. Those two wears are the <strong>evidence</strong>. There is an obvious gap between them - the observer didn't actually witness the moment of change.</p>
 <p>A modeler can fill that gap with a <strong>hypothesis</strong>: an event drawn from a shared library of common stories and processes. <em>&quot;When someone goes from wearing X to wearing Y, something like a swap usually happened in between.&quot;</em> The hypothesized event isn't observed; it's an inference shaped by familiarity with similar past scenes. A future observation can confirm it, contradict it, or replace it with something entirely different (a layered wearing, a costume change, a sleight-of-hand). Patrick himself might tell us what happened, providing direct testimony rather than the observer's inference.</p>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="740" height="540" viewBox="0 0 740 540">
-  <!-- ipm-svg meta: generated-by=md-embed@dev hash=6667215f source-file=docs/examples/tshirt-magic.md source-id=100 -->
+  <!-- ipm-svg meta: generated-by=ipm-rpc@v0.4.3-0.20261026162940-d50c98ba5e47 hash=93b96471 source-file=docs/examples/tshirt-magic.md source-id=100 -->
   <defs>
   </defs>
   <g id="container-shells">
@@ -406,13 +429,13 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
   </g>
 </svg></figure>
 <pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-comment"># Parent event - the whole observable story matches a library pattern</span>
-<span class="ipm-e-alias">wearBW</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears black then wears white</span> <span class="ipm-e-marker">::e</span>
+<span class="ipm-e-alias">wearBW</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears black then wears white</span>
 <span class="ipm-e-alias">wearBW</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">common t-shirt swap pattern</span> <span class="ipm-c-marker">::c</span>
 
 <span class="ipm-comment"># Sub-events: two observed wears + one hypothesized swap, each part-of the parent</span>
-<span class="ipm-e-alias">wearB</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears black t-shirt</span> <span class="ipm-e-marker">::e</span>
-  <span class="ipm-L">--&gt;</span> <span class="ipm-e-alias">swapT</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick swaps t-shirt</span> <span class="ipm-e-marker">::e</span>
-  <span class="ipm-L">--&gt;</span> <span class="ipm-e-alias">wearW</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears white t-shirt</span> <span class="ipm-e-marker">::e</span>
+<span class="ipm-e-alias">wearB</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears black t-shirt</span>
+  <span class="ipm-L">--&gt;</span> <span class="ipm-e-alias">swapT</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick swaps t-shirt</span>
+  <span class="ipm-L">--&gt;</span> <span class="ipm-e-alias">wearW</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears white t-shirt</span>
 
 <span class="ipm-e-alias">wearB</span> <span class="ipm-P">--</span><span class="ipm-relation">::P</span><span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearBW</span>
 <span class="ipm-e-alias">swapT</span> <span class="ipm-P">--</span><span class="ipm-relation">::P</span><span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearBW</span>
@@ -429,7 +452,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <p>Before we draw the alternative scenario, a methodological note. An ipmt observation records what was <strong>seen</strong>, not what was absent - two honest observers can differ without contradicting each other. To decide which scenario actually happened, the observer needs <strong>positive evidence</strong> for one of the discriminating shapes. A single sighting is enough.</p>
 <p>Here are two such probe events. The first confirms the <strong>exchange</strong> scenario (the recap above) by catching the white t-shirt being put on - a positive transition that only the exchange contains:</p>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="560" height="400" viewBox="0 0 560 400">
-  <!-- ipm-svg meta: generated-by=md-embed@dev hash=abe1094a source-file=docs/examples/tshirt-magic.md source-id=110 -->
+  <!-- ipm-svg meta: generated-by=ipm-rpc@v0.4.3-0.20261026162940-d50c98ba5e47 hash=9260014a source-file=docs/examples/tshirt-magic.md source-id=110 -->
   <defs>
   </defs>
   <g id="container-shells">
@@ -491,16 +514,16 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
   </g>
 </svg></figure>
 <pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-comment"># Confirms scenario 1 (exchange): the white t-shirt observed being taken on</span>
-<span class="ipm-e-alias">probeTakeOnW</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">white t-shirt seen being taken on</span> <span class="ipm-e-marker">::e</span>
-<span class="ipm-t-title">Patrick</span>       <span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">probeTakeOnW</span>
-<span class="ipm-t-title">white t-shirt</span> <span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">probeTakeOnW</span>
+<span class="ipm-e-alias">probeTakeOnW</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">white t-shirt seen being taken on</span>
+<span class="ipm-t-title">Patrick</span> <span class="ipm-t-marker">::t</span>       <span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">probeTakeOnW</span>
+<span class="ipm-t-title">white t-shirt</span> <span class="ipm-t-marker">::t</span> <span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">probeTakeOnW</span>
 
 <span class="ipm-comment"># What this observation expresses</span>
 <span class="ipm-e-alias">probeTakeOnW</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">taking on</span> <span class="ipm-c-marker">::c</span>
 <span class="ipm-e-alias">probeTakeOnW</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">positive evidence</span> <span class="ipm-c-marker">::c</span></code></pre>
 <p>The second confirms the <strong>layered</strong> scenario by catching both t-shirts on Patrick at the same instant - a configuration that only the layered observation contains:</p>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="560" height="500" viewBox="0 0 560 500">
-  <!-- ipm-svg meta: generated-by=md-embed@dev hash=1a41a3e2 source-file=docs/examples/tshirt-magic.md source-id=120 -->
+  <!-- ipm-svg meta: generated-by=ipm-rpc@v0.4.3-0.20261026162940-d50c98ba5e47 hash=dcec463b source-file=docs/examples/tshirt-magic.md source-id=120 -->
   <defs>
   </defs>
   <g id="container-shells">
@@ -571,10 +594,10 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
   </g>
 </svg></figure>
 <pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-comment"># Confirms scenario 2 (layered): black observed on top of white</span>
-<span class="ipm-e-alias">probeBOverW</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">black over white seen on Patrick</span> <span class="ipm-e-marker">::e</span>
-<span class="ipm-t-title">Patrick</span>       <span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">probeBOverW</span>
-<span class="ipm-t-title">black t-shirt</span> <span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">probeBOverW</span>
-<span class="ipm-t-title">white t-shirt</span> <span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">probeBOverW</span>
+<span class="ipm-e-alias">probeBOverW</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">black over white seen on Patrick</span>
+<span class="ipm-t-title">Patrick</span> <span class="ipm-t-marker">::t</span>       <span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">probeBOverW</span>
+<span class="ipm-t-title">black t-shirt</span> <span class="ipm-t-marker">::t</span> <span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">probeBOverW</span>
+<span class="ipm-t-title">white t-shirt</span> <span class="ipm-t-marker">::t</span> <span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">probeBOverW</span>
 
 <span class="ipm-comment"># What this observation expresses</span>
 <span class="ipm-e-alias">probeBOverW</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">wearing two t-shirts</span> <span class="ipm-c-marker">::c</span>
@@ -584,7 +607,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <p>This second observer captured a different sub-event structure under the same top-level <code>wearBW</code>. At some moment during it, Patrick was wearing <strong>both</strong> t-shirts at once - black layered over white. The observer never saw a take-on of white; they saw only a take-off of black at the end.</p>
 <p>First, the event structure alone - no participants attached yet, so the difference from scenario 1 is plain:</p>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="380" height="540" viewBox="0 0 380 540">
-  <!-- ipm-svg meta: generated-by=md-embed@dev hash=49140ee3 source-file=docs/examples/tshirt-magic.md source-id=130 -->
+  <!-- ipm-svg meta: generated-by=ipm-rpc@v0.4.3-0.20261026162940-d50c98ba5e47 hash=c2851e86 source-file=docs/examples/tshirt-magic.md source-id=130 -->
   <defs>
   </defs>
   <g id="container-shells">
@@ -649,12 +672,12 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="100" y="480" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-e-alias">wearBW</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears black then wears white</span> <span class="ipm-e-marker">::e</span>
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-e-alias">wearBW</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears black then wears white</span>
 
 <span class="ipm-comment"># Mid-level sub-events - wear-layered -&gt; take off black -&gt; wear white</span>
-<span class="ipm-e-alias">wearLayered</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears black over white</span> <span class="ipm-e-marker">::e</span>
-  <span class="ipm-L">--&gt;</span> <span class="ipm-e-alias">takeOffB</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Take off black</span> <span class="ipm-e-marker">::e</span>
-  <span class="ipm-L">--&gt;</span> <span class="ipm-e-alias">wearW</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears white t-shirt</span> <span class="ipm-e-marker">::e</span>
+<span class="ipm-e-alias">wearLayered</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears black over white</span>
+  <span class="ipm-L">--&gt;</span> <span class="ipm-e-alias">takeOffB</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Take off black</span>
+  <span class="ipm-L">--&gt;</span> <span class="ipm-e-alias">wearW</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears white t-shirt</span>
 
 <span class="ipm-e-alias">wearLayered</span> <span class="ipm-P">--</span><span class="ipm-relation">::P</span><span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearBW</span>
 <span class="ipm-e-alias">takeOffB</span> <span class="ipm-P">--</span><span class="ipm-relation">::P</span><span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearBW</span>
@@ -663,7 +686,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <h2 id="alternative-scenario---layered-full">Alternative scenario - layered, full<span class="heading-ctls"><a class="heading-ctl-anchor" href="#alternative-scenario---layered-full" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
 <p>Now layer everything in: participants and concepts.</p>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="1100" height="980" viewBox="0 0 1100 980">
-  <!-- ipm-svg meta: generated-by=md-embed@dev hash=bd9f69c1 source-file=docs/examples/tshirt-magic.md source-id=140 -->
+  <!-- ipm-svg meta: generated-by=ipm-rpc@v0.4.3-0.20261026162940-d50c98ba5e47 hash=0c28c225 source-file=docs/examples/tshirt-magic.md source-id=140 -->
   <defs>
   </defs>
   <g id="container-shells">
@@ -841,26 +864,26 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
   </g>
 </svg></figure>
 <pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-comment"># Top event (same name and alias as scenario 1)</span>
-<span class="ipm-e-alias">wearBW</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears black then wears white</span> <span class="ipm-e-marker">::e</span>
+<span class="ipm-e-alias">wearBW</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears black then wears white</span>
 
 <span class="ipm-comment"># Mid-level sub-events</span>
-<span class="ipm-e-alias">wearLayered</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears black over white</span> <span class="ipm-e-marker">::e</span>
-  <span class="ipm-L">--&gt;</span> <span class="ipm-e-alias">takeOffB</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Take off black</span> <span class="ipm-e-marker">::e</span>
-  <span class="ipm-L">--&gt;</span> <span class="ipm-e-alias">wearW</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears white t-shirt</span> <span class="ipm-e-marker">::e</span>
+<span class="ipm-e-alias">wearLayered</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears black over white</span>
+  <span class="ipm-L">--&gt;</span> <span class="ipm-e-alias">takeOffB</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Take off black</span>
+  <span class="ipm-L">--&gt;</span> <span class="ipm-e-alias">wearW</span><span class="ipm-type-marker">::a</span> <span class="ipm-e-title-aliased">Patrick wears white t-shirt</span>
 
 <span class="ipm-e-alias">wearLayered</span> <span class="ipm-P">--</span><span class="ipm-relation">::P</span><span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearBW</span>
 <span class="ipm-e-alias">takeOffB</span> <span class="ipm-P">--</span><span class="ipm-relation">::P</span><span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearBW</span>
 <span class="ipm-e-alias">wearW</span> <span class="ipm-P">--</span><span class="ipm-relation">::P</span><span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearBW</span>
 
 <span class="ipm-comment"># Patrick is present throughout</span>
-<span class="ipm-t-title">Patrick</span> <span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearBW</span>
-<span class="ipm-t-title">Patrick</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">human</span> <span class="ipm-c-marker">::c</span>
+<span class="ipm-t-title">Patrick</span> <span class="ipm-t-marker">::t</span> <span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearBW</span>
+<span class="ipm-t-title">Patrick</span> <span class="ipm-t-marker">::t</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">human</span> <span class="ipm-c-marker">::c</span>
 
 <span class="ipm-comment"># White t-shirt is worn throughout - even underneath the black one in wearLayered</span>
-<span class="ipm-t-title">white t-shirt</span> <span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearLayered</span>, <span class="ipm-e-alias">wearW</span>
+<span class="ipm-t-title">white t-shirt</span> <span class="ipm-t-marker">::t</span> <span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearLayered</span>, <span class="ipm-e-alias">wearW</span>
 
 <span class="ipm-comment"># Black t-shirt is on during the layered wearing and removed in takeOffB</span>
-<span class="ipm-t-title">black t-shirt</span> <span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearLayered</span>, <span class="ipm-e-alias">takeOffB</span>
+<span class="ipm-t-title">black t-shirt</span> <span class="ipm-t-marker">::t</span> <span class="ipm-P">--&gt;</span> <span class="ipm-e-alias">wearLayered</span>, <span class="ipm-e-alias">takeOffB</span>
 
 <span class="ipm-comment"># Concepts each event expresses</span>
 <span class="ipm-e-alias">wearLayered</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">wearing two t-shirts</span> <span class="ipm-c-marker">::c</span>
@@ -868,8 +891,8 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <span class="ipm-e-alias">wearW</span>       <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">wearing t-shirt</span> <span class="ipm-c-marker">::c</span>
 
 <span class="ipm-comment"># T-shirt color (thing --&gt; concept)</span>
-<span class="ipm-t-title">black t-shirt</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">t-shirt</span> <span class="ipm-c-marker">::c</span>, <span class="ipm-c-title">black</span> <span class="ipm-c-marker">::c</span>
-<span class="ipm-t-title">white t-shirt</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">t-shirt</span> <span class="ipm-c-marker">::c</span>, <span class="ipm-c-title">white</span> <span class="ipm-c-marker">::c</span>
+<span class="ipm-t-title">black t-shirt</span> <span class="ipm-t-marker">::t</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">t-shirt</span> <span class="ipm-c-marker">::c</span>, <span class="ipm-c-title">black</span> <span class="ipm-c-marker">::c</span>
+<span class="ipm-t-title">white t-shirt</span> <span class="ipm-t-marker">::t</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">t-shirt</span> <span class="ipm-c-marker">::c</span>, <span class="ipm-c-title">white</span> <span class="ipm-c-marker">::c</span>
 
 <span class="ipm-comment"># &quot;Wearing two t-shirts&quot; is a kind of &quot;wearing t-shirt&quot; (concept --&gt; concept)</span>
 <span class="ipm-c-title">wearing two t-shirts</span> <span class="ipm-c-marker">::c</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">wearing t-shirt</span> <span class="ipm-c-marker">::c</span>
@@ -914,7 +937,7 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <span class="ipm-c-title">black</span> <span class="ipm-c-marker">::c</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">color</span> <span class="ipm-c-marker">::c</span></code></pre>
 <h2 id="thing-taxonomies">Thing taxonomies<span class="heading-ctls"><a class="heading-ctl-anchor" href="#thing-taxonomies" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
 <figure class="ipm-diagram"><svg xmlns="http://www.w3.org/2000/svg" width="820" height="540" viewBox="0 0 820 540">
-  <!-- ipm-svg meta: generated-by=md-embed@dev hash=b0cc5788 source-file=docs/examples/tshirt-magic.md source-id=160 -->
+  <!-- ipm-svg meta: generated-by=md-embed@dev hash=d291e0c9 source-file=docs/examples/tshirt-magic.md source-id=160 -->
   <defs>
   </defs>
   <g id="container-shells">
@@ -991,11 +1014,11 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
     <text x="500" y="280" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">thing</text>
   </g>
 </svg></figure>
-<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-t-title">t-shirt T1</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">t-shirt</span> <span class="ipm-c-marker">::c</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">clothes</span> <span class="ipm-c-marker">::c</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">human thing</span> <span class="ipm-c-marker">::c</span>
+<pre class="ipmt-block"><button class="ipmt-copy" type="button" aria-label="Copy source">Copy</button><code class="language-ipmt"><span class="ipm-t-title">t-shirt T1</span> <span class="ipm-t-marker">::t</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">t-shirt</span> <span class="ipm-c-marker">::c</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">clothes</span> <span class="ipm-c-marker">::c</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">human thing</span> <span class="ipm-c-marker">::c</span>
 <span class="ipm-c-title">human thing</span> <span class="ipm-c-marker">::c</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">thing</span> <span class="ipm-c-marker">::c</span>
 <span class="ipm-c-title">human thing</span> <span class="ipm-c-marker">::c</span> <span class="ipm-N">---</span> <span class="ipm-c-title">human</span> <span class="ipm-c-marker">::c</span>
 
-<span class="ipm-t-title">stone S1</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">stone</span> <span class="ipm-c-marker">::c</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">natural thing</span> <span class="ipm-c-marker">::c</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">thing</span> <span class="ipm-c-marker">::c</span>
+<span class="ipm-t-title">stone S1</span> <span class="ipm-t-marker">::t</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">stone</span> <span class="ipm-c-marker">::c</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">natural thing</span> <span class="ipm-c-marker">::c</span> <span class="ipm-X">--&gt;</span> <span class="ipm-c-title">thing</span> <span class="ipm-c-marker">::c</span>
 <span class="ipm-c-title">natural thing</span> <span class="ipm-c-marker">::c</span> <span class="ipm-N">---</span> <span class="ipm-c-title">nature</span> <span class="ipm-c-marker">::c</span></code></pre>
 
 <footer class="site"><div class="frow"><span>© infinite.pm · an experiment in Semantic Spacetime modeling &amp; cooperation between agents.</span><a class="gh" href="https://github.com/infinite-pm/ipm-intro/blob/main/docs/examples/tshirt-magic.md" target="_blank" rel="noopener noreferrer" title="View source on GitHub"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a></div></footer>
