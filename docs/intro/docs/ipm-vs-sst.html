@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>IPM vs default SST - what we rename — infinite.pm intro</title>
-<meta name="description" content="This doc explains the two label changes IPM makes on top of Mark Burgess&#039;s original Semantic Spacetime γ(3,4) - and why. For the main IPM modeling…">
+<meta name="description" content="This doc explains the two label changes IPM makes on top of Mark Burgess&#039;s original Semantic Spacetime γ(3,4) - and why - and then what IPM adds beyond the…">
 <link rel="canonical" href="https://infinite.pm/intro/docs/ipm-vs-sst.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="infinite.pm">
 <meta property="og:url" content="https://infinite.pm/intro/docs/ipm-vs-sst.html">
 <meta property="og:title" content="IPM vs default SST - what we rename — infinite.pm intro">
-<meta property="og:description" content="This doc explains the two label changes IPM makes on top of Mark Burgess&#039;s original Semantic Spacetime γ(3,4) - and why. For the main IPM modeling…">
+<meta property="og:description" content="This doc explains the two label changes IPM makes on top of Mark Burgess&#039;s original Semantic Spacetime γ(3,4) - and why - and then what IPM adds beyond the…">
 <meta property="og:image" content="https://infinite.pm/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="628">
@@ -174,9 +174,9 @@ h5:hover .heading-ctls, h6:hover .heading-ctls,
 <body>
 <header class="top"><a class="brand" href="https://infinite.pm/"><img src="../../logo/wordmark.svg" alt="infinite.pm"></a><nav class="top-links"><a href="https://infinite.pm/">Home</a><a href="https://infinite.pm/intro">Intro</a></nav></header>
 <h1 id="ipm-vs-default-sst---what-we-rename">IPM vs default SST - what we rename</h1>
-<nav class="toc"><div class="toc-title">Contents</div><ul><li class="toc-lvl-2"><a href="#the-skeleton-matrix---where-the-eleven-edges-come-from">The skeleton matrix - where the eleven edges come from</a></li><li class="toc-lvl-2"><a href="#further-reading">Further reading</a></li></ul></nav>
+<nav class="toc"><div class="toc-title">Contents</div><ul><li class="toc-lvl-2"><a href="#the-skeleton-matrix---where-the-eleven-edges-come-from">The skeleton matrix - where the eleven edges come from</a></li><li class="toc-lvl-2"><a href="#what-ipm-adds-beyond-the-labels">What IPM adds beyond the labels</a></li><li class="toc-lvl-2"><a href="#further-reading">Further reading</a></li></ul></nav>
 
-<p>This doc explains the two label changes IPM makes on top of Mark Burgess's original Semantic Spacetime γ(3,4) - and why. For the main IPM modeling introduction, see the <a href="https://infinite.pm/intro/">intro</a>.</p>
+<p>This doc explains the two label changes IPM makes on top of Mark Burgess's original Semantic Spacetime γ(3,4) - and why - and then <a href="#what-ipm-adds-beyond-the-labels">what IPM adds beyond the labels</a>. For the main IPM modeling introduction, see the <a href="https://infinite.pm/intro/">intro</a>.</p>
 <p>IPM is built directly on Mark Burgess's <strong><a href="https://arxiv.org/abs/2506.07756">Semantic Spacetime γ(3,4)</a></strong> (&quot;gamma 3, 4&quot; - three kinds of nodes, four kinds of relations). IPM tweaks two of the original SST labels for readability:</p>
 <img src="etc-triangles.svg" alt="SST γ(3,4) vs IPM triangles - LCEN on the left, LPXN on the right" width="100%"/>
 <ul>
@@ -219,9 +219,17 @@ Only the labels and the <code>C</code>/<code>P</code> arrow direction differ bet
 </tr>
 </tbody>
 </table>
-<p>The signs are directions, not different relations: <code>+C</code> is <em>contains</em>, <code>-C</code> is the same relation read from the other end, and <code>N</code> is undirected. Count each relation once and the matrix gives exactly the eleven edges IPM allows:</p>
+<p>The signs are directions, not different relations: <code>+C</code> is <em>contains</em>, <code>-C</code> is the same relation read from the other end, and <code>N</code> is undirected.</p>
 <p>Count each relation once - the <code>c → e</code> and <code>c → t</code> cells are the reverse <em>readings</em> of <code>e → c</code> and <code>t → c</code>, not edges of their own - and the matrix gives exactly the eleven edges IPM allows. So IPM changes the <em>labels</em>, never which edges exist: the <a href="https://infinite.pm/ipm11/maxed.html">eleven combinations</a> are Mark's, one for one. Each transition with its ipmt syntax, in both directions, is tabulated in <a href="https://github.com/infinite-pm/ipm-tools/blob/main/docs/sst-gamma34.md"><code>ipm-tools/docs/sst-gamma34.md</code></a>.</p>
 <p><strong>This is also what <code>(-C)</code> and <code>(+E)</code> mean on the triangles above.</strong> IPM's <code>part-of</code> is SST's <code>C</code> taken in the <code>-C</code> direction - from the part towards the whole - and IPM's <code>expresses</code> is SST's <code>E</code> in its <code>+E</code> direction.</p>
+<h2 id="what-ipm-adds-beyond-the-labels">What IPM adds beyond the labels<span class="heading-ctls"><a class="heading-ctl-anchor" href="#what-ipm-adds-beyond-the-labels" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
+<p>The eleven edges are Mark's, from the γ(3,4) paper, and so is one relation per pair of nodes. What IPM adds is that it writes kinds down, that it enforces both, and one rule of its own:</p>
+<ul>
+<li><strong>A kind written on the node.</strong> In the paper the three kinds are &quot;induced by the four link types&quot; (§2.3). ipmt asks the author to say it: a node is an event unless it carries <code>::t</code> or <code>::c</code>, and the validator checks each edge against the kinds written.</li>
+<li><strong>The eleven edges, enforced.</strong> Equation 21 says which edges exist; IPM's validator refuses any other.</li>
+<li><strong>One relation per pair of nodes, enforced.</strong> In γ(3,4) two nodes are joined by one relation; IPM's validator refuses a second edge on a pair. When a pair seems to need two - or a relation that is none of the four - the repair is Mark's, from the companion paper <a href="https://www.researchgate.net/publication/393140227"><em>On the Representation of Events, Things, and Concepts in Multimodal Semantic Spacetime Graphical Reasoning</em></a> (2025): for &quot;Mark owns his guitar&quot; it infers &quot;an intermediate node of some necessary type&quot;.</li>
+<li><strong>No cycles inside a diagram.</strong> IPM refuses a node that points at itself, and a cycle of leads-to or of part-of inside one diagram. The paper sets no such rule; it is IPM's choice, for a picture that reads in one direction. A round that repeats can be drawn as one parent event that holds the round.</li>
+</ul>
 <h2 id="further-reading">Further reading<span class="heading-ctls"><a class="heading-ctl-anchor" href="#further-reading" title="Permalink to this section" aria-label="Permalink">#</a><a class="heading-ctl-top" href="#" title="Back to top" aria-label="Back to top">↑</a></span></h2>
 <ul>
 <li>Mark Burgess, <a href="https://mark-burgess-oslo-mb.medium.com/designing-nodes-and-arrows-in-knowledge-graphs-with-semantic-spacetime-0992b9cae595">Designing Nodes and Arrows in Knowledge Graphs with Semantic Spacetime</a> - the source article for the LCEN triangle.</li>
